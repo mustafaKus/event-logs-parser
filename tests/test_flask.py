@@ -74,6 +74,13 @@ def test_stats_endpoint(client):
     assert body["customer_id"] == "globex"
     assert body["events_total"] >= 1
     assert body["quarantine_total"] >= 1
+    assert body["quarantine_from_parser"] >= 0
+    assert body["quarantine_from_llm"] >= 0
+    assert body["quarantine_from_parser"] + body["quarantine_from_llm"] == body["quarantine_total"]
+    assert 0.0 <= body["quarantine_parser_rate"] <= 1.0
+    assert 0.0 <= body["quarantine_llm_rate"] <= 1.0
+    assert 0.0 <= body["quarantine_parser_share"] <= 1.0
+    assert 0.0 <= body["quarantine_llm_share"] <= 1.0
 
 
 def test_missing_customer_id_rejected(client):

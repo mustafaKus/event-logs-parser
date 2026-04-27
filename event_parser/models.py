@@ -1,10 +1,11 @@
 from __future__ import annotations
 
+import json
 from datetime import datetime, timezone
 from typing import Literal, Optional
 from uuid import uuid4
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, field_validator
 
 
 EventType = str  # validated against AppConfig.event_names at runtime
@@ -23,6 +24,17 @@ class ProposedParser(BaseModel):
     pattern_body: str
     rationale: str = ""
 
+    # The LLM often emits pattern_body as a JSON object/array (matching the
+    # shape we describe in the prompt) instead of the JSON-encoded string the
+    # downstream parser executors expect. Coerce here so strict TypeAdapter
+    # validation in the Agents SDK doesn't reject otherwise-valid proposals.
+    @field_validator("pattern_body", mode="before")
+    @classmethod
+    def _stringify_pattern_body(cls, v):
+        if isinstance(v, (dict, list)):
+            return json.dumps(v)
+        return v
+
 
 class ExtractedEvent(BaseModel):
     """Strict LLM output contract. Mirrors the JSON contract in the system prompt."""
@@ -32,6 +44,16 @@ class ExtractedEvent(BaseModel):
     proposed_parser: Optional[ProposedParser] = None
     confidence: float = 0.0
     notes: str = ""
+
+    # The LLM frequently emits numeric scalars for quantity/total even when the
+    # prompt asks for strings. Coerce here so strict TypeAdapter validation in
+    # the Agents SDK doesn't reject otherwise-valid extractions.
+    @field_validator("fields", mode="before")
+    @classmethod
+    def _stringify_field_values(cls, v):
+        if isinstance(v, dict):
+            return {k: str(val) if val is not None else "" for k, val in v.items()}
+        return v
 
 
 class Parser(BaseModel):
@@ -84,3 +106,7 @@ class PipelineOutcome(BaseModel):
     llm_prompt: str = ""          # the prompt that was (or would be) sent to the LLM
     pattern_type: str = ""        # pattern type used/proposed (kv/grok/regex/jsonpath)
     pattern_body: str = ""        # the actual pattern string
+    # When the line was quarantined but the LLM still identified an event type,
+    # we keep that here so the UI can route the failed attempt under the right
+    # event card's expression history.
+    llm_event_type: str = ""

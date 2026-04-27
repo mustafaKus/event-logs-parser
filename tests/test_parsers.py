@@ -3,7 +3,7 @@ import json
 import pytest
 
 from event_parser.models import Parser
-from event_parser.parsers import compile_grok, execute_parser, validate_parser
+from event_parser.parsers import compile_grok, compile_regex, execute_parser, validate_parser
 
 
 def test_compile_grok_word_and_timestamp():
@@ -12,6 +12,23 @@ def test_compile_grok_word_and_timestamp():
     assert m is not None
     assert m.group("ts") == "2025-01-15T10:23:45Z"
     assert m.group("user") == "u123"
+    assert m.group("product_id") == "prod_456"
+
+
+def test_compile_grok_supports_timestamp_iso8601_alias():
+    rx = compile_grok("%{TIMESTAMP_ISO8601:ts} INFO action=click user=%{WORD:user}")
+    m = rx.search("2025-01-15T10:23:45Z INFO action=click user=u123")
+    assert m is not None
+    assert m.group("ts") == "2025-01-15T10:23:45Z"
+    assert m.group("user") == "u123"
+
+
+def test_compile_regex_supports_pcre_named_groups():
+    rx = compile_regex(r"^(?<timestamp>\S+) INFO action=click user=(?<user_id>\S+) product=(?<product_id>\S+)$")
+    m = rx.search("2025-01-15T10:23:45Z INFO action=click user=u123 product=prod_456")
+    assert m is not None
+    assert m.group("timestamp") == "2025-01-15T10:23:45Z"
+    assert m.group("user_id") == "u123"
     assert m.group("product_id") == "prod_456"
 
 

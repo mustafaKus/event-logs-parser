@@ -277,17 +277,25 @@ def create_app(config_path: str | None = None, storage_root: str | None = None) 
         for e in events:
             by_source[e.get("source", "?")] = by_source.get(e.get("source", "?"), 0) + 1
         total = len(events) + len(quarantine)
+        quarantine_from_parser = sum(1 for row in quarantine if row.get("parser_id"))
+        quarantine_from_llm = len(quarantine) - quarantine_from_parser
         return jsonify(
             {
                 "customer_id": customer_id,
                 "events_total": len(events),
                 "quarantine_total": len(quarantine),
+                "quarantine_from_parser": quarantine_from_parser,
+                "quarantine_from_llm": quarantine_from_llm,
                 "parsers_total": len(parsers),
                 "parsers_by_status": by_status,
                 "events_by_source": by_source,
                 "llm_call_rate": (by_source.get("llm", 0) / total) if total else 0.0,
                 "parser_hit_rate": (by_source.get("parser", 0) / total) if total else 0.0,
                 "quarantine_rate": (len(quarantine) / total) if total else 0.0,
+                "quarantine_parser_rate": (quarantine_from_parser / total) if total else 0.0,
+                "quarantine_llm_rate": (quarantine_from_llm / total) if total else 0.0,
+                "quarantine_parser_share": (quarantine_from_parser / len(quarantine)) if quarantine else 0.0,
+                "quarantine_llm_share": (quarantine_from_llm / len(quarantine)) if quarantine else 0.0,
                 "llm_usage_totals": llm_usage.totals(customer_id),
             }
         )

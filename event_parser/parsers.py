@@ -40,12 +40,15 @@ _GROK_PATTERNS: dict[str, str] = {
     "TIMESTAMP": (
         r"\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}:\d{2}(?:\.\d+)?(?:Z|[+-]\d{2}:?\d{2})?"
     ),
+    "TIMESTAMP_ISO8601": (
+        r"\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}:\d{2}(?:\.\d+)?(?:Z|[+-]\d{2}:?\d{2})?"
+    ),
     "EPOCHMS": r"\d{13}",
     "EPOCH": r"\d{10}",
     "LOGLEVEL": r"(?:DEBUG|INFO|WARN|WARNING|ERROR|FATAL|TRACE)",
 }
 
-_GROK_TOKEN_RE = re.compile(r"%\{(?P<name>[A-Z]+)(?::(?P<field>[A-Za-z_][A-Za-z0-9_]*))?\}")
+_GROK_TOKEN_RE = re.compile(r"%\{(?P<name>[A-Z_][A-Z0-9_]*)(?::(?P<field>[A-Za-z_][A-Za-z0-9_]*))?\}")
 
 
 def compile_grok(pattern: str) -> re.Pattern[str]:
@@ -65,6 +68,17 @@ def compile_grok(pattern: str) -> re.Pattern[str]:
     # Grok is not anchored by default; match anywhere — but require that the whole
     # pattern matches contiguously. Callers test via `search`.
     return re.compile(regex)
+
+
+def compile_regex(pattern: str) -> re.Pattern[str]:
+    """Accept common LLM regex dialects and normalize them to Python `re`.
+
+    In practice the LLM often emits PCRE-style named groups like `(?<name>...)`.
+    Python requires `(?P<name>...)`, so translate that syntax before compiling.
+    """
+
+    normalized = re.sub(r"\(\?<([A-Za-z_][A-Za-z0-9_]*)>", r"(?P<\1>", pattern)
+    return re.compile(normalized)
 
 
 # --- Minimal jsonpath --------------------------------------------------------
@@ -113,7 +127,7 @@ def execute_parser(parser: Parser, line: str) -> Optional[dict[str, str]]:
             return {k: v for k, v in m.groupdict().items() if v is not None}
 
         if parser.pattern_type == "regex":
-            regex = re.compile(parser.pattern_body)
+            regex = compile_regex(parser.pattern_body)
             m = regex.search(line)
             if not m:
                 return None

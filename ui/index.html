@@ -151,7 +151,10 @@
         const llm = stats.from_llm ?? stats.llm ?? 0;
         const parser = stats.from_parser ?? stats.parser ?? 0;
         const quarantined = stats.quarantined ?? 0;
+        const quarantinedFromParser = stats.quarantined_from_parser ?? 0;
+        const quarantinedFromLLM = stats.quarantined_from_llm ?? quarantined;
         const pct = n => total > 0 ? ` (${Math.round(n / total * 100)}%)` : "";
+        const quarantineShare = n => quarantined > 0 ? `${Math.round(n / quarantined * 100)}%` : "0%";
 
         return (
           <div className="bg-slate-800 border-b border-slate-700 px-4 py-1.5 flex items-center gap-5 text-xs flex-shrink-0">
@@ -170,7 +173,7 @@
               <span className="flex items-center gap-1.5">
                 <span className="w-2 h-2 rounded-full bg-rose-400 inline-block"/>
                 <span className="text-rose-400 font-semibold">{quarantined}</span>
-                <span className="text-slate-500">quarantined{pct(quarantined)}</span>
+                <span className="text-slate-500">quarantined{pct(quarantined)} · LLM {quarantineShare(quarantinedFromLLM)} · q-parser {quarantineShare(quarantinedFromParser)}</span>
               </span>
             )}
             <span className="ml-auto text-xs">
@@ -181,71 +184,385 @@
         );
       }
 
-      /* ── TestResultsCard ──────────────────────────────────────────────────── */
-      // Big, on-purpose callout that shows the LLM% vs parser% on the TEST split
-      // for the most recent (family, variant). This is the demonstration of
-      // learning the user is asked to look at.
+      /* ── SummaryCard ──────────────────────────────────────────────────────── */
+      // Big, on-purpose callout that shows the LLM% vs parser% for the most
+      // recent run. After a TRAIN run it shows train metrics alone; after a
+      // TEST run it shows test metrics with the train→test delta — the
+      // demonstration of learning the user is asked to look at.
 
-      function TestResultsCard({ result }) {
+      function SummaryCard({ result }) {
         if (!result) return null;
-        const {
-          customer_id, train, test,
-        } = result;
+        const { customer_id, train, test } = result;
+        const compare = !!(train && test);
+        const current = test || train;
+        if (!current) return null;
         const fmtPct = n => `${(n * 100).toFixed(1)}%`;
 
-        const trainLLM = train.from_llm, trainParser = train.from_parser;
-        const testLLM = test.from_llm, testParser = test.from_parser;
-        const testLLMPct = test.total_lines ? testLLM / test.total_lines : 0;
-        const testParserPct = test.total_lines ? testParser / test.total_lines : 0;
-        const trainLLMPct = train.total_lines ? trainLLM / train.total_lines : 0;
-        const trainParserPct = train.total_lines ? trainParser / train.total_lines : 0;
+        const curLLM = current.from_llm, curParser = current.from_parser;
+        const curQuarantine = current.quarantined ?? 0;
+        const curQuarantineParser = current.quarantined_from_parser ?? 0;
+        const curQuarantineLLM = current.quarantined_from_llm ?? curQuarantine;
+        const curLLMPct = current.total_lines ? curLLM / current.total_lines : 0;
+        const curParserPct = current.total_lines ? curParser / current.total_lines : 0;
+        const curQuarantinePct = current.total_lines ? curQuarantine / current.total_lines : 0;
+        const curQuarantineParserShare = curQuarantine ? curQuarantineParser / curQuarantine : 0;
+        const curQuarantineLLMShare = curQuarantine ? curQuarantineLLM / curQuarantine : 0;
 
-        const llmDelta = trainLLMPct - testLLMPct;
-        const parserDelta = testParserPct - trainParserPct;
+        const trainLLMPct = compare && train.total_lines ? train.from_llm / train.total_lines : 0;
+        const trainParserPct = compare && train.total_lines ? train.from_parser / train.total_lines : 0;
+        const trainQuarantinePct = compare && train.total_lines ? (train.quarantined ?? 0) / train.total_lines : 0;
+        const llmDelta = trainLLMPct - curLLMPct;
+        const parserDelta = curParserPct - trainParserPct;
+        const quarantineDelta = trainQuarantinePct - curQuarantinePct;
+
+        const phaseTag = compare ? "test" : "train";
+        const title = compare ? "Test Results" : "Train Results";
+        const subtitle = compare
+          ? `trained on ${train.total_lines} lines · tested on ${test.total_lines} lines`
+          : `trained on ${train.total_lines} lines`;
 
         return (
-          <div className="bg-white border border-indigo-300 rounded-lg shadow-md p-4 mb-3">
-            <div className="flex items-baseline justify-between mb-3">
-              <div>
-                <div className="text-xs uppercase tracking-widest text-indigo-600 font-semibold">Test Results</div>
-                <div className="mono text-sm text-slate-700">{customer_id}</div>
+          <div className="bg-white border border-indigo-300 rounded-lg shadow-sm px-3 py-2 mb-2">
+            <div className="flex items-center justify-between gap-3 mb-1.5">
+              <div className="flex items-baseline gap-2">
+                <div className="text-[10px] uppercase tracking-widest text-indigo-600 font-semibold">{title}</div>
+                <div className="mono text-xs text-slate-700">{customer_id}</div>
               </div>
-              <div className="text-[11px] text-slate-400">
-                trained on {train.total_lines} lines · tested on {test.total_lines} lines
+              <div className="text-[10px] text-slate-400">{subtitle}</div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-1.5 mb-1.5">
+              <div className="bg-emerald-50 border border-emerald-200 rounded px-2 py-1.5 flex items-baseline gap-2">
+                <div className="text-lg font-bold text-emerald-700 mono leading-none">{fmtPct(curParserPct)}</div>
+                <div className="flex-1 min-w-0">
+                  <div className="text-[10px] uppercase tracking-wider text-emerald-700 font-semibold leading-tight">Parser ({phaseTag})</div>
+                  <div className="text-[10px] mono text-emerald-800 leading-tight">{curParser}/{current.total_lines}{compare && (
+                    <span className={`ml-1 ${parserDelta >= 0 ? "text-emerald-600" : "text-rose-500"}`}>
+                      {parserDelta >= 0 ? "+" : ""}{(parserDelta * 100).toFixed(1)}pts
+                    </span>
+                  )}</div>
+                </div>
+              </div>
+              <div className="bg-indigo-50 border border-indigo-200 rounded px-2 py-1.5 flex items-baseline gap-2">
+                <div className="text-lg font-bold text-indigo-700 mono leading-none">{fmtPct(curLLMPct)}</div>
+                <div className="flex-1 min-w-0">
+                  <div className="text-[10px] uppercase tracking-wider text-indigo-700 font-semibold leading-tight">LLM ({phaseTag})</div>
+                  <div className="text-[10px] mono text-indigo-800 leading-tight">{curLLM}/{current.total_lines}{compare && (
+                    <span className={`ml-1 ${llmDelta >= 0 ? "text-emerald-600" : "text-rose-500"}`}>
+                      {llmDelta >= 0 ? "−" : "+"}{Math.abs(llmDelta * 100).toFixed(1)}pts
+                    </span>
+                  )}</div>
+                </div>
+              </div>
+              <div className="bg-rose-50 border border-rose-200 rounded px-2 py-1.5 flex items-baseline gap-2">
+                <div className="text-lg font-bold text-rose-700 mono leading-none">{fmtPct(curQuarantinePct)}</div>
+                <div className="flex-1 min-w-0">
+                  <div className="text-[10px] uppercase tracking-wider text-rose-700 font-semibold leading-tight">Quarantine ({phaseTag})</div>
+                  <div className="text-[10px] mono text-rose-800 leading-tight">{curQuarantine}/{current.total_lines}{compare && (
+                    <span className={`ml-1 ${quarantineDelta >= 0 ? "text-emerald-600" : "text-rose-500"}`}>
+                      {quarantineDelta >= 0 ? "−" : "+"}{Math.abs(quarantineDelta * 100).toFixed(1)}pts
+                    </span>
+                  )}</div>
+                </div>
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-3 mb-3">
-              <div className="bg-emerald-50 border border-emerald-200 rounded p-3">
-                <div className="text-[11px] uppercase tracking-widest text-emerald-700 font-semibold">Parser hit-rate (test)</div>
-                <div className="text-3xl font-bold text-emerald-700 mono">{fmtPct(testParserPct)}</div>
-                <div className="text-[11px] text-slate-500 mt-1">
-                  was {fmtPct(trainParserPct)} on train ·{" "}
-                  <span className={parserDelta >= 0 ? "text-emerald-600" : "text-rose-500"}>
-                    {parserDelta >= 0 ? "+" : ""}{(parserDelta * 100).toFixed(1)} pts
-                  </span>
-                </div>
-                <div className="text-xs mono text-emerald-800 mt-1">{testParser} / {test.total_lines} lines</div>
-              </div>
-              <div className="bg-indigo-50 border border-indigo-200 rounded p-3">
-                <div className="text-[11px] uppercase tracking-widest text-indigo-700 font-semibold">LLM call-rate (test)</div>
-                <div className="text-3xl font-bold text-indigo-700 mono">{fmtPct(testLLMPct)}</div>
-                <div className="text-[11px] text-slate-500 mt-1">
-                  was {fmtPct(trainLLMPct)} on train ·{" "}
-                  <span className={llmDelta >= 0 ? "text-emerald-600" : "text-rose-500"}>
-                    {llmDelta >= 0 ? "−" : "+"}{Math.abs(llmDelta * 100).toFixed(1)} pts
-                  </span>
-                </div>
-                <div className="text-xs mono text-indigo-800 mt-1">{testLLM} / {test.total_lines} lines</div>
-              </div>
+            <div className="text-[10px] text-slate-500 leading-tight">
+              {compare
+                ? (curLLMPct < 0.05 && curParserPct > 0.5
+                    ? "✓ Parsers minted during training are doing the work on the test split. Learning confirmed."
+                    : curLLMPct > 0.5
+                    ? "✗ The LLM is still doing most of the extraction. Parsers haven't been promoted yet."
+                    : "Partial — some clusters were learned, others still hit the LLM.")
+                : "Cold-start train pass — every new cluster hits the LLM and mints a parser. Run Test next."}
             </div>
+          </div>
+        );
+      }
 
-            <div className="text-[11px] text-slate-500">
-              {testLLMPct < 0.05 && testParserPct > 0.5
-                ? "✓ Parsers minted during training are doing the work on the test split. Learning confirmed."
-                : testLLMPct > 0.5
-                ? "✗ The LLM is still doing most of the extraction. Parsers haven't been promoted yet — try running train again or check the cluster signatures."
-                : "Partial — some clusters were learned, others still hit the LLM (often the noise tail in chaos/adversarial datasets)."}
+      function compactPattern(patternType, patternBody) {
+        if (!patternBody) return "—";
+        if (patternType === "jsonpath" || patternType === "kv") {
+          try {
+            const parsed = JSON.parse(patternBody);
+            if (parsed.fields && typeof parsed.fields === "object") {
+              return Object.entries(parsed.fields)
+                .slice(0, 4)
+                .map(([k, v]) => `${k}=${v}`)
+                .join(" · ");
+            }
+            return JSON.stringify(parsed).slice(0, 140);
+          } catch {
+            return patternBody.slice(0, 140);
+          }
+        }
+        return patternBody.slice(0, 140);
+      }
+
+      function LearningSummary({ stats, feed, parsers, customerId, phaseLabel, eventCatalog, onOpenHistory }) {
+        if (!stats && (!feed || feed.length === 0) && (!parsers || parsers.length === 0)) return null;
+
+        const [expanded, setExpanded] = useState(false);
+
+        const statusCounts = (parsers || []).reduce((acc, parser) => {
+          acc[parser.status] = (acc[parser.status] || 0) + 1;
+          return acc;
+        }, { shadow: 0, canary: 0, active: 0 });
+
+        const eventMap = new Map();
+        const newBucket = eventType => ({
+          eventType,
+          total: 0,
+          parser: 0,
+          llm: 0,
+          quarantine: 0,
+          latestPatternType: null,
+          latestPatternBody: null,
+        });
+        (feed || []).forEach(entry => {
+          // Quarantined lines have event_type === "unknown", but the LLM may
+          // still have classified them — bucket those under the LLM's guess so
+          // they show up on the right card.
+          const key = (entry.event_type && entry.event_type !== "unknown")
+            ? entry.event_type
+            : (entry.llm_event_type || "unknown");
+          const bucket = eventMap.get(key) || newBucket(key);
+          bucket.total += 1;
+          if (entry.source === "parser") bucket.parser += 1;
+          else if (entry.source === "llm") bucket.llm += 1;
+          else bucket.quarantine += 1;
+          if (entry.pattern_type && entry.pattern_body) {
+            bucket.latestPatternType = entry.pattern_type;
+            bucket.latestPatternBody = entry.pattern_body;
+          }
+          eventMap.set(key, bucket);
+
+          // Synthetic "quarantine" bucket: every quarantined line lands here
+          // regardless of which canonical event the LLM thought it was. The
+          // parser/LLM split tells us how the *quarantine decision* was made
+          // — by a learned quarantine parser or by the LLM saying so.
+          if (entry.source === "quarantine") {
+            const qBucket = eventMap.get("quarantine") || newBucket("quarantine");
+            qBucket.total += 1;
+            if (entry.parser_id) qBucket.parser += 1;
+            else qBucket.llm += 1;
+            if (entry.pattern_type && entry.pattern_body) {
+              qBucket.latestPatternType = entry.pattern_type;
+              qBucket.latestPatternBody = entry.pattern_body;
+            }
+            eventMap.set("quarantine", qBucket);
+          }
+        });
+
+        const parserByEvent = new Map();
+        (parsers || []).forEach(parser => {
+          const current = parserByEvent.get(parser.event_type);
+          const rank = { active: 0, canary: 1, shadow: 2, retired: 3 };
+          if (!current || rank[parser.status] < rank[current.status]) {
+            parserByEvent.set(parser.event_type, parser);
+          }
+        });
+
+        const baseEvents = (eventCatalog && eventCatalog.length ? eventCatalog : Array.from(new Set([
+          ...Array.from(eventMap.keys()),
+          ...Array.from(parserByEvent.keys()),
+        ]))).filter(event => event && event !== "unknown");
+
+        // Always include the synthetic Quarantine card. We render it last so
+        // canonical events stay in their natural order.
+        if (!baseEvents.includes("quarantine")) baseEvents.push("quarantine");
+
+        const events = baseEvents.map(eventType => eventMap.get(eventType) || newBucket(eventType));
+
+        const historyByEvent = new Map();
+        const pushHistoryRow = (key, entry, idx) => {
+          if (!key || key === "unknown") return;
+          const rows = historyByEvent.get(key) || [];
+          // Distinguish quarantined attempts from successful ones in the dedupe
+          // marker — the same pattern body can show up both as a successful
+          // extraction and as a rejected proposal, and we want to see both.
+          const marker = `${entry.source}:${entry.pattern_type}:${entry.pattern_body}`;
+          if (rows.some(row => row.marker === marker)) return;
+          rows.push({
+            marker,
+            patternType: entry.pattern_type,
+            patternBody: entry.pattern_body,
+            source: entry.source,
+            reason: entry.reason || "",
+            step: idx + 1,
+          });
+          historyByEvent.set(key, rows);
+        };
+        (feed || []).forEach((entry, idx) => {
+          if (!entry.pattern_type || !entry.pattern_body) return;
+          // 1. Canonical-event card: bucket under the LLM's intended event so
+          //    quarantined attempts attach to the same card as successes.
+          const canonicalKey = (entry.event_type && entry.event_type !== "unknown")
+            ? entry.event_type
+            : entry.llm_event_type;
+          pushHistoryRow(canonicalKey, entry, idx);
+          // 2. Quarantine card: collect every quarantine proposal here so the
+          //    user sees the full set of shapes that failed canonical parsing.
+          if (entry.source === "quarantine") {
+            pushHistoryRow("quarantine", entry, idx);
+          }
+        });
+
+        const totalParsers = (parsers || []).length;
+        const totalLines = stats?.total_lines ?? stats?.total ?? feed.length ?? 0;
+
+        return (
+          <div className="bg-slate-100 px-3 pt-3 flex-shrink-0">
+            <div className="bg-white border border-slate-200 rounded-xl shadow-sm p-3 space-y-3">
+              <div className="flex items-center justify-between gap-3 flex-wrap">
+                <div>
+                  <div className="text-xs uppercase tracking-widest text-slate-500 font-semibold">Learning summary</div>
+                  <div className="mono text-sm text-slate-700">{customerId}{phaseLabel ? ` · ${phaseLabel}` : ""}</div>
+                </div>
+                <div className="flex flex-wrap gap-2 text-xs items-center">
+                  <span className="px-2.5 py-1 rounded bg-slate-100 text-slate-600">{totalLines} lines</span>
+                  <span className="px-2.5 py-1 rounded bg-emerald-50 text-emerald-700">{statusCounts.active || 0} active</span>
+                  <span className="px-2.5 py-1 rounded bg-amber-50 text-amber-700">{statusCounts.canary || 0} canary</span>
+                  <span className="px-2.5 py-1 rounded bg-slate-100 text-slate-700">{statusCounts.shadow || 0} shadow</span>
+                  <span className="px-2.5 py-1 rounded bg-indigo-50 text-indigo-700">{totalParsers} learned parsers</span>
+                  <button
+                    onClick={() => setExpanded(v => !v)}
+                    className="px-2.5 py-1 rounded border border-slate-200 hover:bg-slate-50 text-slate-600"
+                  >
+                    {expanded ? "Hide details" : "Show details"}
+                  </button>
+                </div>
+              </div>
+
+              <div className="border border-slate-200 rounded-lg p-2 bg-slate-50">
+                <div className="text-[11px] uppercase tracking-widest text-slate-500 font-semibold mb-2">Event cards</div>
+                <div className="flex gap-2 overflow-x-auto pb-1 -mx-1 px-1 snap-x">
+                  {events.map(event => {
+                    const parserPct = event.total ? Math.round((event.parser / event.total) * 100) : 0;
+                    const llmPct = event.total ? Math.round((event.llm / event.total) * 100) : 0;
+                    const learned = parserByEvent.get(event.eventType);
+                    const history = historyByEvent.get(event.eventType) || [];
+                    const isQtn = event.eventType === "quarantine";
+                    const cardCls = isQtn
+                      ? "bg-rose-50/40 border-rose-200 hover:border-rose-300 hover:bg-rose-50/70"
+                      : "bg-white border-slate-200 hover:border-indigo-300 hover:bg-indigo-50/20";
+                    return (
+                      <button
+                        key={event.eventType}
+                        type="button"
+                        onClick={() => {
+                          onOpenHistory?.({
+                            eventType: event.eventType,
+                            history,
+                            parser: learned || null,
+                          });
+                        }}
+                        className={`border rounded-lg p-2.5 text-left transition-colors shrink-0 w-56 snap-start ${cardCls}`}
+                      >
+                        <div className="flex items-center justify-between gap-2 mb-1.5">
+                          <div className={`font-semibold text-sm ${isQtn ? "text-rose-700" : "text-slate-800"}`}>{event.eventType}</div>
+                          <span className={`text-[10px] px-2 py-0.5 rounded ${learned ? (PARSER_STATUS[learned.status]?.badge || "bg-slate-100 text-slate-600") : "bg-slate-100 text-slate-500"}`}>
+                            {learned ? learned.status : "idle"}
+                          </span>
+                        </div>
+                        {isQtn ? (
+                          <div className="grid grid-cols-3 gap-1 text-[11px] mb-2">
+                            <div><span className="text-slate-400">seen</span><div className="mono text-rose-700 font-semibold">{event.total}</div></div>
+                            <div><span className="text-slate-400">parser</span><div className="mono text-emerald-700 font-semibold">{event.parser} <span className="text-slate-400">{parserPct}%</span></div></div>
+                            <div><span className="text-slate-400">LLM</span><div className="mono text-indigo-700 font-semibold">{event.llm} <span className="text-slate-400">{llmPct}%</span></div></div>
+                          </div>
+                        ) : (
+                          <div className="grid grid-cols-4 gap-1 text-[11px] mb-2">
+                            <div><span className="text-slate-400">seen</span><div className="mono text-slate-700 font-semibold">{event.total}</div></div>
+                            <div><span className="text-slate-400">parser</span><div className="mono text-emerald-700 font-semibold">{event.parser} <span className="text-slate-400">{parserPct}%</span></div></div>
+                            <div><span className="text-slate-400">LLM</span><div className="mono text-indigo-700 font-semibold">{event.llm} <span className="text-slate-400">{llmPct}%</span></div></div>
+                            <div><span className="text-slate-400">qtn</span><div className={`mono font-semibold ${event.quarantine ? "text-rose-700" : "text-slate-400"}`}>{event.quarantine}</div></div>
+                          </div>
+                        )}
+                        <div className="mono text-[10px] text-slate-600 bg-slate-50 border border-slate-200 rounded px-2 py-1 min-h-[40px] break-all whitespace-pre-wrap">
+                          {learned ? compactPattern(learned.pattern_type, learned.pattern_body) : (event.latestPatternBody ? compactPattern(event.latestPatternType, event.latestPatternBody) : "No parser yet")}
+                        </div>
+                        <div className="text-[10px] text-slate-400 mt-1.5">click to inspect · history {history.length}</div>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {expanded && (
+                <div className="grid grid-cols-1 gap-3">
+                  <div className="border border-slate-200 rounded-lg p-3 bg-slate-50">
+                    <div className="text-[11px] uppercase tracking-widest text-slate-500 font-semibold mb-3">Parser lifecycle</div>
+                    <div className="grid grid-cols-2 gap-2">
+                      {[
+                        ["Active", statusCounts.active || 0, "text-emerald-700"],
+                        ["Canary", statusCounts.canary || 0, "text-amber-700"],
+                        ["Shadow", statusCounts.shadow || 0, "text-slate-700"],
+                        ["Total", totalParsers, "text-indigo-700"],
+                      ].map(([label, value, textTone]) => (
+                        <div key={label} className="bg-white border border-slate-200 rounded px-3 py-2">
+                          <div className="text-[10px] uppercase tracking-widest text-slate-400 mb-1">{label}</div>
+                          <div className={`text-2xl font-bold mono ${textTone}`}>{value}</div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        );
+      }
+
+      function ExpressionHistoryModal({ open, onClose, details }) {
+        useEffect(() => {
+          if (!open) return;
+          const onKey = e => { if (e.key === "Escape") onClose(); };
+          window.addEventListener("keydown", onKey);
+          return () => window.removeEventListener("keydown", onKey);
+        }, [open, onClose]);
+
+        if (!open || !details) return null;
+        const history = details.history || [];
+        const parser = details.parser;
+
+        return (
+          <div className="fixed inset-0 z-50 bg-slate-900/70 flex items-center justify-center p-6" onClick={onClose}>
+            <div className="bg-white border border-slate-200 rounded-xl shadow-2xl max-w-3xl w-full max-h-[85vh] flex flex-col" onClick={e => e.stopPropagation()}>
+              <div className="flex items-center justify-between px-4 py-3 border-b border-slate-200">
+                <div>
+                  <div className="text-[10px] uppercase tracking-widest text-slate-500 font-semibold">Expression history</div>
+                  <div className="font-semibold text-slate-800">{details.eventType}</div>
+                </div>
+                <div className="flex items-center gap-2">
+                  {parser && <span className={`text-[10px] px-2 py-0.5 rounded ${PARSER_STATUS[parser.status]?.badge || "bg-slate-100 text-slate-600"}`}>{parser.status}</span>}
+                  <button onClick={onClose} className="text-slate-400 hover:text-slate-700 text-sm" title="Close (Esc)">✕</button>
+                </div>
+              </div>
+              <div className="p-4 overflow-auto space-y-2">
+                {history.length === 0 ? (
+                  <div className="text-sm text-slate-400">No learned-expression attempts yet.</div>
+                ) : history.map(item => {
+                  const isQuarantine = item.source === "quarantine";
+                  const tone = isQuarantine
+                    ? "border-rose-200 bg-rose-50"
+                    : "border-slate-200 bg-slate-50";
+                  const sourceTone = isQuarantine ? "text-rose-600 font-semibold" : "text-slate-400";
+                  return (
+                    <div key={item.marker} className={`border rounded-lg p-3 ${tone}`}>
+                      <div className="flex items-center gap-2 text-[11px] text-slate-400 mb-1.5">
+                        <span className="mono">step {item.step}</span>
+                        <span className={`uppercase ${sourceTone}`}>{item.source}</span>
+                        <span className="mono">{item.patternType}</span>
+                      </div>
+                      {isQuarantine && item.reason && (
+                        <div className="text-[11px] text-rose-700 mb-1.5">⚠ {item.reason}</div>
+                      )}
+                      <div className="mono text-xs text-slate-700 whitespace-pre-wrap break-all">{item.patternBody}</div>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           </div>
         );
@@ -432,9 +749,12 @@
         const [busy, setBusy] = useState(false);
         const [error, setError] = useState(null);
         const [phaseLabel, setPhaseLabel] = useState(null);  // "train" | "test" | null
-        const [testResult, setTestResult] = useState(null);  // {customer_id, train, test} for callout
+        const [summary, setSummary] = useState(null);  // {customer_id, train, test|null} — train|test summary card
         const [trainStatsByCust, setTrainStatsByCust] = useState({});  // last train run keyed by customer_id
-        const [previewModal, setPreviewModal] = useState(null);  // {tone, ds} | null
+        const [parserSnapshot, setParserSnapshot] = useState([]);
+        const [eventCatalog, setEventCatalog] = useState([]);
+        const [previewModal, setPreviewModal] = useState(null);
+        const [historyModal, setHistoryModal] = useState(null);
 
         const feedRef = useRef(null);
         const shouldFollow = useRef(true);
@@ -453,6 +773,7 @@
         };
 
         useEffect(() => {
+          api("/health").then(data => setEventCatalog(data.events || [])).catch(() => setEventCatalog([]));
           api("/samples").then(setSamples).catch(e => setError(e.message));
           api("/datasets").then(d => {
             setDatasets(d);
@@ -463,19 +784,33 @@
           }).catch(e => setError(e.message));
         }, []);
 
+        useEffect(() => {
+          if (!customerId) return;
+          api(`/parsers/${customerId}`).then(setParserSnapshot).catch(() => setParserSnapshot([]));
+        }, [customerId]);
+
         const switchMode = newMode => {
           if (newMode === mode) return;
           setMode(newMode);
           setFeed([]);
           setRunStats(null);
           setLiveStats(null);
-          setTestResult(null);
+          setSummary(null);
           setPhaseLabel(null);
         };
 
         const clearAll = () => {
           setFeed([]); setRunStats(null); setLiveStats(null);
-          setTestResult(null); setPhaseLabel(null);
+          setSummary(null); setPhaseLabel(null);
+        };
+
+        const refreshParserSnapshot = async (customer) => {
+          try {
+            const rows = await api(`/parsers/${customer}`);
+            setParserSnapshot(rows);
+          } catch {
+            setParserSnapshot([]);
+          }
         };
 
         /* core streaming — body is merged with customer_id. Returns the final
@@ -487,7 +822,8 @@
           if (resetFeed) {
             setFeed([]);
             setRunStats(null);
-            setLiveStats({ total: 0, llm: 0, parser: 0, quarantined: 0 });
+            setLiveStats({ total: 0, llm: 0, parser: 0, quarantined: 0, quarantined_from_parser: 0, quarantined_from_llm: 0 });
+            setParserSnapshot([]);
           }
           if (phase) setPhaseLabel(phase);
           shouldFollow.current = true;
@@ -519,6 +855,7 @@
                 if (evt.type === "done") {
                   doneEvt = evt;
                   if (resetFeed) setRunStats(evt);
+                  await refreshParserSnapshot(customer);
                 } else {
                   const key = ++keyCounter.current;
                   evt._key = key;
@@ -529,6 +866,8 @@
                     llm:        (prev?.llm        ?? 0) + (evt.source === "llm"        ? 1 : 0),
                     parser:     (prev?.parser     ?? 0) + (evt.source === "parser"     ? 1 : 0),
                     quarantined:(prev?.quarantined ?? 0) + (evt.source === "quarantine" ? 1 : 0),
+                    quarantined_from_parser: (prev?.quarantined_from_parser ?? 0) + (evt.source === "quarantine" && evt.parser_id ? 1 : 0),
+                    quarantined_from_llm: (prev?.quarantined_from_llm ?? 0) + (evt.source === "quarantine" && !evt.parser_id ? 1 : 0),
                   }));
                 }
               }
@@ -547,11 +886,11 @@
          * the LLM call-rate would be 0% for what looked like a fresh training
          * run. Stashes the resulting stats so the subsequent test run can
          * compute deltas. */
-        const runTrain = async (ds) => {
+        const runTrain = async (ds = activeDataset) => {
           if (busy || !ds) return;
           setActiveDataset(ds);
           setCustomerId(ds.customer_id);
-          setTestResult(null);  // any old test card is no longer relevant
+          setSummary(null);  // any prior summary belongs to a stale run
           try {
             await api(`/reset/${ds.customer_id}`, { method: "POST" });
           } catch (_) { /* best-effort cold-start */ }
@@ -564,12 +903,13 @@
             { customer: ds.customer_id, phase: "train" });
           if (evt) {
             setTrainStatsByCust(prev => ({ ...prev, [ds.customer_id]: evt }));
+            setSummary({ customer_id: ds.customer_id, train: evt, test: null });
           }
         };
 
         /* Run TEST file for the active dataset. Builds the test-results card
          * by combining the most recent train stats for the same customer. */
-        const runTest = async (ds) => {
+        const runTest = async (ds = activeDataset) => {
           if (busy || !ds) return;
           setActiveDataset(ds);
           setCustomerId(ds.customer_id);
@@ -578,7 +918,7 @@
           if (evt) {
             const trainEvt = trainStatsByCust[ds.customer_id];
             if (trainEvt) {
-              setTestResult({
+              setSummary({
                 customer_id: ds.customer_id,
                 train: trainEvt,
                 test: evt,
@@ -609,6 +949,7 @@
               return next;
             });
             clearAll();
+            setParserSnapshot([]);
           } catch (e) { setError(e.message); }
           finally { setBusy(false); }
         };
@@ -623,6 +964,12 @@
 
         const stats = runStats || liveStats;
         const isDone = !!runStats;
+
+        const handleDatasetSelect = customer => {
+          const ds = datasets.find(item => item.customer_id === customer) || null;
+          setActiveDataset(ds);
+          setCustomerId(customer);
+        };
 
         return (
           <div className="h-screen flex flex-col">
@@ -657,6 +1004,30 @@
                 />
               </label>
 
+              {mode === "dataset" && (
+                <>
+                  <label className="flex items-center gap-1.5 text-xs text-slate-500">
+                    Dataset
+                    <select
+                      value={activeDataset?.customer_id || ""}
+                      onChange={e => handleDatasetSelect(e.target.value)}
+                      className="border border-slate-200 rounded px-2 py-1 text-xs text-slate-800 bg-white max-w-[320px]"
+                    >
+                      {datasets.map(ds => (
+                        <option key={ds.customer_id} value={ds.customer_id}>
+                          {ds.customer_id} · {ds.family} v{ds.variant}
+                        </option>
+                      ))}
+                    </select>
+                  </label>
+                  {activeDataset && (
+                    <span className="text-[11px] text-slate-400 mono">
+                      train {activeDataset.train.line_count}L · test {activeDataset.test.line_count}L
+                    </span>
+                  )}
+                </>
+              )}
+
               {phaseLabel && (
                 <span className={`text-[10px] font-semibold uppercase tracking-widest px-2 py-0.5 rounded ${
                   phaseLabel === "train" ? "bg-amber-100 text-amber-700" : "bg-emerald-100 text-emerald-700"
@@ -666,6 +1037,38 @@
               )}
 
               <div className="flex gap-1.5 ml-auto">
+                {mode === "dataset" && activeDataset && (
+                  <>
+                    <button
+                      onClick={() => setPreviewModal({ tone: "train", ds: activeDataset })}
+                      disabled={busy}
+                      className="border border-amber-200 bg-amber-50 hover:bg-amber-100 text-amber-700 text-xs font-semibold rounded px-2.5 py-1.5 disabled:opacity-50 transition-colors"
+                    >
+                      View Train Log
+                    </button>
+                    <button
+                      onClick={() => setPreviewModal({ tone: "test", ds: activeDataset })}
+                      disabled={busy}
+                      className="border border-emerald-200 bg-emerald-50 hover:bg-emerald-100 text-emerald-700 text-xs font-semibold rounded px-2.5 py-1.5 disabled:opacity-50 transition-colors"
+                    >
+                      View Test Log
+                    </button>
+                    <button
+                      onClick={() => runTrain(activeDataset)}
+                      disabled={busy}
+                      className="bg-amber-500 hover:bg-amber-600 text-white text-xs font-semibold rounded px-2.5 py-1.5 disabled:opacity-50 transition-colors"
+                    >
+                      Run Train
+                    </button>
+                    <button
+                      onClick={() => runTest(activeDataset)}
+                      disabled={busy || !trainStatsByCust[activeDataset.customer_id]}
+                      className="bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold rounded px-2.5 py-1.5 disabled:opacity-30 transition-colors"
+                    >
+                      Run Test
+                    </button>
+                  </>
+                )}
                 {feed.length > 0 && !busy && (
                   <button
                     onClick={clearAll}
@@ -684,29 +1087,10 @@
               </div>
             </div>
 
-            {/* ── Dataset cards ── */}
+            {/* ── Dataset helper ── */}
             {mode === "dataset" && (
-              <div className="bg-white border-b border-slate-200 px-4 py-3 flex-shrink-0">
-                <div className="text-xs text-slate-500 mb-2">
-                  Each card is a (family, variant). <strong className="text-slate-700">Run Train</strong> first
-                  to mint parsers from LLM output (cold start — clears prior state), then{" "}
-                  <strong className="text-slate-700">Run Test</strong> on fresh lines from the same dialect —
-                  the parser hit-rate jump on test is the proof of learning.
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-2">
-                  {datasets.map(ds => (
-                    <DatasetCard
-                      key={ds.customer_id}
-                      ds={ds}
-                      isActive={activeDataset && activeDataset.customer_id === ds.customer_id}
-                      hasTrain={!!trainStatsByCust[ds.customer_id]}
-                      busy={busy}
-                      onTrain={() => runTrain(ds)}
-                      onTest={() => runTest(ds)}
-                      onOpenPreview={(tone, ds) => setPreviewModal({ tone, ds })}
-                    />
-                  ))}
-                </div>
+              <div className="bg-white border-b border-slate-200 px-4 py-2.5 flex-shrink-0 text-xs text-slate-500">
+                Select a dataset from the top bar, then run <strong className="text-slate-700">Train</strong> to mint parsers and <strong className="text-slate-700">Test</strong> to see how much work shifts off the LLM.
               </div>
             )}
 
@@ -762,19 +1146,35 @@
             {/* ── Stats bar ── */}
             <StatsBar stats={stats} busy={busy} isDone={isDone} />
 
+            {/* Summary callout — sits above the feed and does not scroll with it. */}
+            {(feed.length > 0 || parserSnapshot.length > 0 || summary) && (
+              <LearningSummary
+                stats={stats}
+                feed={feed}
+                parsers={parserSnapshot}
+                customerId={customerId}
+                phaseLabel={phaseLabel}
+                eventCatalog={eventCatalog}
+                onOpenHistory={setHistoryModal}
+              />
+            )}
+
+            {summary && (
+              <div className="bg-slate-100 px-3 pt-3 flex-shrink-0">
+                <SummaryCard result={summary} />
+              </div>
+            )}
+
             {/* ── Feed ── */}
             <div
               ref={feedRef}
               onScroll={handleScroll}
-              className="flex-1 overflow-auto bg-slate-100 p-3"
+              className={`flex-1 overflow-auto bg-slate-100 px-3 pb-3${summary ? "" : " pt-3"}`}
             >
-              {/* Test-results callout — pinned at the top of the feed when present. */}
-              <TestResultsCard result={testResult} />
-
-              {feed.length === 0 && !busy && !testResult && (
+              {feed.length === 0 && !busy && !summary && (
                 <div className="text-center text-slate-400 text-sm mt-24">
                   {mode === "dataset"
-                    ? <>Pick a dataset above and click <strong className="text-amber-600">Run Train</strong>, then <strong className="text-emerald-600">Run Test</strong></>
+                    ? <>Pick a dataset from the top bar and click <strong className="text-amber-600">Run Train</strong>, then <strong className="text-emerald-600">Run Test</strong></>
                     : <>Paste a log line above and press <strong className="text-slate-600">Enter</strong></>}
                 </div>
               )}
@@ -796,16 +1196,6 @@
               )}
             </div>
 
-            <SamplesModal
-              open={!!previewModal}
-              onClose={() => setPreviewModal(null)}
-              tone={previewModal?.tone}
-              title={previewModal ? `${previewModal.ds.customer_id} · ${previewModal.tone}` : ""}
-              sampleName={previewModal ? previewModal.ds[previewModal.tone].name : null}
-              totalLines={previewModal ? previewModal.ds[previewModal.tone].line_count : 0}
-            />
-
-            {/* ── Legend ── */}
             <div className="bg-white border-t border-slate-200 px-4 py-1.5 flex flex-wrap items-center gap-4 text-[11px] text-slate-500 flex-shrink-0">
               {[
                 ["bg-indigo-500",  "LLM — new extraction"],
@@ -820,6 +1210,21 @@
                 </span>
               ))}
             </div>
+
+            <ExpressionHistoryModal
+              open={!!historyModal}
+              onClose={() => setHistoryModal(null)}
+              details={historyModal}
+            />
+
+            <SamplesModal
+              open={!!previewModal}
+              onClose={() => setPreviewModal(null)}
+              tone={previewModal?.tone}
+              title={previewModal ? `${previewModal.ds.customer_id} · ${previewModal.tone}` : ""}
+              sampleName={previewModal ? previewModal.ds[previewModal.tone].name : null}
+              totalLines={previewModal ? previewModal.ds[previewModal.tone].line_count : 0}
+            />
 
           </div>
         );

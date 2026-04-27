@@ -23,6 +23,9 @@ class LifecycleConfig:
     shadow_to_active_matches: int = 3
     shadow_to_active_agreement: float = 0.95
     max_line_bytes: int = 8192
+    # Lines per chunk in the streaming pipeline. The LLM is fanned out across
+    # all chunk-bound lines that need it (capped by EVENT_PARSER_LLM_CONCURRENCY).
+    chunk_size: int = 32
 
 
 @dataclass
@@ -58,6 +61,7 @@ def load_config(
         shadow_to_active_matches=int(lifecycle_raw.get("shadow_to_active_matches", 3)),
         shadow_to_active_agreement=float(lifecycle_raw.get("shadow_to_active_agreement", 0.95)),
         max_line_bytes=int(lifecycle_raw.get("max_line_bytes", 8192)),
+        chunk_size=int(lifecycle_raw.get("chunk_size", 32)),
     )
 
     root = Path(storage_root or os.environ.get("EVENT_PARSER_STORAGE", "storage")).resolve()

@@ -20,5 +20,6 @@ events:
 # Parser lifecycle thresholds (simplified for the batch demo).
 lifecycle:
   shadow_to_active_matches: 3      # promote shadow -> active after this many matches
-  shadow_to_active_agreement: 0.95 # with at least this LLM-agreement ratio
+  shadow_to_active_agreement: 0.8  # with at least this LLM-agreement ratio
   max_line_bytes: 8192             # input guardrail: reject oversize lines
+  chunk_size: 8                  # lines per pipeline chunk; LLM calls in a chunk fan out concurrently
