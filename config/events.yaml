@@ -1,0 +1,24 @@
+# Canonical event list. Edit here to add/remove event types.
+# The LLM extractor and output guardrail read this file at startup.
+events:
+  click:
+    required_fields: [user_id, product_id, timestamp]
+    optional_fields: [session_id, page]
+  add_to_cart:
+    required_fields: [user_id, product_id, timestamp]
+    optional_fields: [quantity, session_id]
+  remove_from_cart:
+    required_fields: [user_id, product_id, timestamp]
+    optional_fields: [quantity, session_id]
+  view:
+    required_fields: [user_id, product_id, timestamp]
+    optional_fields: [referrer, session_id]
+  purchase:
+    required_fields: [user_id, order_id, timestamp]
+    optional_fields: [total, currency, session_id]
+
+# Parser lifecycle thresholds (simplified for the batch demo).
+lifecycle:
+  shadow_to_active_matches: 3      # promote shadow -> active after this many matches
+  shadow_to_active_agreement: 0.95 # with at least this LLM-agreement ratio
+  max_line_bytes: 8192             # input guardrail: reject oversize lines

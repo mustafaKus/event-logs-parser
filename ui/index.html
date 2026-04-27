@@ -1,0 +1,831 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Event Parser</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+      body { font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; }
+      .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+      @keyframes flash { 0%,100%{background:transparent} 25%{background:#e0e7ff} }
+      .flash { animation: flash 0.6s ease-out; }
+      @keyframes slideIn { from{opacity:0;transform:translateY(-5px)} to{opacity:1;transform:translateY(0)} }
+      .slide-in { animation: slideIn 0.15s ease-out; }
+    </style>
+  </head>
+  <body class="bg-slate-100 text-slate-800">
+    <div id="root"></div>
+
+    <script type="text/babel" data-type="module">
+      const { useEffect, useRef, useState } = React;
+
+      /* ── helpers ──────────────────────────────────────────────────────────── */
+
+      const api = async (path, opts = {}) => {
+        const res = await fetch(path, { headers: { "Content-Type": "application/json" }, ...opts });
+        if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
+        return res.json();
+      };
+
+      const SOURCE = {
+        llm:        { label: "LLM",        pill: "bg-indigo-100 text-indigo-700", border: "border-l-indigo-500" },
+        parser:     { label: "Parser",     pill: "bg-emerald-100 text-emerald-700", border: "border-l-emerald-500" },
+        quarantine: { label: "Quarantine", pill: "bg-rose-100 text-rose-700",    border: "border-l-rose-500" },
+      };
+
+      const PARSER_STATUS = {
+        shadow: { badge: "bg-slate-200 text-slate-600", hint: "observing",  hintCls: "text-slate-400" },
+        canary: { badge: "bg-amber-100 text-amber-700", hint: "learning",   hintCls: "text-amber-500" },
+        active: { badge: "bg-emerald-200 text-emerald-700", hint: "validated", hintCls: "text-emerald-500" },
+      };
+
+      /* ── FeedEntry ────────────────────────────────────────────────────────── */
+
+      function FeedEntry({ entry, displayN, isNew }) {
+        const [patternOpen, setPatternOpen] = useState(false);
+        const src = SOURCE[entry.source] || SOURCE.quarantine;
+        const ps = entry.parser_status ? PARSER_STATUS[entry.parser_status] : null;
+        const hasPattern = entry.pattern_type && entry.pattern_body;
+        const fieldPairs = Object.entries(entry.fields || {});
+
+        const patternHint = entry.source === "llm"
+          ? { text: "new extraction", cls: "text-indigo-400" }
+          : ps ? { text: ps.hint, cls: ps.hintCls } : null;
+
+        return (
+          <div className={`border-l-4 ${src.border} bg-white rounded-r shadow-sm mb-2 overflow-hidden${isNew ? " flash slide-in" : ""}`}>
+
+            {/* Header */}
+            <div className="flex items-center gap-2 px-3 pt-2 pb-1.5 border-b border-slate-100">
+              <span className="mono text-slate-400 text-xs w-8 shrink-0 text-right select-none">{displayN}</span>
+              <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-semibold ${src.pill}`}>
+                {src.label}
+                {ps && (
+                  <span className={`px-1 py-px rounded text-[10px] ${ps.badge}`}>{entry.parser_status}</span>
+                )}
+              </span>
+              {entry.event_type && (
+                <span className="font-bold text-sm text-slate-800">{entry.event_type}</span>
+              )}
+              {entry.source === "quarantine" && entry.reason && (
+                <span className="text-xs text-rose-500 italic ml-1">{entry.reason}</span>
+              )}
+              {patternHint && entry.source === "llm" && (
+                <span className={`text-xs ${patternHint.cls} ml-auto`}>← {patternHint.text}</span>
+              )}
+            </div>
+
+            {/* Body */}
+            <div className="px-3 py-2.5 space-y-2.5">
+
+              {/* INPUT */}
+              <div>
+                <div className="text-[10px] font-semibold uppercase tracking-widest text-slate-400 mb-1 flex items-center gap-1">
+                  <span className="w-1.5 h-1.5 rounded-full bg-slate-300 inline-block"/>
+                  Input
+                </div>
+                <div className="mono text-xs text-slate-600 bg-slate-50 border border-slate-200 rounded px-2.5 py-1.5 break-all whitespace-pre-wrap leading-relaxed">
+                  {entry.raw}
+                </div>
+              </div>
+
+              {/* OUTPUT */}
+              {fieldPairs.length > 0 && (
+                <div>
+                  <div className="text-[10px] font-semibold uppercase tracking-widest text-slate-400 mb-1 flex items-center gap-1">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block"/>
+                    Output
+                  </div>
+                  <div className="bg-emerald-50 border border-emerald-200 rounded px-2.5 py-2">
+                    <div className="flex flex-wrap gap-x-6 gap-y-1.5">
+                      {fieldPairs.map(([k, v]) => (
+                        <span key={k} className="mono text-xs inline-flex items-baseline gap-1">
+                          <span className="text-emerald-600 font-medium">{k}</span>
+                          <span className="text-slate-300">=</span>
+                          <span className="text-slate-800 font-semibold">{v}</span>
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* PATTERN */}
+              {hasPattern && (
+                <div>
+                  <button
+                    onClick={() => setPatternOpen(o => !o)}
+                    className="mono text-[11px] text-slate-400 hover:text-indigo-600 flex items-center gap-1.5 transition-colors"
+                  >
+                    <span className="text-[9px]">{patternOpen ? "▼" : "▶"}</span>
+                    <span className="uppercase tracking-widest text-slate-500">{entry.pattern_type}</span>
+                    <span className="text-slate-300">pattern</span>
+                    {patternHint && (
+                      <span className={`${patternHint.cls} font-medium`}>· {patternHint.text}</span>
+                    )}
+                  </button>
+                  {patternOpen && (
+                    <pre className="mono text-[11px] bg-slate-900 text-emerald-300 border border-slate-700 rounded px-3 py-2.5 whitespace-pre-wrap break-all max-h-48 overflow-auto mt-1 leading-relaxed">
+                      {(() => {
+                        try { return JSON.stringify(JSON.parse(entry.pattern_body), null, 2); }
+                        catch { return entry.pattern_body; }
+                      })()}
+                    </pre>
+                  )}
+                </div>
+              )}
+            </div>
+          </div>
+        );
+      }
+
+      /* ── StatsBar ─────────────────────────────────────────────────────────── */
+
+      function StatsBar({ stats, busy, isDone }) {
+        if (!stats) return null;
+        const total = stats.total_lines ?? stats.total ?? 0;
+        const llm = stats.from_llm ?? stats.llm ?? 0;
+        const parser = stats.from_parser ?? stats.parser ?? 0;
+        const quarantined = stats.quarantined ?? 0;
+        const pct = n => total > 0 ? ` (${Math.round(n / total * 100)}%)` : "";
+
+        return (
+          <div className="bg-slate-800 border-b border-slate-700 px-4 py-1.5 flex items-center gap-5 text-xs flex-shrink-0">
+            <span className="text-slate-400 font-medium">{total} lines</span>
+            <span className="flex items-center gap-1.5">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 inline-block"/>
+              <span className="text-emerald-400 font-semibold">{parser}</span>
+              <span className="text-slate-500">parser{pct(parser)}</span>
+            </span>
+            <span className="flex items-center gap-1.5">
+              <span className="w-2 h-2 rounded-full bg-indigo-400 inline-block"/>
+              <span className="text-indigo-400 font-semibold">{llm}</span>
+              <span className="text-slate-500">LLM{pct(llm)}</span>
+            </span>
+            {quarantined > 0 && (
+              <span className="flex items-center gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-rose-400 inline-block"/>
+                <span className="text-rose-400 font-semibold">{quarantined}</span>
+                <span className="text-slate-500">quarantined{pct(quarantined)}</span>
+              </span>
+            )}
+            <span className="ml-auto text-xs">
+              {busy && <span className="text-slate-400 animate-pulse">● processing…</span>}
+              {isDone && !busy && <span className="text-slate-500">complete</span>}
+            </span>
+          </div>
+        );
+      }
+
+      /* ── TestResultsCard ──────────────────────────────────────────────────── */
+      // Big, on-purpose callout that shows the LLM% vs parser% on the TEST split
+      // for the most recent (family, variant). This is the demonstration of
+      // learning the user is asked to look at.
+
+      function TestResultsCard({ result }) {
+        if (!result) return null;
+        const {
+          customer_id, train, test,
+        } = result;
+        const fmtPct = n => `${(n * 100).toFixed(1)}%`;
+
+        const trainLLM = train.from_llm, trainParser = train.from_parser;
+        const testLLM = test.from_llm, testParser = test.from_parser;
+        const testLLMPct = test.total_lines ? testLLM / test.total_lines : 0;
+        const testParserPct = test.total_lines ? testParser / test.total_lines : 0;
+        const trainLLMPct = train.total_lines ? trainLLM / train.total_lines : 0;
+        const trainParserPct = train.total_lines ? trainParser / train.total_lines : 0;
+
+        const llmDelta = trainLLMPct - testLLMPct;
+        const parserDelta = testParserPct - trainParserPct;
+
+        return (
+          <div className="bg-white border border-indigo-300 rounded-lg shadow-md p-4 mb-3">
+            <div className="flex items-baseline justify-between mb-3">
+              <div>
+                <div className="text-xs uppercase tracking-widest text-indigo-600 font-semibold">Test Results</div>
+                <div className="mono text-sm text-slate-700">{customer_id}</div>
+              </div>
+              <div className="text-[11px] text-slate-400">
+                trained on {train.total_lines} lines · tested on {test.total_lines} lines
+              </div>
+            </div>
+
+            <div className="grid grid-cols-2 gap-3 mb-3">
+              <div className="bg-emerald-50 border border-emerald-200 rounded p-3">
+                <div className="text-[11px] uppercase tracking-widest text-emerald-700 font-semibold">Parser hit-rate (test)</div>
+                <div className="text-3xl font-bold text-emerald-700 mono">{fmtPct(testParserPct)}</div>
+                <div className="text-[11px] text-slate-500 mt-1">
+                  was {fmtPct(trainParserPct)} on train ·{" "}
+                  <span className={parserDelta >= 0 ? "text-emerald-600" : "text-rose-500"}>
+                    {parserDelta >= 0 ? "+" : ""}{(parserDelta * 100).toFixed(1)} pts
+                  </span>
+                </div>
+                <div className="text-xs mono text-emerald-800 mt-1">{testParser} / {test.total_lines} lines</div>
+              </div>
+              <div className="bg-indigo-50 border border-indigo-200 rounded p-3">
+                <div className="text-[11px] uppercase tracking-widest text-indigo-700 font-semibold">LLM call-rate (test)</div>
+                <div className="text-3xl font-bold text-indigo-700 mono">{fmtPct(testLLMPct)}</div>
+                <div className="text-[11px] text-slate-500 mt-1">
+                  was {fmtPct(trainLLMPct)} on train ·{" "}
+                  <span className={llmDelta >= 0 ? "text-emerald-600" : "text-rose-500"}>
+                    {llmDelta >= 0 ? "−" : "+"}{Math.abs(llmDelta * 100).toFixed(1)} pts
+                  </span>
+                </div>
+                <div className="text-xs mono text-indigo-800 mt-1">{testLLM} / {test.total_lines} lines</div>
+              </div>
+            </div>
+
+            <div className="text-[11px] text-slate-500">
+              {testLLMPct < 0.05 && testParserPct > 0.5
+                ? "✓ Parsers minted during training are doing the work on the test split. Learning confirmed."
+                : testLLMPct > 0.5
+                ? "✗ The LLM is still doing most of the extraction. Parsers haven't been promoted yet — try running train again or check the cluster signatures."
+                : "Partial — some clusters were learned, others still hit the LLM (often the noise tail in chaos/adversarial datasets)."}
+            </div>
+          </div>
+        );
+      }
+
+      /* ── DatasetCard ──────────────────────────────────────────────────────── */
+      // One card per (family, variant). Shows the first line of each split as
+      // a peek, with a click-to-expand accordion that reveals up to 10 lines.
+
+      // Small chip showing a one-line teaser; click to open a full modal.
+      function PreviewChip({ tone, label, lines, onOpen }) {
+        const head = (lines && lines[0]) || "";
+        const colors = {
+          train: { head: "text-amber-600",   bg: "bg-amber-50",   border: "border-amber-200"   },
+          test:  { head: "text-emerald-600", bg: "bg-emerald-50", border: "border-emerald-200" },
+        }[tone];
+        return (
+          <button
+            onClick={onOpen}
+            className={`w-full text-left rounded px-1.5 py-1 border mb-1.5 ${colors.bg} ${colors.border} hover:brightness-95 transition`}
+          >
+            <div className={`text-[9px] uppercase tracking-widest font-semibold mb-0.5 flex items-center justify-between ${colors.head}`}>
+              <span>{label}</span>
+              <span className="normal-case tracking-normal text-[10px] text-slate-400">
+                click · {lines?.length || 0} lines
+              </span>
+            </div>
+            <div className="mono text-[10px] text-slate-700 truncate leading-tight" title={head}>{head}</div>
+          </button>
+        );
+      }
+
+      // Full-screen modal showing the entire log file. Fetches /sample/<name>
+      // on open so the user can scroll the whole train or test split (not just
+      // the chip teaser). ESC or backdrop click closes.
+      function SamplesModal({ open, onClose, title, tone, sampleName, totalLines }) {
+        const [content, setContent] = useState(null);   // string | null
+        const [loading, setLoading] = useState(false);
+        const [err, setErr] = useState(null);
+
+        useEffect(() => {
+          if (!open || !sampleName) return;
+          let cancelled = false;
+          setContent(null); setErr(null); setLoading(true);
+          api(`/sample/${sampleName}`)
+            .then(data => { if (!cancelled) setContent(data.content || ""); })
+            .catch(e => { if (!cancelled) setErr(e.message); })
+            .finally(() => { if (!cancelled) setLoading(false); });
+          return () => { cancelled = true; };
+        }, [open, sampleName]);
+
+        useEffect(() => {
+          if (!open) return;
+          const onKey = e => { if (e.key === "Escape") onClose(); };
+          window.addEventListener("keydown", onKey);
+          return () => window.removeEventListener("keydown", onKey);
+        }, [open, onClose]);
+
+        if (!open) return null;
+        const headColor = tone === "train" ? "text-amber-300" : "text-emerald-300";
+        const lines = content == null ? null : content.split("\n").filter(l => l.length > 0);
+        return (
+          <div
+            className="fixed inset-0 z-50 bg-slate-900/70 flex items-center justify-center p-6"
+            onClick={onClose}
+          >
+            <div
+              className="bg-slate-900 border border-slate-700 rounded-lg shadow-2xl max-w-5xl w-full max-h-[85vh] flex flex-col"
+              onClick={e => e.stopPropagation()}
+            >
+              <div className="flex items-center justify-between px-4 py-2.5 border-b border-slate-700">
+                <div>
+                  <span className={`text-[10px] uppercase tracking-widest font-semibold ${headColor}`}>{tone}</span>
+                  <span className="ml-2 mono text-sm text-slate-200">{title}</span>
+                  <span className="ml-2 text-xs text-slate-400">
+                    · {lines == null ? `${totalLines || "?"} lines` : `${lines.length} lines`}
+                  </span>
+                </div>
+                <button
+                  onClick={onClose}
+                  className="text-slate-400 hover:text-slate-200 text-sm"
+                  title="Close (Esc)"
+                >✕</button>
+              </div>
+              <div className="overflow-auto p-3 flex-1">
+                {loading && (
+                  <div className="text-slate-400 text-xs animate-pulse">loading {totalLines || "?"} lines…</div>
+                )}
+                {err && (
+                  <div className="text-rose-400 text-xs mono">error: {err}</div>
+                )}
+                {!loading && !err && lines && (
+                  <div className="mono text-xs text-slate-100 space-y-0.5 leading-relaxed">
+                    {lines.map((l, i) => (
+                      <div key={i} className="flex gap-3">
+                        <span className="text-slate-500 select-none w-12 text-right shrink-0">{i + 1}</span>
+                        <span className="whitespace-pre-wrap break-all">{l}</span>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+              <div className="px-4 py-2 border-t border-slate-700 text-[11px] text-slate-500 flex justify-between">
+                <span>Press Esc or click outside to close</span>
+                <span className="mono">full file</span>
+              </div>
+            </div>
+          </div>
+        );
+      }
+
+      function DatasetCard({ ds, isActive, hasTrain, busy, onTrain, onTest, onOpenPreview }) {
+        // Default-collapsed so all 8 cards fit in a single compact row. Click
+        // the header to expand and see the train/test preview + run buttons.
+        // Active (most recently used) cards auto-expand for visibility.
+        const [open, setOpen] = useState(false);
+        useEffect(() => { if (isActive) setOpen(true); }, [isActive]);
+
+        return (
+          <div className={`border rounded text-xs transition-colors ${
+            isActive ? "border-indigo-400 bg-indigo-50" : "border-slate-200 bg-white"
+          }`}>
+            <button
+              onClick={() => setOpen(o => !o)}
+              className="w-full flex items-center gap-2 px-2.5 py-2 hover:bg-slate-50/60 transition-colors text-left"
+            >
+              <span className="text-[10px] text-slate-400 select-none w-3">{open ? "▼" : "▶"}</span>
+              <span className="font-semibold text-slate-800 mono">{ds.customer_id}</span>
+              <span className="text-[10px] text-slate-400 uppercase">{ds.family} v{ds.variant}</span>
+              <span className="ml-auto text-[10px] text-slate-400 mono">
+                {ds.train.line_count}/{ds.test.line_count}L
+              </span>
+              {hasTrain && <span className="text-[10px] text-emerald-600">✓</span>}
+            </button>
+
+            {open && (
+              <div className="px-2.5 pb-2.5 pt-0.5 border-t border-slate-200/60">
+                <div className="text-[11px] text-slate-500 mb-1.5 mono">
+                  train {ds.train.line_count}L · test {ds.test.line_count}L
+                </div>
+                <PreviewChip tone="train" label="train sample" lines={ds.train.preview}
+                  onOpen={() => onOpenPreview("train", ds)} />
+                <PreviewChip tone="test"  label="test sample"  lines={ds.test.preview}
+                  onOpen={() => onOpenPreview("test",  ds)} />
+                <div className="flex gap-1.5 mt-2">
+                  <button
+                    onClick={onTrain}
+                    disabled={busy}
+                    title="Cold start: clears this customer's parser library, then trains."
+                    className="flex-1 bg-amber-500 hover:bg-amber-600 text-white text-[11px] font-semibold rounded px-2 py-1 disabled:opacity-50 transition-colors"
+                  >
+                    Run Train
+                  </button>
+                  <button
+                    onClick={onTest}
+                    disabled={busy || !hasTrain}
+                    title={hasTrain ? "Run test split using the just-trained parsers" : "Run train first"}
+                    className="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white text-[11px] font-semibold rounded px-2 py-1 disabled:opacity-30 transition-colors"
+                  >
+                    Run Test
+                  </button>
+                </div>
+              </div>
+            )}
+          </div>
+        );
+      }
+
+      /* ── App ──────────────────────────────────────────────────────────────── */
+
+      function App() {
+        const [samples, setSamples] = useState([]);
+        const [datasets, setDatasets] = useState([]);
+        const [selected, setSelected] = useState(null);  // legacy single-sample name
+        const [activeDataset, setActiveDataset] = useState(null);  // {family, variant, customer_id, train, test}
+        const [customerId, setCustomerId] = useState("acme");
+        const [mode, setMode] = useState("dataset");  // "dataset" | "single"
+        const [singleLine, setSingleLine] = useState("");
+
+        const [feed, setFeed] = useState([]);
+        const [newestKey, setNewestKey] = useState(null);
+        const [runStats, setRunStats] = useState(null);
+        const [liveStats, setLiveStats] = useState(null);
+        const [busy, setBusy] = useState(false);
+        const [error, setError] = useState(null);
+        const [phaseLabel, setPhaseLabel] = useState(null);  // "train" | "test" | null
+        const [testResult, setTestResult] = useState(null);  // {customer_id, train, test} for callout
+        const [trainStatsByCust, setTrainStatsByCust] = useState({});  // last train run keyed by customer_id
+        const [previewModal, setPreviewModal] = useState(null);  // {tone, ds} | null
+
+        const feedRef = useRef(null);
+        const shouldFollow = useRef(true);
+        const keyCounter = useRef(0);
+
+        useEffect(() => {
+          const el = feedRef.current;
+          if (!el || !shouldFollow.current) return;
+          el.scrollTop = el.scrollHeight;
+        }, [feed]);
+
+        const handleScroll = () => {
+          const el = feedRef.current;
+          if (!el) return;
+          shouldFollow.current = el.scrollHeight - el.scrollTop - el.clientHeight < 80;
+        };
+
+        useEffect(() => {
+          api("/samples").then(setSamples).catch(e => setError(e.message));
+          api("/datasets").then(d => {
+            setDatasets(d);
+            if (d.length) {
+              setActiveDataset(d[0]);
+              setCustomerId(d[0].customer_id);
+            }
+          }).catch(e => setError(e.message));
+        }, []);
+
+        const switchMode = newMode => {
+          if (newMode === mode) return;
+          setMode(newMode);
+          setFeed([]);
+          setRunStats(null);
+          setLiveStats(null);
+          setTestResult(null);
+          setPhaseLabel(null);
+        };
+
+        const clearAll = () => {
+          setFeed([]); setRunStats(null); setLiveStats(null);
+          setTestResult(null); setPhaseLabel(null);
+        };
+
+        /* core streaming — body is merged with customer_id. Returns the final
+         * "done" stats event (or null if nothing came back). */
+        const doStream = async (body, resetFeed, opts = {}) => {
+          const { customer = customerId, phase = null } = opts;
+          setBusy(true);
+          setError(null);
+          if (resetFeed) {
+            setFeed([]);
+            setRunStats(null);
+            setLiveStats({ total: 0, llm: 0, parser: 0, quarantined: 0 });
+          }
+          if (phase) setPhaseLabel(phase);
+          shouldFollow.current = true;
+
+          let doneEvt = null;
+          try {
+            const res = await fetch("/process/stream", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ customer_id: customer, ...body }),
+            });
+            if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
+
+            const reader = res.body.getReader();
+            const dec = new TextDecoder();
+            let buf = "";
+
+            while (true) {
+              const { done, value } = await reader.read();
+              if (done) break;
+              buf += dec.decode(value, { stream: true });
+              const parts = buf.split("\n\n");
+              buf = parts.pop();
+              for (const part of parts) {
+                if (!part.startsWith("data: ")) continue;
+                let evt;
+                try { evt = JSON.parse(part.slice(6)); } catch { continue; }
+
+                if (evt.type === "done") {
+                  doneEvt = evt;
+                  if (resetFeed) setRunStats(evt);
+                } else {
+                  const key = ++keyCounter.current;
+                  evt._key = key;
+                  setNewestKey(key);
+                  setFeed(prev => [...prev, evt]);
+                  setLiveStats(prev => ({
+                    total:      (prev?.total      ?? 0) + 1,
+                    llm:        (prev?.llm        ?? 0) + (evt.source === "llm"        ? 1 : 0),
+                    parser:     (prev?.parser     ?? 0) + (evt.source === "parser"     ? 1 : 0),
+                    quarantined:(prev?.quarantined ?? 0) + (evt.source === "quarantine" ? 1 : 0),
+                  }));
+                }
+              }
+            }
+          } catch (e) {
+            setError(e.message);
+          } finally {
+            setBusy(false);
+          }
+          return doneEvt;
+        };
+
+        /* Run TRAIN file for the active dataset. Resets the customer's parser
+         * library *first* so each train pass is a true cold-start — otherwise
+         * a second click would silently reuse parsers from the first pass and
+         * the LLM call-rate would be 0% for what looked like a fresh training
+         * run. Stashes the resulting stats so the subsequent test run can
+         * compute deltas. */
+        const runTrain = async (ds) => {
+          if (busy || !ds) return;
+          setActiveDataset(ds);
+          setCustomerId(ds.customer_id);
+          setTestResult(null);  // any old test card is no longer relevant
+          try {
+            await api(`/reset/${ds.customer_id}`, { method: "POST" });
+          } catch (_) { /* best-effort cold-start */ }
+          setTrainStatsByCust(prev => {
+            const next = { ...prev };
+            delete next[ds.customer_id];
+            return next;
+          });
+          const evt = await doStream({ path: ds.train.path }, true,
+            { customer: ds.customer_id, phase: "train" });
+          if (evt) {
+            setTrainStatsByCust(prev => ({ ...prev, [ds.customer_id]: evt }));
+          }
+        };
+
+        /* Run TEST file for the active dataset. Builds the test-results card
+         * by combining the most recent train stats for the same customer. */
+        const runTest = async (ds) => {
+          if (busy || !ds) return;
+          setActiveDataset(ds);
+          setCustomerId(ds.customer_id);
+          const evt = await doStream({ path: ds.test.path }, true,
+            { customer: ds.customer_id, phase: "test" });
+          if (evt) {
+            const trainEvt = trainStatsByCust[ds.customer_id];
+            if (trainEvt) {
+              setTestResult({
+                customer_id: ds.customer_id,
+                train: trainEvt,
+                test: evt,
+              });
+            }
+          }
+        };
+
+        const processLine = () => {
+          if (!singleLine.trim() || busy) return;
+          doStream({ lines: [singleLine] }, false);
+        };
+
+        const handleSingleKey = e => {
+          if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); processLine(); }
+        };
+
+        const resetCustomer = async () => {
+          if (busy) return;
+          setBusy(true); setError(null);
+          try {
+            await api(`/reset/${customerId}`, { method: "POST" });
+            // Drop any stored train stats for this customer too — otherwise a
+            // subsequent test would compare against stale state.
+            setTrainStatsByCust(prev => {
+              const next = { ...prev };
+              delete next[customerId];
+              return next;
+            });
+            clearAll();
+          } catch (e) { setError(e.message); }
+          finally { setBusy(false); }
+        };
+
+        const loadSampleLine = async name => {
+          try {
+            const data = await api(`/sample/${name}`);
+            const lines = (data.content || "").split("\n").filter(l => l.trim());
+            if (lines.length) setSingleLine(lines[0]);
+          } catch {}
+        };
+
+        const stats = runStats || liveStats;
+        const isDone = !!runStats;
+
+        return (
+          <div className="h-screen flex flex-col">
+
+            {/* ── Top bar ── */}
+            <div className="bg-white border-b border-slate-200 px-4 py-2 flex items-center gap-3 flex-shrink-0 flex-wrap">
+              <span className="font-bold text-sm text-slate-700 mr-1">Event Parser</span>
+
+              {/* Mode switcher */}
+              <div className="flex rounded border border-slate-200 text-xs overflow-hidden">
+                {[["dataset", "Datasets"], ["single", "Single Line"]].map(([val, label]) => (
+                  <button
+                    key={val}
+                    onClick={() => switchMode(val)}
+                    className={`px-3 py-1.5 font-medium transition-colors border-l first:border-l-0 border-slate-200
+                      ${mode === val ? "bg-indigo-600 text-white" : "bg-white text-slate-600 hover:bg-slate-50"}`}
+                  >
+                    {label}
+                  </button>
+                ))}
+              </div>
+
+              <div className="w-px h-5 bg-slate-200"/>
+
+              <label className="flex items-center gap-1.5 text-xs text-slate-500">
+                Customer
+                <input
+                  value={customerId}
+                  onChange={e => setCustomerId(e.target.value)}
+                  className="mono border border-slate-200 rounded px-2 py-1 text-xs w-28 text-slate-800"
+                  placeholder="customer_id"
+                />
+              </label>
+
+              {phaseLabel && (
+                <span className={`text-[10px] font-semibold uppercase tracking-widest px-2 py-0.5 rounded ${
+                  phaseLabel === "train" ? "bg-amber-100 text-amber-700" : "bg-emerald-100 text-emerald-700"
+                }`}>
+                  {phaseLabel}
+                </span>
+              )}
+
+              <div className="flex gap-1.5 ml-auto">
+                {feed.length > 0 && !busy && (
+                  <button
+                    onClick={clearAll}
+                    className="border border-slate-200 hover:bg-slate-50 text-slate-500 text-xs rounded px-2.5 py-1.5 transition-colors"
+                  >
+                    Clear feed
+                  </button>
+                )}
+                <button
+                  onClick={resetCustomer}
+                  disabled={busy}
+                  className="border border-slate-300 hover:bg-slate-50 text-slate-600 text-xs rounded px-2.5 py-1.5 disabled:opacity-50 transition-colors"
+                >
+                  Reset state
+                </button>
+              </div>
+            </div>
+
+            {/* ── Dataset cards ── */}
+            {mode === "dataset" && (
+              <div className="bg-white border-b border-slate-200 px-4 py-3 flex-shrink-0">
+                <div className="text-xs text-slate-500 mb-2">
+                  Each card is a (family, variant). <strong className="text-slate-700">Run Train</strong> first
+                  to mint parsers from LLM output (cold start — clears prior state), then{" "}
+                  <strong className="text-slate-700">Run Test</strong> on fresh lines from the same dialect —
+                  the parser hit-rate jump on test is the proof of learning.
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-2">
+                  {datasets.map(ds => (
+                    <DatasetCard
+                      key={ds.customer_id}
+                      ds={ds}
+                      isActive={activeDataset && activeDataset.customer_id === ds.customer_id}
+                      hasTrain={!!trainStatsByCust[ds.customer_id]}
+                      busy={busy}
+                      onTrain={() => runTrain(ds)}
+                      onTest={() => runTest(ds)}
+                      onOpenPreview={(tone, ds) => setPreviewModal({ tone, ds })}
+                    />
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* ── Single line panel ── */}
+            {mode === "single" && (
+              <div className="bg-white border-b border-slate-200 px-4 py-3 flex-shrink-0">
+                <div className="text-xs text-slate-500 mb-1.5">
+                  Paste a log line and press{" "}
+                  <kbd className="bg-slate-100 border border-slate-300 rounded px-1 py-0.5 mono text-[10px]">Enter</kbd>
+                  {" "}to process one at a time · Shift+Enter for newline
+                </div>
+                <div className="flex gap-2 max-w-5xl">
+                  <textarea
+                    value={singleLine}
+                    onChange={e => setSingleLine(e.target.value)}
+                    onKeyDown={handleSingleKey}
+                    rows={2}
+                    spellCheck={false}
+                    className="mono flex-1 border border-slate-300 rounded px-2.5 py-2 text-xs resize-none focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent placeholder-slate-300 text-slate-700 leading-relaxed"
+                    placeholder="2025-01-15T10:23:45Z INFO action=click user=u123 product=prod_456 session=s_abc"
+                  />
+                  <button
+                    onClick={processLine}
+                    disabled={busy || !singleLine.trim()}
+                    className="bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-semibold rounded px-4 py-2 disabled:opacity-50 transition-colors self-start"
+                  >
+                    {busy ? "…" : "Process"}
+                  </button>
+                </div>
+                {samples.length > 0 && (
+                  <div className="mt-2 flex items-center gap-2 text-[11px] text-slate-400">
+                    <span>Load example from:</span>
+                    {samples.map(s => (
+                      <button
+                        key={s.name}
+                        onClick={() => loadSampleLine(s.name)}
+                        className="underline hover:text-indigo-500 transition-colors"
+                      >
+                        {s.name}
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
+            )}
+
+            {error && (
+              <div className="bg-rose-50 border-b border-rose-200 text-rose-700 px-4 py-2 text-xs flex-shrink-0">
+                {error}
+              </div>
+            )}
+
+            {/* ── Stats bar ── */}
+            <StatsBar stats={stats} busy={busy} isDone={isDone} />
+
+            {/* ── Feed ── */}
+            <div
+              ref={feedRef}
+              onScroll={handleScroll}
+              className="flex-1 overflow-auto bg-slate-100 p-3"
+            >
+              {/* Test-results callout — pinned at the top of the feed when present. */}
+              <TestResultsCard result={testResult} />
+
+              {feed.length === 0 && !busy && !testResult && (
+                <div className="text-center text-slate-400 text-sm mt-24">
+                  {mode === "dataset"
+                    ? <>Pick a dataset above and click <strong className="text-amber-600">Run Train</strong>, then <strong className="text-emerald-600">Run Test</strong></>
+                    : <>Paste a log line above and press <strong className="text-slate-600">Enter</strong></>}
+                </div>
+              )}
+
+              {feed.map((entry, idx) => (
+                <FeedEntry
+                  key={entry._key}
+                  entry={entry}
+                  displayN={idx + 1}
+                  isNew={entry._key === newestKey}
+                />
+              ))}
+
+              {busy && (
+                <div className="mono text-xs text-slate-400 flex items-center gap-2 px-3 py-2">
+                  <span className="animate-pulse inline-block w-1.5 h-1.5 rounded-full bg-slate-400"/>
+                  processing…
+                </div>
+              )}
+            </div>
+
+            <SamplesModal
+              open={!!previewModal}
+              onClose={() => setPreviewModal(null)}
+              tone={previewModal?.tone}
+              title={previewModal ? `${previewModal.ds.customer_id} · ${previewModal.tone}` : ""}
+              sampleName={previewModal ? previewModal.ds[previewModal.tone].name : null}
+              totalLines={previewModal ? previewModal.ds[previewModal.tone].line_count : 0}
+            />
+
+            {/* ── Legend ── */}
+            <div className="bg-white border-t border-slate-200 px-4 py-1.5 flex flex-wrap items-center gap-4 text-[11px] text-slate-500 flex-shrink-0">
+              {[
+                ["bg-indigo-500",  "LLM — new extraction"],
+                ["bg-emerald-500", "parser / shadow — observing"],
+                ["bg-amber-400",   "parser / canary — learning"],
+                ["bg-emerald-300", "parser / active — validated"],
+                ["bg-rose-500",    "quarantine"],
+              ].map(([color, label]) => (
+                <span key={label} className="inline-flex items-center gap-1.5">
+                  <span className={`inline-block w-2 h-2 rounded-sm ${color}`}/>
+                  {label}
+                </span>
+              ))}
+            </div>
+
+          </div>
+        );
+      }
+
+      ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+    </script>
+  </body>
+</html>

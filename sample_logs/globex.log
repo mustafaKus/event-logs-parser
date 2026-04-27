@@ -1,0 +1,12 @@
+2025-01-15 11:00:00 app[web.1] {"event":"product_view","uid":"user-789","pid":"sku-001"}
+2025-01-15 11:00:01 app[web.1] {"event":"product_view","uid":"user-790","pid":"sku-002"}
+2025-01-15 11:00:02 app[web.1] {"event":"product_view","uid":"user-791","pid":"sku-003"}
+2025-01-15 11:00:03 app[web.1] {"event":"product_view","uid":"user-792","pid":"sku-004"}
+2025-01-15 11:00:05 app[web.1] {"event":"cart_add","uid":"user-789","pid":"sku-001","qty":1}
+2025-01-15 11:00:06 app[web.1] {"event":"cart_add","uid":"user-790","pid":"sku-002","qty":2}
+2025-01-15 11:00:07 app[web.1] {"event":"cart_add","uid":"user-793","pid":"sku-005","qty":1}
+2025-01-15 11:00:10 app[web.1] {"event":"checkout_complete","uid":"user-789","order":"ord-42","total":"99.99","currency":"USD"}
+2025-01-15 11:00:11 app[web.1] {"event":"checkout_complete","uid":"user-794","order":"ord-43","total":"149.50","currency":"USD"}
+2025-01-15 11:00:12 app[web.1] {"event":"page_view","path":"/about"}
+2025-01-15 11:00:13 app[web.1] heartbeat ok
+2025-01-15 11:00:14 app[web.1] {"event":"click","uid":"user-795","pid":"sku-010"}

@@ -1,0 +1,240 @@
+kernel: TCP: time wait bucket table overflow
+2026-04-25 00:36:44 app[web.4] {"event": "Click", "customerId": "user-1816", "sku": "sku-2359"}
+2026-04-25 00:36:45 app[web.4] {"event": "CheckoutComplete", "customerId": "user-4887", "orderNumber": "ord-65024", "amount": "392.34", "currency": "GBP"}
+2026-04-25 00:36:52 app[web.2] {"event": "ProductViewed", "customerId": "user-8128", "sku": "sku-6224"}
+2026-04-25 00:36:55 app[web.3] {"event": "CheckoutComplete", "customerId": "user-604", "orderNumber": "ord-28894", "amount": "399.33", "currency": "EUR"}
+2026-04-25 00:36:57 app[web.2] {"event": "CheckoutComplete", "customerId": "user-631", "orderNumber": "ord-25486", "amount": "373.39", "currency": "EUR"}
+2026-04-25 00:37:00 app[web.5] {"event": "CheckoutComplete", "customerId": "user-7039", "orderNumber": "ord-87103", "amount": "109.79", "currency": "GBP"}
+POST /healthz HTTP/1.1 502 423ms bytes=69437
+2026-04-25 00:37:07 app[web.5] {"event": "AddToCart", "customerId": "user-8047", "sku": "sku-4697", "quantity": 4}
+   
+2026-04-25 00:37:19 app[web.4] {"event": "CheckoutComplete", "customerId": "user-7461", "orderNumber": "ord-89745", "amount": "391.95", "currency": "USD"}
+2026-04-25 00:37:24 app[web.3] {"event": "AddToCart", "customerId": "user-2791", "sku": "sku-9052", "quantity": 1}
+    raise ValueError('invalid state')
+ERROR unhandled exception in handler
+2026-04-25 00:37:33 app[web.2] {"event": "AddToCart", "customerId": "user-1557", "sku": "sku-458", "quantity": 1}
+    raise ValueError('invalid state')
+2026-04-25 00:37:40 app[web.1] {"event": "RemoveFromCart", "customerId": "user-7385", "sku": "sku-6365"}
+2026-04-25 00:37:44 app[web.4] {"event": "ProductViewed", "customerId": "user-3494", "sku": "sku-8389"}
+2026-04-25 00:37:49 app[web.5] {"event": "Click", "customerId": "user-9911", "sku": "sku-472"}
+2026-04-25 00:37:50 app[web.4] {"event": "ProductViewed", "customerId": "user-1687", "sku": "sku-3824"}
+2026-04-25 00:37:56 app[web.1] {"event": "Click", "customerId": "user-5208", "sku": "sku-5928"}
+ERROR unhandled exception in handler
+2026-04-25 00:38:08 app[web.5] {"event": "Click", "customerId": "user-6396", "sku": "sku-5810"}
+2026-04-25 00:38:15 app[web.4] {"event": "Click", "customerId": "user-7666", "sku": "sku-3931"}
+2026-04-25 00:38:19 app[web.2] {"event": "RemoveFromCart", "customerId": "user-3894", "sku": "sku-6661"}
+2026-04-25 00:38:20 app[web.3] {"event": "AddToCart", "customerId": "user-6291", "sku": "sku-4282", "quantity": 1}
+2026-04-25 00:38:26 app[web.2] {"event": "ProductViewed", "customerId": "user-3806", "sku": "sku-6274"}
+2026-04-25 00:38:26 app[web.1] {"event": "RemoveFromCart", "customerId": "user-4288", "sku": "sku-6837"}
+2026-04-25 00:38:31 app[web.3] {"event": "CheckoutComplete", "customerId": "user-2725", "orderNumber": "ord-10667", "amount": "190.60", "currency": "GBP"}
+2026-04-25 00:38:35 app[web.4] {"event": "ProductViewed", "customerId": "user-2207", "sku": "sku-4695"}
+2026-04-25 00:38:37 app[web.1] {"event": "ProductViewed", "customerId": "user-8164", "sku": "sku-2162"}
+2026-04-25 00:38:39 app[web.5] {"event": "Click", "customerId": "user-1553", "sku": "sku-7627"}
+2026-04-25 00:38:46 app[web.3] {"event": "RemoveFromCart", "customerId": "user-8750", "sku": "sku-994"}
+2026-04-25 00:38:49 app[web.4] {"event": "RemoveFromCart", "customerId": "user-347", "sku": "sku-8218"}
+2026-04-25 00:38:50 app[web.1] {"event": "CheckoutComplete", "customerId": "user-2849", "orderNumber": "ord-96874", "amount": "85.13", "currency": "USD"}
+2026-04-25 00:38:52 app[web.5] {"event": "CheckoutComplete", "customerId": "user-3123", "orderNumber": "ord-57756", "amount": "142.59", "currency": "USD"}
+2026-04-25 00:38:58 app[web.2] {"event": "ProductViewed", "customerId": "user-9925", "sku": "sku-6477"}
+2026-04-25 00:39:05 app[web.5] {"event": "Click", "customerId": "user-5996", "sku": "sku-7781"}
+2026-04-25 00:39:12 app[web.2] {"event": "ProductViewed", "customerId": "user-7833", "sku": "sku-3588"}
+feature_flag xenzwlabvp rollout=11%
+2026-04-25 00:39:23 app[web.1] {"event": "Click", "customerId": "user-210", "sku": "sku-5885"}
+tail -f /var/log/app.log
+2026-04-25 00:39:35 app[web.4] {"event": "RemoveFromCart", "customerId": "user-4560", "sku": "sku-1381"}
+kernel: TCP: time wait bucket table overflow
+2026-04-25 00:39:38 app[web.3] {"event": "Click", "customerId": "user-7435", "sku": "sku-9774"}
+2026-04-25 00:39:42 app[web.5] {"event": "Click", "customerId": "user-6782", "sku": "sku-3442"}
+DELETE /api/v1/orders/81193 HTTP/1.1 401 963ms
+2026-04-25 00:39:46 app[web.4] {"event": "Click", "customerId": "user-7812", "sku": "sku-3641"}
+2026-04-25 00:39:48 app[web.5] {"event": "ProductViewed", "customerId": "user-7862", "sku": "sku-7870"}
+2026-04-25 00:39:50 app[web.2] {"event": "CheckoutComplete", "customerId": "user-5953", "orderNumber": "ord-58528", "amount": "389.33", "currency": "EUR"}
+2026-04-25 00:39:53 app[web.4] {"event": "Click", "customerId": "user-8943", "sku": "sku-278"}
+2026-04-25 00:39:54 app[web.5] {"event": "RemoveFromCart", "customerId": "user-5575", "sku": "sku-6730"}
+2026-04-25 00:39:54 app[web.2] {"event": "RemoveFromCart", "customerId": "user-3311", "sku": "sku-6556"}
+2026-04-25 00:39:55 app[web.5] {"event": "RemoveFromCart", "customerId": "user-7918", "sku": "sku-1056"}
+stuck in retry loop attempt=88530
+2026-04-25 00:40:05 app[web.3] {"event": "ProductViewed", "customerId": "user-5311", "sku": "sku-6634"}
+2026-04-25 00:40:09 app[web.5] {"event": "ProductViewed", "customerId": "user-9164", "sku": "sku-1937"}
+<142>Jan 15 10:23:45 host-01 cron[16345]: (root) CMD (run-parts /etc/cron.hourly)
+2026-04-25 00:40:18 app[web.1] {"event": "CheckoutComplete", "customerId": "user-8301", "orderNumber": "ord-65919", "amount": "202.35", "currency": "USD"}
+2026-04-25 00:40:24 app[web.1] {"event": "RemoveFromCart", "customerId": "user-2337", "sku": "sku-115"}
+2026-04-25 00:40:31 app[web.3] {"event": "AddToCart", "customerId": "user-6847", "sku": "sku-7800", "quantity": 2}
+2026-04-25 00:40:32 app[web.5] {"event": "CheckoutComplete", "customerId": "user-3704", "orderNumber": "ord-39468", "amount": "428.52", "currency": "USD"}
+2026-04-25 00:40:33 app[web.1] {"event": "Click", "customerId": "user-6489", "sku": "sku-1785"}
+2026-04-25 00:40:34 app[web.1] {"event": "CheckoutComplete", "customerId": "user-6019", "orderNumber": "ord-79696", "amount": "85.00", "currency": "USD"}
+2026-04-25 00:40:40 app[web.4] {"event": "AddToCart", "customerId": "user-1279", "sku": "sku-7274", "quantity": 3}
+2026-04-25 00:40:46 app[web.2] {"event": "Click", "customerId": "user-5820", "sku": "sku-8133"}
+2026-04-25 00:40:53 app[web.2] {"event": "AddToCart", "customerId": "user-8876", "sku": "sku-2884", "quantity": 4}
+KeyError: 'product_112f74' not present in context
+2026-04-25 00:41:06 app[web.1] {"event": "ProductViewed", "customerId": "user-6510", "sku": "sku-6386"}
+2026-04-25 00:41:08 app[web.5] {"event": "AddToCart", "customerId": "user-309", "sku": "sku-4834", "quantity": 1}
+2026-04-25 00:41:14 app[web.2] {"event": "ProductViewed", "customerId": "user-81", "sku": "sku-4977"}
+2026-04-25 00:41:22 app[web.4] {"event": "AddToCart", "customerId": "user-1250", "sku": "sku-2292", "quantity": 5}
+2026-04-25 00:41:27 app[web.2] {"event": "ProductViewed", "customerId": "user-2866", "sku": "sku-7529"}
+2026-04-25 00:41:32 app[web.2] {"event": "RemoveFromCart", "customerId": "user-2868", "sku": "sku-1890"}
+2026-04-25 00:41:36 app[web.5] {"event": "CheckoutComplete", "customerId": "user-5324", "orderNumber": "ord-33843", "amount": "149.86", "currency": "EUR"}
+2026-04-25 00:41:40 app[web.2] {"event": "AddToCart", "customerId": "user-7505", "sku": "sku-7295", "quantity": 1}
+2026-04-25 00:41:46 app[web.3] {"event": "ProductViewed", "customerId": "user-6997", "sku": "sku-8601"}
+2026-04-25 00:41:52 app[web.2] {"event": "RemoveFromCart", "customerId": "user-7175", "sku": "sku-4650"}
+2026-04-25 00:41:57 app[web.4] {"event": "AddToCart", "customerId": "user-900", "sku": "sku-8731", "quantity": 4}
+2026-04-25 00:42:02 app[web.3] {"event": "Click", "customerId": "user-4431", "sku": "sku-1760"}
+2026-04-25 00:42:06 app[web.4] {"event": "ProductViewed", "customerId": "user-9876", "sku": "sku-7634"}
+2026-04-25 00:42:07 app[web.1] {"event": "ProductViewed", "customerId": "user-8021", "sku": "sku-4571"}
+2026-04-25 00:42:11 app[web.4] {"event": "ProductViewed", "customerId": "user-1218", "sku": "sku-5086"}
+2026-04-25 00:42:17 app[web.3] {"event": "CheckoutComplete", "customerId": "user-2031", "orderNumber": "ord-52499", "amount": "300.55", "currency": "USD"}
+2026-04-25 00:42:18 app[web.3] {"event": "CheckoutComplete", "customerId": "user-284", "orderNumber": "ord-56816", "amount": "380.09", "currency": "EUR"}
+2026-04-25 00:42:23 app[web.5] {"event": "AddToCart", "customerId": "user-6767", "sku": "sku-2432", "quantity": 1}
+2026-04-25 00:42:29 app[web.1] {"event": "ProductViewed", "customerId": "user-524", "sku": "sku-8395"}
+2026-04-25 00:42:34 app[web.5] {"event": "RemoveFromCart", "customerId": "user-5905", "sku": "sku-474"}
+reloading config from /etc/app/config.yaml
+sending metric latency_ms=1242
+2026-04-25 00:42:40 app[web.2] {"event": "RemoveFromCart", "customerId": "user-4097", "sku": "sku-8574"}
+2026-04-25 00:42:48 app[web.2] {"event": "Click", "customerId": "user-1924", "sku": "sku-8596"}
+2026-04-25 00:42:55 app[web.3] {"event": "ProductViewed", "customerId": "user-757", "sku": "sku-7659"}
+stuck in retry loop attempt=90446
+2026-04-25 00:43:08 app[web.4] {"event": "Click", "customerId": "user-7518", "sku": "sku-604"}
+2026-04-25 00:43:08 app[web.3] {"event": "RemoveFromCart", "customerId": "user-747", "sku": "sku-5357"}
+2026-04-25 00:43:09 app[web.5] {"event": "RemoveFromCart", "customerId": "user-3017", "sku": "sku-382"}
+2026-04-25 00:43:12 app[web.5] {"event": "Click", "customerId": "user-7253", "sku": "sku-3463"}
+2026-04-25 00:43:14 app[web.5] {"event": "ProductViewed", "customerId": "user-837", "sku": "sku-9252"}
+2026-04-25 00:43:19 app[web.5] {"event": "CheckoutComplete", "customerId": "user-5427", "orderNumber": "ord-68320", "amount": "156.85", "currency": "GBP"}
+2026-04-25 00:43:24 app[web.3] {"event": "CheckoutComplete", "customerId": "user-3190", "orderNumber": "ord-63376", "amount": "100.61", "currency": "GBP"}
+systemd[1]: app.service: main process exited, code=exited
+2026-04-25 00:43:35 app[web.2] {"event": "RemoveFromCart", "customerId": "user-3803", "sku": "sku-2677"}
+2026-04-25 00:43:39 app[web.4] {"event": "RemoveFromCart", "customerId": "user-2792", "sku": "sku-5194"}
+2026-04-25 00:43:40 app[web.4] {"event": "ProductViewed", "customerId": "user-9274", "sku": "sku-184"}
+2026-04-25 00:43:46 app[web.1] {"event": "ProductViewed", "customerId": "user-9471", "sku": "sku-1539"}
+2026-04-25 00:43:53 app[web.3] {"event": "Click", "customerId": "user-2817", "sku": "sku-7031"}
+cache miss for key=token_6ecbe1
+2026-04-25 00:44:01 app[web.3] {"event": "CheckoutComplete", "customerId": "user-9420", "orderNumber": "ord-60871", "amount": "162.78", "currency": "GBP"}
+2026-04-25 00:44:02 app[web.1] {"event": "CheckoutComplete", "customerId": "user-8119", "orderNumber": "ord-97142", "amount": "143.43", "currency": "EUR"}
+2026-04-25 00:44:09 app[web.3] {"event": "ProductViewed", "customerId": "user-3207", "sku": "sku-1291"}
+2026-04-25 00:44:16 app[web.3] {"event": "CheckoutComplete", "customerId": "user-5502", "orderNumber": "ord-15682", "amount": "57.76", "currency": "EUR"}
+2026-04-25 00:44:16 app[web.4] {"event": "CheckoutComplete", "customerId": "user-804", "orderNumber": "ord-42055", "amount": "447.30", "currency": "EUR"}
+heartbeat ok
+2026-04-25 00:44:27 app[web.1] {"event": "ProductViewed", "customerId": "user-7937", "sku": "sku-9149"}
+2026-04-25 00:44:30 app[web.4] {"event": "CheckoutComplete", "customerId": "user-6416", "orderNumber": "ord-23650", "amount": "337.77", "currency": "USD"}
+2026-04-25 00:44:33 app[web.4] {"event": "AddToCart", "customerId": "user-2004", "sku": "sku-3370", "quantity": 5}
+2026-04-25 00:44:39 app[web.4] {"event": "CheckoutComplete", "customerId": "user-2989", "orderNumber": "ord-32312", "amount": "309.18", "currency": "USD"}
+2026-04-25 00:44:42 app[web.1] {"event": "Click", "customerId": "user-2128", "sku": "sku-9752"}
+2026-04-25 00:44:49 app[web.4] {"event": "CheckoutComplete", "customerId": "user-6111", "orderNumber": "ord-88212", "amount": "235.44", "currency": "USD"}
+2026-04-25 00:44:50 app[web.1] {"event": "ProductViewed", "customerId": "user-9468", "sku": "sku-2193"}
+2026-04-25 00:44:56 app[web.1] {"event": "CheckoutComplete", "customerId": "user-471", "orderNumber": "ord-78398", "amount": "390.56", "currency": "GBP"}
+2026-04-25 00:44:58 app[web.3] {"event": "Click", "customerId": "user-6437", "sku": "sku-8651"}
+2026-04-25 00:45:04 app[web.5] {"event": "CheckoutComplete", "customerId": "user-5129", "orderNumber": "ord-2663", "amount": "338.32", "currency": "USD"}
+2026-04-25 00:45:05 app[web.3] {"event": "AddToCart", "customerId": "user-5474", "sku": "sku-7710", "quantity": 4}
+2026-04-25 00:45:11 app[web.1] {"event": "RemoveFromCart", "customerId": "user-7485", "sku": "sku-5477"}
+2026-04-25 00:45:13 app[web.2] {"event": "ProductViewed", "customerId": "user-5153", "sku": "sku-1549"}
+containerd[80682]: starting task
+2026-04-25 00:45:19 app[web.1] {"event": "CheckoutComplete", "customerId": "user-6930", "orderNumber": "ord-64935", "amount": "93.62", "currency": "USD"}
+2026-04-25 00:45:23 app[web.2] {"event": "AddToCart", "customerId": "user-9854", "sku": "sku-2521", "quantity": 2}
+2026-04-25 00:45:24 app[web.3] {"event": "RemoveFromCart", "customerId": "user-7024", "sku": "sku-4408"}
+2026-04-25 00:45:29 app[web.1] {"event": "Click", "customerId": "user-5235", "sku": "sku-2203"}
+2026-04-25 00:45:34 app[web.4] {"event": "Click", "customerId": "user-7366", "sku": "sku-7602"}
+systemd[1]: app.service: main process exited, code=exited
+2026-04-25 00:45:44 app[web.3] {"event": "ProductViewed", "customerId": "user-892", "sku": "sku-1739"}
+2026-04-25 00:45:46 app[web.5] {"event": "Click", "customerId": "user-5772", "sku": "sku-1129"}
+2026-04-25 00:45:49 app[web.2] {"event": "Click", "customerId": "user-2893", "sku": "sku-4607"}
+2026-04-25 00:45:55 app[web.1] {"event": "AddToCart", "customerId": "user-7913", "sku": "sku-2342", "quantity": 4}
+WARN rate_limit_hit tier=free
+2026-04-25 00:45:58 app[web.2] {"event": "ProductViewed", "customerId": "user-5303", "sku": "sku-8383"}
+2026-04-25 00:46:03 app[web.1] {"event": "AddToCart", "customerId": "user-5204", "sku": "sku-5765", "quantity": 5}
+2026-04-25 00:46:09 app[web.4] {"event": "CheckoutComplete", "customerId": "user-5141", "orderNumber": "ord-5256", "amount": "164.19", "currency": "EUR"}
+2026-04-25 00:46:16 app[web.3] {"event": "CheckoutComplete", "customerId": "user-1050", "orderNumber": "ord-96334", "amount": "222.56", "currency": "EUR"}
+2026-04-25 00:46:23 app[web.2] {"event": "Click", "customerId": "user-2087", "sku": "sku-4990"}
+2026-04-25 00:46:29 app[web.2] {"event": "Click", "customerId": "user-1797", "sku": "sku-2984"}
+  File "/app/handlers/twncaezta.py", line 68079, in <module>
+dockerd[20440]: container 23fb39ead1a4a exited with code 0
+2026-04-25 00:46:45 app[web.3] {"event": "Click", "customerId": "user-7873", "sku": "sku-4395"}
+KeyError: 'product_ab9259' not present in context
+starting background job nightly_rollup
+2026-04-25 00:47:03 app[web.4] {"event": "CheckoutComplete", "customerId": "user-1431", "orderNumber": "ord-51550", "amount": "115.38", "currency": "USD"}
+2026-04-25 00:47:04 app[web.4] {"event": "RemoveFromCart", "customerId": "user-2663", "sku": "sku-5768"}
+2026-04-25 00:47:11 app[web.2] {"event": "CheckoutComplete", "customerId": "user-2800", "orderNumber": "ord-75579", "amount": "496.11", "currency": "EUR"}
+2026-04-25 00:47:14 app[web.1] {"event": "ProductViewed", "customerId": "user-8070", "sku": "sku-2254"}
+heartbeat ok
+2026-04-25 00:47:20 app[web.1] {"event": "AddToCart", "customerId": "user-3668", "sku": "sku-9286", "quantity": 3}
+2026-04-25 00:47:23 app[web.1] {"event": "ProductViewed", "customerId": "user-2436", "sku": "sku-4643"}
+2026-04-25 00:47:28 app[web.4] {"event": "CheckoutComplete", "customerId": "user-400", "orderNumber": "ord-55097", "amount": "461.75", "currency": "GBP"}
+2026-04-25 00:47:35 app[web.4] {"event": "CheckoutComplete", "customerId": "user-1596", "orderNumber": "ord-74716", "amount": "56.99", "currency": "GBP"}
+2026-04-25 00:47:38 app[web.2] {"event": "ProductViewed", "customerId": "user-4630", "sku": "sku-2612"}
+2026-04-25 00:47:45 app[web.4] {"event": "CheckoutComplete", "customerId": "user-2115", "orderNumber": "ord-27486", "amount": "397.21", "currency": "USD"}
+2026-04-25 00:47:49 app[web.5] {"event": "RemoveFromCart", "customerId": "user-9116", "sku": "sku-4478"}
+2026-04-25 00:47:54 app[web.5] {"event": "AddToCart", "customerId": "user-4803", "sku": "sku-7074", "quantity": 5}
+2026-04-25 00:47:58 app[web.4] {"event": "ProductViewed", "customerId": "user-6024", "sku": "sku-9313"}
+2026-04-25 00:47:58 app[web.3] {"event": "ProductViewed", "customerId": "user-6173", "sku": "sku-5372"}
+cache hit for key=product_4f87e6
+2026-04-25 00:48:01 app[web.1] {"event": "CheckoutComplete", "customerId": "user-2142", "orderNumber": "ord-63162", "amount": "53.85", "currency": "GBP"}
+2026-04-25 00:48:02 app[web.5] {"event": "ProductViewed", "customerId": "user-6710", "sku": "sku-2683"}
+2026-04-25 00:48:07 app[web.2] {"event": "Click", "customerId": "user-8539", "sku": "sku-7564"}
+ERROR unhandled exception in handler
+
+2026-04-25 00:48:19 app[web.5] {"event": "Click", "customerId": "user-2167", "sku": "sku-5456"}
+2026-04-25 00:48:21 app[web.2] {"event": "RemoveFromCart", "customerId": "user-8714", "sku": "sku-8451"}
+KeyError: 'user_9a83f7' not present in context
+2026-04-25 00:48:22 app[web.1] {"event": "ProductViewed", "customerId": "user-2098", "sku": "sku-4347"}
+2026-04-25 00:48:25 app[web.3] {"event": "ProductViewed", "customerId": "user-6298", "sku": "sku-309"}
+2026-04-25 00:48:26 app[web.1] {"event": "AddToCart", "customerId": "user-8467", "sku": "sku-1032", "quantity": 5}
+2026-04-25 00:48:31 app[web.5] {"event": "CheckoutComplete", "customerId": "user-4664", "orderNumber": "ord-46151", "amount": "82.05", "currency": "GBP"}
+2026-04-25 00:48:35 app[web.1] {"event": "Click", "customerId": "user-2423", "sku": "sku-4005"}
+2026-04-25 00:48:38 app[web.3] {"event": "RemoveFromCart", "customerId": "user-8246", "sku": "sku-5783"}
+email sent to user@example.com subject="welcome"
+POST /metrics HTTP/1.1 200 2156ms bytes=72739
+2026-04-25 00:48:42 app[web.4] {"event": "AddToCart", "customerId": "user-6849", "sku": "sku-4978", "quantity": 1}
+2026-04-25 00:48:48 app[web.3] {"event": "RemoveFromCart", "customerId": "user-5100", "sku": "sku-9460"}
+2026-04-25 00:48:49 app[web.5] {"event": "AddToCart", "customerId": "user-141", "sku": "sku-932", "quantity": 4}
+2026-04-25 00:48:54 app[web.4] {"event": "RemoveFromCart", "customerId": "user-7614", "sku": "sku-552"}
+2026-04-25 00:48:56 app[web.4] {"event": "ProductViewed", "customerId": "user-4708", "sku": "sku-3684"}
+2026-04-25 00:48:58 app[web.2] {"event": "RemoveFromCart", "customerId": "user-5957", "sku": "sku-3809"}
+2026-04-25 00:49:02 app[web.5] {"event": "RemoveFromCart", "customerId": "user-7740", "sku": "sku-1210"}
+2026-04-25 00:49:10 app[web.1] {"event": "ProductViewed", "customerId": "user-1497", "sku": "sku-4045"}
+2026-04-25 00:49:10 app[web.2] {"event": "CheckoutComplete", "customerId": "user-4058", "orderNumber": "ord-54232", "amount": "394.86", "currency": "USD"}
+reloading config from /etc/app/config.yaml
+2026-04-25 00:49:18 app[web.1] {"event": "AddToCart", "customerId": "user-2611", "sku": "sku-8992", "quantity": 2}
+2026-04-25 00:49:24 app[web.1] {"event": "Click", "customerId": "user-2938", "sku": "sku-8967"}
+2026-04-25 00:49:25 app[web.4] {"event": "Click", "customerId": "user-3679", "sku": "sku-5001"}
+2026-04-25 00:49:32 app[web.3] {"event": "ProductViewed", "customerId": "user-5564", "sku": "sku-3801"}
+2026-04-25 00:49:34 app[web.5] {"event": "RemoveFromCart", "customerId": "user-4497", "sku": "sku-8001"}
+2026-04-25 00:49:40 app[web.1] {"event": "Click", "customerId": "user-6194", "sku": "sku-7436"}
+DELETE /metrics HTTP/1.1 404 726ms
+2026-04-25 00:49:48 app[web.3] {"event": "RemoveFromCart", "customerId": "user-2718", "sku": "sku-7887"}
+2026-04-25 00:49:51 app[web.2] {"event": "CheckoutComplete", "customerId": "user-2631", "orderNumber": "ord-56380", "amount": "71.94", "currency": "EUR"}
+2026-04-25 00:49:53 app[web.1] {"event": "RemoveFromCart", "customerId": "user-2434", "sku": "sku-4811"}
+2026-04-25 00:49:54 app[web.2] {"event": "Click", "customerId": "user-6844", "sku": "sku-8067"}
+2026-04-25 00:50:00 app[web.5] {"event": "RemoveFromCart", "customerId": "user-4464", "sku": "sku-8845"}
+2026-04-25 00:50:03 app[web.4] {"event": "AddToCart", "customerId": "user-146", "sku": "sku-5446", "quantity": 1}
+2026-04-25 00:50:06 app[web.5] {"event": "CheckoutComplete", "customerId": "user-6905", "orderNumber": "ord-35506", "amount": "294.62", "currency": "GBP"}
+2026-04-25 00:50:09 app[web.4] {"event": "Click", "customerId": "user-9734", "sku": "sku-7555"}
+2026-04-25 00:50:17 app[web.5] {"event": "Click", "customerId": "user-296", "sku": "sku-4319"}
+2026-04-25 00:50:18 app[web.4] {"event": "ProductViewed", "customerId": "user-348", "sku": "sku-8309"}
+2026-04-25 00:50:18 app[web.4] {"event": "Click", "customerId": "user-3882", "sku": "sku-4844"}
+2026-04-25 00:50:21 app[web.5] {"event": "ProductViewed", "customerId": "user-4438", "sku": "sku-263"}
+2026-04-25 00:50:27 app[web.1] {"event": "CheckoutComplete", "customerId": "user-1031", "orderNumber": "ord-19569", "amount": "166.21", "currency": "EUR"}
+2026-04-25 00:50:33 app[web.3] {"event": "CheckoutComplete", "customerId": "user-5014", "orderNumber": "ord-82071", "amount": "427.16", "currency": "USD"}
+2026-04-25 00:50:37 app[web.2] {"event": "Click", "customerId": "user-6249", "sku": "sku-7411"}
+2026-04-25 00:50:42 app[web.4] {"event": "Click", "customerId": "user-6987", "sku": "sku-6603"}
+2026-04-25 00:50:43 app[web.4] {"event": "ProductViewed", "customerId": "user-17", "sku": "sku-8216"}
+2026-04-25 00:50:48 app[web.3] {"event": "CheckoutComplete", "customerId": "user-9494", "orderNumber": "ord-74320", "amount": "419.84", "currency": "USD"}
+migration 9112 applied successfully
+migration 0148 applied successfully
+2026-04-25 00:50:58 app[web.1] {"event": "ProductViewed", "customerId": "user-2572", "sku": "sku-4503"}
+2026-04-25 00:50:58 app[web.3] {"event": "ProductViewed", "customerId": "user-4802", "sku": "sku-8629"}
+2026-04-25 00:51:02 app[web.3] {"event": "CheckoutComplete", "customerId": "user-5130", "orderNumber": "ord-23204", "amount": "468.85", "currency": "EUR"}
+2026-04-25 00:51:07 app[web.5] {"event": "Click", "customerId": "user-3751", "sku": "sku-4935"}
+2026-04-25 00:51:12 app[web.2] {"event": "CheckoutComplete", "customerId": "user-7103", "orderNumber": "ord-54254", "amount": "280.25", "currency": "USD"}
+2026-04-25 00:51:15 app[web.3] {"event": "Click", "customerId": "user-647", "sku": "sku-928"}
+2026-04-25 00:51:15 app[web.4] {"event": "RemoveFromCart", "customerId": "user-3132", "sku": "sku-6832"}
+2026-04-25 00:51:20 app[web.1] {"event": "RemoveFromCart", "customerId": "user-9160", "sku": "sku-9858"}
+2026-04-25 00:51:26 app[web.5] {"event": "Click", "customerId": "user-1473", "sku": "sku-437"}
+2026-04-25 00:51:27 app[web.2] {"event": "Click", "customerId": "user-1727", "sku": "sku-2375"}
+2026-04-25 00:51:27 app[web.3] {"event": "ProductViewed", "customerId": "user-1694", "sku": "sku-6930"}
+ping=806ms
+2026-04-25 00:51:37 app[web.3] {"event": "AddToCart", "customerId": "user-7204", "sku": "sku-447", "quantity": 1}
+2026-04-25 00:51:38 app[web.3] {"event": "CheckoutComplete", "customerId": "user-7468", "orderNumber": "ord-77945", "amount": "475.33", "currency": "EUR"}
+2026-04-25 00:51:40 app[web.1] {"event": "ProductViewed", "customerId": "user-969", "sku": "sku-6655"}
+2026-04-25 00:51:48 app[web.5] {"event": "RemoveFromCart", "customerId": "user-6833", "sku": "sku-7528"}
+tail -f /var/log/app.log
+2026-04-25 00:51:53 app[web.3] {"event": "CheckoutComplete", "customerId": "user-5683", "orderNumber": "ord-83693", "amount": "465.96", "currency": "GBP"}
+2026-04-25 00:51:57 app[web.5] {"event": "Click", "customerId": "user-5322", "sku": "sku-1257"}
+2026-04-25 00:51:58 app[web.4] {"event": "Click", "customerId": "user-5792", "sku": "sku-7808"}
+2026-04-25 00:51:59 app[web.2] {"event": "Click", "customerId": "user-3273", "sku": "sku-7733"}

@@ -1,0 +1,120 @@
+2026-04-25T00:26:40Z INFO action=view user_id=u1780 product_id=prod_763
+2026-04-25T00:26:42Z INFO action=add_to_cart user_id=u6955 product_id=prod_9544 qty=3
+2026-04-25T00:26:49Z INFO action=click user_id=u1874 product_id=prod_596
+2026-04-25T00:26:57Z INFO action=remove_from_cart user_id=u8139 product_id=prod_1964
+2026-04-25T00:26:58Z INFO action=click user_id=u9629 product_id=prod_6923
+2026-04-25T00:27:02Z INFO action=view user_id=u8942 product_id=prod_348
+2026-04-25T00:27:07Z INFO action=add_to_cart user_id=u2553 product_id=prod_8410 qty=4
+2026-04-25T00:27:08Z INFO action=remove_from_cart user_id=u7699 product_id=prod_923
+2026-04-25T00:27:14Z INFO action=purchase user_id=u8182 order_id=ord-45893 total=288.05 currency=EUR
+2026-04-25T00:27:22Z INFO action=view user_id=u2126 product_id=prod_3733
+2026-04-25T00:27:26Z INFO action=remove_from_cart user_id=u2980 product_id=prod_6789
+2026-04-25T00:27:30Z INFO action=click user_id=u2202 product_id=prod_9762
+2026-04-25T00:27:34Z INFO action=purchase user_id=u2681 order_id=ord-51551 total=342.06 currency=USD
+tail -f /var/log/app.log
+stuck in retry loop attempt=44574
+2026-04-25T00:27:46Z INFO action=add_to_cart user_id=u6704 product_id=prod_5285 qty=5
+2026-04-25T00:27:53Z INFO action=click user_id=u7084 product_id=prod_4381
+2026-04-25T00:28:00Z INFO action=view user_id=u783 product_id=prod_9871
+🚀 deploy finished in 243ms
+2026-04-25T00:28:15Z INFO action=click user_id=u5474 product_id=prod_6633
+2026-04-25T00:28:16Z INFO action=remove_from_cart user_id=u4087 product_id=prod_2557
+2026-04-25T00:28:24Z INFO action=add_to_cart user_id=u6610 product_id=prod_2303 qty=2
+2026-04-25T00:28:30Z INFO action=add_to_cart user_id=u3757 product_id=prod_147 qty=5
+2026-04-25T00:28:33Z INFO action=view user_id=u1169 product_id=prod_330
+50dbf13143e39f869
+2026-04-25T00:28:40Z INFO action=remove_from_cart user_id=u7582 product_id=prod_1571
+2026-04-25T00:28:45Z INFO action=click user_id=u4901 product_id=prod_5209
+2026-04-25T00:28:52Z INFO action=click user_id=u4328 product_id=prod_8120
+kernel: TCP: time wait bucket table overflow
+2026-04-25T00:28:55Z INFO action=view user_id=u3222 product_id=prod_972
+2026-04-25T00:28:57Z INFO action=view user_id=u9349 product_id=prod_2548
+2026-04-25T00:29:01Z INFO action=purchase user_id=u5305 order_id=ord-79594 total=278.47 currency=EUR
+2026-04-25T00:29:01Z INFO action=purchase user_id=u4503 order_id=ord-94214 total=367.82 currency=EUR
+reloading config from /etc/app/config.yaml
+ConnectionResetError: peer reset
+2026-04-25T00:29:15Z INFO action=remove_from_cart user_id=u3247 product_id=prod_8799
+2026-04-25T00:29:15Z INFO action=remove_from_cart user_id=u7266 product_id=prod_3776
+reading file /tmp/4b16ebbcda93e8eca283f327cbb9.bin
+lorem ipsum dolor sit amet consectetur adipiscing elit 95224
+lorem ipsum dolor sit amet consectetur adipiscing elit 63326
+cache hit for key=session_8af166
+2026-04-25T00:29:32Z INFO action=remove_from_cart user_id=u6645 product_id=prod_1328
+2026-04-25T00:29:36Z INFO action=remove_from_cart user_id=u7285 product_id=prod_314
+2026-04-25T00:29:42Z INFO action=view user_id=u3187 product_id=prod_7360
+2026-04-25T00:29:45Z INFO action=add_to_cart user_id=u187 product_id=prod_269 qty=2
+2026-04-25T00:29:50Z INFO action=purchase user_id=u4405 order_id=ord-67042 total=371.08 currency=USD
+tail -f /var/log/app.log
+email sent to user@example.com subject="welcome"
+2026-04-25T00:30:03Z INFO action=click user_id=u2522 product_id=prod_7781
+2026-04-25T00:30:10Z INFO action=view user_id=u1210 product_id=prod_5673
+2026-04-25T00:30:17Z INFO action=view user_id=u414 product_id=prod_611
+2026-04-25T00:30:21Z INFO action=purchase user_id=u5921 order_id=ord-1457 total=94.72 currency=USD
+2026-04-25T00:30:25Z INFO action=click user_id=u5283 product_id=prod_5780
+2026-04-25T00:30:31Z INFO action=click user_id=u7834 product_id=prod_8484
+2026-04-25T00:30:35Z INFO action=add_to_cart user_id=u8460 product_id=prod_4674 qty=1
+2026-04-25T00:30:39Z INFO action=remove_from_cart user_id=u6851 product_id=prod_6218
+Traceback (most recent call last):
+2026-04-25T00:30:49Z INFO action=purchase user_id=u4422 order_id=ord-98582 total=42.89 currency=GBP
+2026-04-25T00:30:53Z INFO action=remove_from_cart user_id=u7622 product_id=prod_509
+2026-04-25T00:30:59Z INFO action=view user_id=u5252 product_id=prod_997
+2026-04-25T00:31:05Z INFO action=view user_id=u2052 product_id=prod_4778
+2026-04-25T00:31:10Z INFO action=add_to_cart user_id=u5018 product_id=prod_2133 qty=2
+2026-04-25T00:31:12Z INFO action=purchase user_id=u484 order_id=ord-97999 total=210.62 currency=EUR
+2026-04-25T00:31:17Z INFO action=add_to_cart user_id=u4030 product_id=prod_6758 qty=1
+2026-04-25T00:31:25Z INFO action=remove_from_cart user_id=u487 product_id=prod_6581
+2026-04-25T00:31:27Z INFO action=add_to_cart user_id=u996 product_id=prod_2400 qty=4
+2026-04-25T00:31:29Z INFO action=add_to_cart user_id=u250 product_id=prod_1545 qty=2
+2026-04-25T00:31:37Z INFO action=remove_from_cart user_id=u9392 product_id=prod_5265
+2026-04-25T00:31:44Z INFO action=click user_id=u1197 product_id=prod_9799
+2026-04-25T00:31:47Z INFO action=view user_id=u4091 product_id=prod_8937
+2026-04-25T00:31:53Z INFO action=add_to_cart user_id=u3548 product_id=prod_4633 qty=1
+2026-04-25T00:31:53Z INFO action=view user_id=u5281 product_id=prod_8318
+2026-04-25T00:31:56Z INFO action=purchase user_id=u498 order_id=ord-53314 total=199.42 currency=USD
+2026-04-25T00:32:04Z INFO action=purchase user_id=u1835 order_id=ord-34712 total=332.87 currency=GBP
+2026-04-25T00:32:08Z INFO action=click user_id=u1986 product_id=prod_2183
+feature_flag dzzqbv rollout=27%
+2026-04-25T00:32:20Z INFO action=view user_id=u8571 product_id=prod_4328
+2026-04-25T00:32:28Z INFO action=purchase user_id=u9654 order_id=ord-56802 total=479.32 currency=EUR
+reading file /tmp/66365bb6d.bin
+2026-04-25T00:32:32Z INFO action=view user_id=u8826 product_id=prod_1690
+2026-04-25T00:32:36Z INFO action=click user_id=u6861 product_id=prod_9224
+2026-04-25T00:32:40Z INFO action=click user_id=u2185 product_id=prod_5521
+2026-04-25T00:32:47Z INFO action=remove_from_cart user_id=u3626 product_id=prod_6925
+cache miss for key=token_f55412
+2026-04-25T00:32:57Z INFO action=click user_id=u1836 product_id=prod_5387
+2026-04-25T00:33:04Z INFO action=view user_id=u112 product_id=prod_7541
+2026-04-25T00:33:06Z INFO action=add_to_cart user_id=u6637 product_id=prod_7811 qty=4
+2026-04-25T00:33:11Z INFO action=click user_id=u4327 product_id=prod_9415
+2026-04-25T00:33:12Z INFO action=add_to_cart user_id=u3839 product_id=prod_7014 qty=3
+2026-04-25T00:33:17Z INFO action=purchase user_id=u7672 order_id=ord-89047 total=341.71 currency=GBP
+2026-04-25T00:33:17Z INFO action=view user_id=u299 product_id=prod_7472
+2026-04-25T00:33:22Z INFO action=add_to_cart user_id=u7772 product_id=prod_3515 qty=2
+2026-04-25T00:33:27Z INFO action=purchase user_id=u1696 order_id=ord-82119 total=387.01 currency=GBP
+2026-04-25T00:33:34Z INFO action=click user_id=u9427 product_id=prod_2542
+2026-04-25T00:33:36Z INFO action=view user_id=u2224 product_id=prod_7169
+2026-04-25T00:33:41Z INFO action=view user_id=u9981 product_id=prod_6020
+2026-04-25T00:33:42Z INFO action=purchase user_id=u5980 order_id=ord-34485 total=79.12 currency=GBP
+2026-04-25T00:33:44Z INFO action=purchase user_id=u5147 order_id=ord-92527 total=9.17 currency=USD
+2026-04-25T00:33:51Z INFO action=view user_id=u8448 product_id=prod_6688
+ERROR unhandled exception in handler
+2026-04-25T00:33:56Z INFO action=remove_from_cart user_id=u7437 product_id=prod_5078
+2026-04-25T00:34:02Z INFO action=click user_id=u2079 product_id=prod_4884
+2026-04-25T00:34:08Z INFO action=purchase user_id=u1539 order_id=ord-47729 total=313.70 currency=USD
+2026-04-25T00:34:10Z INFO action=click user_id=u5731 product_id=prod_6356
+2026-04-25T00:34:17Z INFO action=purchase user_id=u1757 order_id=ord-73475 total=6.15 currency=EUR
+KeyError: 'token_818afc' not present in context
+2026-04-25T00:34:30Z INFO action=add_to_cart user_id=u4116 product_id=prod_6645 qty=5
+2026-04-25T00:34:34Z INFO action=view user_id=u7066 product_id=prod_4861
+shutdown initiated by SIGTERM
+2026-04-25T00:34:44Z INFO action=remove_from_cart user_id=u666 product_id=prod_9017
+2026-04-25T00:34:51Z INFO action=click user_id=u510 product_id=prod_1242
+2026-04-25T00:34:58Z INFO action=add_to_cart user_id=u6379 product_id=prod_4588 qty=2
+dockerd[69816]: container 0bb5b3a0566899124 exited with code 0
+2026-04-25T00:35:04Z INFO action=purchase user_id=u7197 order_id=ord-65978 total=112.06 currency=GBP
+2026-04-25T00:35:11Z INFO action=view user_id=u96 product_id=prod_7802
+2026-04-25T00:35:15Z INFO action=add_to_cart user_id=u6814 product_id=prod_880 qty=2
+2026-04-25T00:35:19Z INFO action=view user_id=u6909 product_id=prod_434
+2026-04-25T00:35:24Z INFO action=view user_id=u6581 product_id=prod_9410
+2026-04-25T00:35:26Z INFO action=remove_from_cart user_id=u496 product_id=prod_2453
+starting background job sitemap_refresh

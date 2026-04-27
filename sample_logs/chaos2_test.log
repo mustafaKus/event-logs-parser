@@ -1,0 +1,700 @@
+reloading config from /etc/app/config.yaml
+2026-04-25 01:01:49 app[web.4] {"event": "Click", "customerId": "user-6160", "sku": "sku-8579"}
+   
+containerd[13687]: starting task
+2026-04-25T01:01:57Z INFO action=RemoveFromCart customerId=u376 sku=prod_2615
+{"timestamp": "2026-04-25T01:01:57.713000+00:00", "eventType": "ProductViewed", "customerId": "u7010", "sku": "p7703"}
+migration 7500 applied successfully
+stuck in retry loop attempt=29395
+shutdown initiated by SIGTERM
+https://example.com/articles/88259?ref=74462818a1f2e27ae64
+containerd[34012]: starting task
+=======================================
+SELECT * FROM users WHERE id=? LIMIT 1 -- 1589ms
+{"timestamp": "2026-04-25T01:02:30.785000+00:00", "eventType": "AddToCart", "customerId": "u7604", "sku": "p8374", "quantity": 4}
+SELECT * FROM users WHERE id=? LIMIT 1 -- 294ms
+WARN rate_limit_hit tier=free
+2026-04-25T01:02:51Z INFO action=RemoveFromCart customerId=u701 sku=prod_1031
+dockerd[52497]: container d63e2188f547d1b8ee540 exited with code 0
+{"timestamp": "2026-04-25T01:02:58.839000+00:00", "eventType": "RemoveFromCart", "customerId": "u2530", "sku": "p4817"}
+cache miss for key=cart_a62d75
+2026-04-25T01:03:00Z INFO action=RemoveFromCart customerId=u8988 sku=prod_5771
+{"timestamp": "2026-04-25T01:03:07.173000+00:00", "eventType": "ProductViewed", "customerId": "u7735", "sku": "p6451"}
+2026-04-25 01:03:07 app[web.4] {"event": "ProductViewed", "customerId": "user-3676", "sku": "sku-4490"}
+GET /api/v1/orders/1838 HTTP/1.1 301 2436ms
+{"timestamp": "2026-04-25T01:03:13.236000+00:00", "eventType": "RemoveFromCart", "customerId": "u4808", "sku": "p4866"}
+   
+DB pool size=98246 idle=23 waiting=3
+  File "/app/handlers/dlrzeybo.py", line 68640, in <module>
+🚀 deploy finished in 3181ms
+    raise ValueError('invalid state')
+dockerd[44356]: container d1e33e27f6596eb5f04c601df37acf5c exited with code 0
+{"timestamp": "2026-04-25T01:03:38.268000+00:00", "eventType": "ProductViewed", "customerId": "u6591", "sku": "p8943"}
+{"timestamp": "2026-04-25T01:03:39.910000+00:00", "eventType": "CheckoutComplete", "customerId": "u9356", "orderNumber": "ord-58460", "amount": 464.46, "currency": "EUR"}
+2026-04-25 01:03:42 app[web.5] {"event": "Click", "customerId": "user-840", "sku": "sku-2016"}
+2026-04-25T01:03:42Z INFO action=ProductViewed customerId=u6433 sku=prod_6921
+2026-04-25T01:03:48Z INFO action=AddToCart customerId=u3913 sku=prod_2975 quantity=2
+2026-04-25T01:03:53Z INFO action=AddToCart customerId=u7841 sku=prod_4377 quantity=2
+{"timestamp": "2026-04-25T01:03:54.100000+00:00", "eventType": "ProductViewed", "customerId": "u8770", "sku": "p76"}
+{"timestamp": "2026-04-25T01:03:56.834000+00:00", "eventType": "RemoveFromCart", "customerId": "u9147", "sku": "p5105"}
+KeyError: 'session_b7243a' not present in context
+DELETE /api/v2/cart HTTP/1.1 500 3755ms
+nginx: 219.245.56.136 - - [27/Apr/2026:11:05:28 +0000] "GET / HTTP/1.1" 200 66859
+  File "/app/handlers/tpjvv.py", line 12274, in <module>
+2026-04-25T01:04:11Z INFO action=ProductViewed customerId=u272 sku=prod_7582
+2026-04-25 01:04:17 app[web.4] {"event": "RemoveFromCart", "customerId": "user-9542", "sku": "sku-6307"}
+lorem ipsum dolor sit amet consectetur adipiscing elit 82608
+ValueError: timeout waiting on mutex
+https://example.com/articles/12935?ref=128f244c4c658d9e28b85420
+dockerd[75085]: container 37152e9fe870c8ec213 exited with code 0
+sending metric latency_ms=1084
+2026-04-25T01:04:48Z INFO action=CheckoutComplete customerId=u1333 orderNumber=ord-86323 amount=459.11 currency=EUR
+2026-04-25T01:04:55Z INFO action=AddToCart customerId=u8444 sku=prod_8769 quantity=4
+WARN rate_limit_hit tier=free
+2026-04-25 01:05:03 app[web.1] {"event": "Click", "customerId": "user-9234", "sku": "sku-4202"}
+DELETE /auth/login HTTP/1.1 400 3256ms
+WARN rate_limit_hit tier=free
+  File "/app/handlers/hrqqxteuo.py", line 46490, in <module>
+
+
+   
+{"timestamp": "2026-04-25T01:05:19.481000+00:00", "eventType": "CheckoutComplete", "customerId": "u4579", "orderNumber": "ord-44161", "amount": 244.26, "currency": "GBP"}
+{"timestamp": "2026-04-25T01:05:24.840000+00:00", "eventType": "RemoveFromCart", "customerId": "u3324", "sku": "p6569"}
+worker-15 spawned pid=76982
+
+02dd58d498d8b13b94a506
+<142>Jan 15 10:23:45 host-01 cron[23045]: (root) CMD (run-parts /etc/cron.hourly)
+ConnectionResetError: peer reset
+2026-04-25T01:05:50Z INFO action=AddToCart customerId=u6687 sku=prod_3028 quantity=4
+2026-04-25 01:05:51 app[web.2] {"event": "CheckoutComplete", "customerId": "user-6807", "orderNumber": "ord-61966", "amount": "102.00", "currency": "USD"}
+kernel: TCP: time wait bucket table overflow
+2026-04-25 01:05:52 app[web.4] {"event": "CheckoutComplete", "customerId": "user-6849", "orderNumber": "ord-88523", "amount": "362.13", "currency": "USD"}
+kernel: TCP: time wait bucket table overflow
+sending metric latency_ms=2069
+shutdown initiated by SIGTERM
+  File "/app/handlers/xvbn.py", line 98595, in <module>
+worker-6 spawned pid=88606
+2026-04-25 01:06:12 app[web.1] {"event": "CheckoutComplete", "customerId": "user-1093", "orderNumber": "ord-19810", "amount": "190.08", "currency": "USD"}
+f4f9be3baa7b6b70257c01412dca5e12
+{"timestamp": "2026-04-25T01:06:23.994000+00:00", "eventType": "AddToCart", "customerId": "u5310", "sku": "p775", "quantity": 4}
+ConnectionResetError: peer reset
+2026-04-25T01:06:27Z INFO action=CheckoutComplete customerId=u3811 orderNumber=ord-72208 amount=217.81 currency=EUR
+{"timestamp": "2026-04-25T01:06:30.798000+00:00", "eventType": "Click", "customerId": "u3200", "sku": "p9412"}
+2026-04-25T01:06:33Z INFO action=RemoveFromCart customerId=u7576 sku=prod_4612
+migration 3732 applied successfully
+SELECT * FROM users WHERE id=? LIMIT 1 -- 1597ms
+{"timestamp": "2026-04-25T01:06:41.933000+00:00", "eventType": "AddToCart", "customerId": "u9780", "sku": "p1523", "quantity": 1}
+2026-04-25T01:06:42Z INFO action=AddToCart customerId=u6594 sku=prod_630 quantity=3
+2026-04-25T01:06:47Z INFO action=CheckoutComplete customerId=u7175 orderNumber=ord-46775 amount=206.25 currency=USD
+ping=3494ms
+{"timestamp": "2026-04-25T01:06:54.241000+00:00", "eventType": "AddToCart", "customerId": "u3294", "sku": "p5695", "quantity": 2}
+{"timestamp": "2026-04-25T01:06:57.650000+00:00", "eventType": "Click", "customerId": "u3704", "sku": "p8362"}
+{"timestamp": "2026-04-25T01:07:05.177000+00:00", "eventType": "CheckoutComplete", "customerId": "u8609", "orderNumber": "ord-3149", "amount": 120.63, "currency": "GBP"}
+<142>Jan 15 10:23:45 host-01 cron[80012]: (root) CMD (run-parts /etc/cron.hourly)
+<142>Jan 15 10:23:45 host-01 cron[69365]: (root) CMD (run-parts /etc/cron.hourly)
+Traceback (most recent call last):
+{"timestamp": "2026-04-25T01:07:25.382000+00:00", "eventType": "ProductViewed", "customerId": "u9304", "sku": "p6797"}
+{"timestamp": "2026-04-25T01:07:30.138000+00:00", "eventType": "ProductViewed", "customerId": "u2830", "sku": "p2104"}
+  File "/app/handlers/ufhvyur.py", line 32545, in <module>
+2026-04-25T01:07:42Z INFO action=CheckoutComplete customerId=u1702 orderNumber=ord-83135 amount=46.63 currency=USD
+<142>Jan 15 10:23:45 host-01 cron[69826]: (root) CMD (run-parts /etc/cron.hourly)
+tail -f /var/log/app.log
+dockerd[6545]: container 484f2fea9aeb7b9561851572 exited with code 0
+2026-04-25 01:07:57 app[web.3] {"event": "RemoveFromCart", "customerId": "user-286", "sku": "sku-7182"}
+Traceback (most recent call last):
+2026-04-25 01:08:05 app[web.4] {"event": "CheckoutComplete", "customerId": "user-210", "orderNumber": "ord-66366", "amount": "237.45", "currency": "GBP"}
+2026-04-25 01:08:05 app[web.4] {"event": "RemoveFromCart", "customerId": "user-2179", "sku": "sku-8406"}
+cache hit for key=session_4c7eda
+2026-04-25T01:08:18Z INFO action=AddToCart customerId=u9994 sku=prod_7315 quantity=5
+ValueError: unexpected null
+2026-04-25 01:08:24 app[web.5] {"event": "ProductViewed", "customerId": "user-1235", "sku": "sku-1628"}
+WARN rate_limit_hit tier=free
+{"timestamp": "2026-04-25T01:08:27.375000+00:00", "eventType": "ProductViewed", "customerId": "u1600", "sku": "p3516"}
+2026-04-25 01:08:32 app[web.2] {"event": "CheckoutComplete", "customerId": "user-5866", "orderNumber": "ord-50881", "amount": "470.07", "currency": "GBP"}
+2026-04-25 01:08:37 app[web.2] {"event": "ProductViewed", "customerId": "user-8685", "sku": "sku-8314"}
+2026-04-25 01:08:41 app[web.4] {"event": "ProductViewed", "customerId": "user-9232", "sku": "sku-2583"}
+tail -f /var/log/app.log
+<142>Jan 15 10:23:45 host-01 cron[59648]: (root) CMD (run-parts /etc/cron.hourly)
+2026-04-25T01:08:52Z INFO action=RemoveFromCart customerId=u3226 sku=prod_7966
+reloading config from /etc/app/config.yaml
+SELECT * FROM users WHERE id=? LIMIT 1 -- 2203ms
+scheduled job email_digest ran in 3915ms
+2026-04-25 01:09:17 app[web.5] {"event": "RemoveFromCart", "customerId": "user-6564", "sku": "sku-9628"}
+2026-04-25T01:09:23Z INFO action=Click customerId=u6911 sku=prod_1927
+kernel: TCP: time wait bucket table overflow
+https://example.com/articles/87871?ref=a851cb52fa261f5b6720
+dockerd[30193]: container a8e9a8abc53ca87f2 exited with code 0
+2026-04-25T01:09:37Z INFO action=AddToCart customerId=u7189 sku=prod_6205 quantity=4
+🚀 deploy finished in 3365ms
+lorem ipsum dolor sit amet consectetur adipiscing elit 72900
+2026-04-25 01:09:45 app[web.1] {"event": "RemoveFromCart", "customerId": "user-9513", "sku": "sku-2002"}
+2026-04-25T01:09:50Z INFO action=ProductViewed customerId=u2366 sku=prod_205
+KeyError: 'product_86aef8' not present in context
+2026-04-25 01:09:58 app[web.3] {"event": "CheckoutComplete", "customerId": "user-4002", "orderNumber": "ord-45", "amount": "417.44", "currency": "USD"}
+nginx: 175.104.112.119 - - [27/Apr/2026:11:05:28 +0000] "GET / HTTP/1.1" 200 68944
+2026-04-25 01:10:10 app[web.4] {"event": "Click", "customerId": "user-7904", "sku": "sku-8043"}
+feature_flag qxrdp rollout=72%
+   
+{"timestamp": "2026-04-25T01:10:23.142000+00:00", "eventType": "RemoveFromCart", "customerId": "u1500", "sku": "p6497"}
+2026-04-25 01:10:26 app[web.1] {"event": "CheckoutComplete", "customerId": "user-1879", "orderNumber": "ord-68340", "amount": "495.26", "currency": "USD"}
+2026-04-25T01:10:27Z INFO action=Click customerId=u3923 sku=prod_5304
+worker-14 spawned pid=35328
+2026-04-25 01:10:36 app[web.3] {"event": "CheckoutComplete", "customerId": "user-5088", "orderNumber": "ord-38514", "amount": "121.43", "currency": "EUR"}
+{"timestamp": "2026-04-25T01:10:39.676000+00:00", "eventType": "Click", "customerId": "u3423", "sku": "p230"}
+=======================================
+<142>Jan 15 10:23:45 host-01 cron[25131]: (root) CMD (run-parts /etc/cron.hourly)
+reloading config from /etc/app/config.yaml
+2026-04-25T01:10:52Z INFO action=RemoveFromCart customerId=u8332 sku=prod_7889
+2026-04-25 01:10:53 app[web.5] {"event": "Click", "customerId": "user-2828", "sku": "sku-5411"}
+🚀 deploy finished in 2607ms
+{"timestamp": "2026-04-25T01:11:03.063000+00:00", "eventType": "Click", "customerId": "u2450", "sku": "p6085"}
+{"timestamp": "2026-04-25T01:11:04.023000+00:00", "eventType": "RemoveFromCart", "customerId": "u5468", "sku": "p6646"}
+UPDATE products SET stock=stock-1 WHERE id=? -- 1547ms
+containerd[37510]: starting task
+2026-04-25 01:11:19 app[web.1] {"event": "CheckoutComplete", "customerId": "user-4394", "orderNumber": "ord-46943", "amount": "45.73", "currency": "EUR"}
+heartbeat ok
+{"timestamp": "2026-04-25T01:11:26.901000+00:00", "eventType": "CheckoutComplete", "customerId": "u9206", "orderNumber": "ord-10275", "amount": 82.71, "currency": "GBP"}
+2026-04-25 01:11:33 app[web.5] {"event": "RemoveFromCart", "customerId": "user-4462", "sku": "sku-7154"}
+   
+{"timestamp": "2026-04-25T01:11:43.931000+00:00", "eventType": "CheckoutComplete", "customerId": "u7119", "orderNumber": "ord-95487", "amount": 41.36, "currency": "EUR"}
+2026-04-25T01:11:48Z INFO action=ProductViewed customerId=u5081 sku=prod_225
+heartbeat ok
+nginx: 12.101.235.34 - - [27/Apr/2026:11:05:28 +0000] "GET / HTTP/1.1" 200 74297
+systemd[1]: app.service: main process exited, code=exited
+kernel: TCP: time wait bucket table overflow
+
+https://example.com/articles/89232?ref=53c8e79ca81038fecd8af7f75d9
+🚀 deploy finished in 672ms
+UPDATE products SET stock=stock-1 WHERE id=? -- 1649ms
+{"timestamp": "2026-04-25T01:12:16.358000+00:00", "eventType": "AddToCart", "customerId": "u6223", "sku": "p1315", "quantity": 3}
+{"timestamp": "2026-04-25T01:12:18.519000+00:00", "eventType": "ProductViewed", "customerId": "u9353", "sku": "p830"}
+{"timestamp": "2026-04-25T01:12:19.376000+00:00", "eventType": "ProductViewed", "customerId": "u562", "sku": "p5571"}
+2026-04-25T01:12:23Z INFO action=AddToCart customerId=u7714 sku=prod_3282 quantity=5
+2026-04-25 01:12:24 app[web.3] {"event": "ProductViewed", "customerId": "user-7878", "sku": "sku-5598"}
+migration 5535 applied successfully
+worker-3 spawned pid=90007
+WARN rate_limit_hit tier=free
+2026-04-25 01:12:38 app[web.3] {"event": "CheckoutComplete", "customerId": "user-3799", "orderNumber": "ord-42311", "amount": "60.96", "currency": "GBP"}
+scheduled job email_digest ran in 690ms
+2026-04-25T01:12:43Z INFO action=CheckoutComplete customerId=u173 orderNumber=ord-84746 amount=356.58 currency=GBP
+2026-04-25T01:12:50Z INFO action=Click customerId=u2152 sku=prod_8511
+WARN rate_limit_hit tier=free
+2026-04-25 01:13:00 app[web.3] {"event": "AddToCart", "customerId": "user-7507", "sku": "sku-7027", "quantity": 1}
+worker-31 spawned pid=72406
+ConnectionResetError: peer reset
+2026-04-25 01:13:07 app[web.2] {"event": "CheckoutComplete", "customerId": "user-4628", "orderNumber": "ord-34157", "amount": "299.01", "currency": "EUR"}
+Traceback (most recent call last):
+nginx: 67.78.39.76 - - [27/Apr/2026:11:05:28 +0000] "GET / HTTP/1.1" 200 77371
+{"timestamp": "2026-04-25T01:13:14.090000+00:00", "eventType": "RemoveFromCart", "customerId": "u9991", "sku": "p59"}
+2026-04-25T01:13:14Z INFO action=CheckoutComplete customerId=u77 orderNumber=ord-31153 amount=279.28 currency=EUR
+UPDATE products SET stock=stock-1 WHERE id=? -- 1319ms
+2026-04-25T01:13:24Z INFO action=ProductViewed customerId=u1723 sku=prod_1209
+2026-04-25 01:13:26 app[web.3] {"event": "RemoveFromCart", "customerId": "user-4190", "sku": "sku-619"}
+2026-04-25 01:13:32 app[web.3] {"event": "ProductViewed", "customerId": "user-2883", "sku": "sku-5276"}
+2026-04-25 01:13:36 app[web.5] {"event": "AddToCart", "customerId": "user-3714", "sku": "sku-8135", "quantity": 5}
+2026-04-25T01:13:42Z INFO action=CheckoutComplete customerId=u6468 orderNumber=ord-56709 amount=437.43 currency=GBP
+cache hit for key=cart_281517
+reloading config from /etc/app/config.yaml
+{"timestamp": "2026-04-25T01:13:52.672000+00:00", "eventType": "Click", "customerId": "u6813", "sku": "p4909"}
+   
+2026-04-25T01:14:00Z INFO action=CheckoutComplete customerId=u9313 orderNumber=ord-76747 amount=219.34 currency=EUR
+{"timestamp": "2026-04-25T01:14:00.468000+00:00", "eventType": "RemoveFromCart", "customerId": "u4995", "sku": "p9497"}
+{"timestamp": "2026-04-25T01:14:05.231000+00:00", "eventType": "AddToCart", "customerId": "u6831", "sku": "p2119", "quantity": 2}
+containerd[91548]: starting task
+2026-04-25T01:14:08Z INFO action=RemoveFromCart customerId=u5737 sku=prod_3733
+reloading config from /etc/app/config.yaml
+2026-04-25T01:14:15Z INFO action=ProductViewed customerId=u9595 sku=prod_5394
+2026-04-25T01:14:21Z INFO action=ProductViewed customerId=u3032 sku=prod_2694
+lorem ipsum dolor sit amet consectetur adipiscing elit 93938
+KeyError: 'product_e0fafa' not present in context
+{"timestamp": "2026-04-25T01:14:33.029000+00:00", "eventType": "CheckoutComplete", "customerId": "u1123", "orderNumber": "ord-91682", "amount": 159.14, "currency": "EUR"}
+2026-04-25T01:14:37Z INFO action=AddToCart customerId=u6003 sku=prod_3416 quantity=2
+{"timestamp": "2026-04-25T01:14:45.359000+00:00", "eventType": "AddToCart", "customerId": "u5785", "sku": "p7081", "quantity": 3}
+{"timestamp": "2026-04-25T01:14:49.718000+00:00", "eventType": "ProductViewed", "customerId": "u9483", "sku": "p5851"}
+ERROR unhandled exception in handler
+2026-04-25 01:14:58 app[web.4] {"event": "ProductViewed", "customerId": "user-3458", "sku": "sku-1891"}
+2026-04-25T01:15:05Z INFO action=AddToCart customerId=u4076 sku=prod_3918 quantity=4
+reading file /tmp/c7a57d3382c19889f7f4c3931fa6c2.bin
+2026-04-25T01:15:14Z INFO action=RemoveFromCart customerId=u293 sku=prod_6639
+SELECT * FROM users WHERE id=? LIMIT 1 -- 983ms
+2026-04-25T01:15:28Z INFO action=Click customerId=u311 sku=prod_932
+
+{"timestamp": "2026-04-25T01:15:38.319000+00:00", "eventType": "AddToCart", "customerId": "u5917", "sku": "p9242", "quantity": 5}
+{"timestamp": "2026-04-25T01:15:41.767000+00:00", "eventType": "RemoveFromCart", "customerId": "u8929", "sku": "p3059"}
+systemd[1]: app.service: main process exited, code=exited
+migration 1167 applied successfully
+systemd[1]: app.service: main process exited, code=exited
+email sent to user@example.com subject="welcome"
+{"timestamp": "2026-04-25T01:15:56.924000+00:00", "eventType": "AddToCart", "customerId": "u9010", "sku": "p8448", "quantity": 4}
+🚀 deploy finished in 2117ms
+2026-04-25T01:16:02Z INFO action=Click customerId=u3013 sku=prod_2265
+{"timestamp": "2026-04-25T01:16:03.592000+00:00", "eventType": "CheckoutComplete", "customerId": "u4021", "orderNumber": "ord-81251", "amount": 326.01, "currency": "EUR"}
+{"timestamp": "2026-04-25T01:16:09.154000+00:00", "eventType": "RemoveFromCart", "customerId": "u4642", "sku": "p2921"}
+
+2026-04-25T01:16:18Z INFO action=ProductViewed customerId=u6063 sku=prod_2569
+systemd[1]: app.service: main process exited, code=exited
+2026-04-25T01:16:28Z INFO action=AddToCart customerId=u6392 sku=prod_9368 quantity=4
+  File "/app/handlers/fytlq.py", line 71732, in <module>
+SELECT * FROM users WHERE id=? LIMIT 1 -- 1912ms
+starting background job sitemap_refresh
+Traceback (most recent call last):
+sending metric latency_ms=361
+DELETE /static/app.js HTTP/1.1 500 358ms
+
+DELETE /metrics HTTP/1.1 302 1128ms
+nginx: 137.248.159.249 - - [27/Apr/2026:11:05:28 +0000] "GET / HTTP/1.1" 200 22860
+   
+  File "/app/handlers/wwtllsgqvm.py", line 60275, in <module>
+ConnectionResetError: peer reset
+2026-04-25 01:17:29 app[web.2] {"event": "CheckoutComplete", "customerId": "user-9368", "orderNumber": "ord-67057", "amount": "69.88", "currency": "GBP"}
+{"timestamp": "2026-04-25T01:17:30.221000+00:00", "eventType": "CheckoutComplete", "customerId": "u6597", "orderNumber": "ord-83936", "amount": 122.65, "currency": "EUR"}
+    raise ValueError('invalid state')
+stuck in retry loop attempt=47470
+KeyError: 'cart_40350e' not present in context
+tail -f /var/log/app.log
+2026-04-25 01:17:53 app[web.1] {"event": "RemoveFromCart", "customerId": "user-4775", "sku": "sku-1741"}
+2026-04-25T01:17:57Z INFO action=Click customerId=u4136 sku=prod_899
+
+2026-04-25T01:18:05Z INFO action=RemoveFromCart customerId=u2392 sku=prod_3367
+{"timestamp": "2026-04-25T01:18:11.714000+00:00", "eventType": "ProductViewed", "customerId": "u8098", "sku": "p7541"}
+shutdown initiated by SIGTERM
+2026-04-25 01:18:13 app[web.1] {"event": "ProductViewed", "customerId": "user-3522", "sku": "sku-2109"}
+2026-04-25T01:18:17Z INFO action=CheckoutComplete customerId=u6093 orderNumber=ord-20613 amount=490.04 currency=GBP
+2026-04-25 01:18:22 app[web.5] {"event": "AddToCart", "customerId": "user-3143", "sku": "sku-1143", "quantity": 1}
+2026-04-25 01:18:28 app[web.5] {"event": "AddToCart", "customerId": "user-1982", "sku": "sku-4774", "quantity": 5}
+reading file /tmp/8cef282127.bin
+{"timestamp": "2026-04-25T01:18:34.732000+00:00", "eventType": "RemoveFromCart", "customerId": "u1497", "sku": "p6265"}
+reading file /tmp/6c1df8a17c.bin
+reading file /tmp/8a04deee3269848.bin
+2026-04-25 01:18:43 app[web.5] {"event": "CheckoutComplete", "customerId": "user-4372", "orderNumber": "ord-72253", "amount": "72.95", "currency": "GBP"}
+{"timestamp": "2026-04-25T01:18:47.327000+00:00", "eventType": "Click", "customerId": "u1317", "sku": "p3847"}
+{"timestamp": "2026-04-25T01:18:53.258000+00:00", "eventType": "ProductViewed", "customerId": "u347", "sku": "p7289"}
+2026-04-25T01:18:53Z INFO action=ProductViewed customerId=u3818 sku=prod_921
+2026-04-25 01:19:00 app[web.5] {"event": "RemoveFromCart", "customerId": "user-3879", "sku": "sku-9203"}
+2026-04-25T01:19:06Z INFO action=ProductViewed customerId=u100 sku=prod_1787
+cache miss for key=session_66ead7
+WARN rate_limit_hit tier=free
+{"timestamp": "2026-04-25T01:19:16.001000+00:00", "eventType": "RemoveFromCart", "customerId": "u771", "sku": "p2118"}
+{"timestamp": "2026-04-25T01:19:19.364000+00:00", "eventType": "AddToCart", "customerId": "u2111", "sku": "p3543", "quantity": 1}
+{"timestamp": "2026-04-25T01:19:27.286000+00:00", "eventType": "Click", "customerId": "u9103", "sku": "p292"}
+{"timestamp": "2026-04-25T01:19:29.086000+00:00", "eventType": "CheckoutComplete", "customerId": "u7740", "orderNumber": "ord-25540", "amount": 154.92, "currency": "USD"}
+{"timestamp": "2026-04-25T01:19:29.497000+00:00", "eventType": "CheckoutComplete", "customerId": "u5873", "orderNumber": "ord-30973", "amount": 203.9, "currency": "USD"}
+  File "/app/handlers/zkmx.py", line 74391, in <module>
+2026-04-25 01:19:40 app[web.2] {"event": "RemoveFromCart", "customerId": "user-1621", "sku": "sku-1008"}
+2026-04-25T01:19:42Z INFO action=AddToCart customerId=u7764 sku=prod_1265 quantity=2
+kernel: TCP: time wait bucket table overflow
+ping=1504ms
+{"timestamp": "2026-04-25T01:19:52.858000+00:00", "eventType": "CheckoutComplete", "customerId": "u1405", "orderNumber": "ord-6261", "amount": 450.6, "currency": "EUR"}
+2026-04-25 01:19:54 app[web.4] {"event": "ProductViewed", "customerId": "user-3588", "sku": "sku-3903"}
+{"timestamp": "2026-04-25T01:19:56.369000+00:00", "eventType": "CheckoutComplete", "customerId": "u4702", "orderNumber": "ord-53397", "amount": 293.98, "currency": "EUR"}
+UPDATE products SET stock=stock-1 WHERE id=? -- 1496ms
+{"timestamp": "2026-04-25T01:20:06.762000+00:00", "eventType": "CheckoutComplete", "customerId": "u4374", "orderNumber": "ord-93482", "amount": 188.55, "currency": "GBP"}
+2026-04-25 01:20:07 app[web.4] {"event": "CheckoutComplete", "customerId": "user-9451", "orderNumber": "ord-35629", "amount": "9.74", "currency": "USD"}
+2026-04-25T01:20:11Z INFO action=ProductViewed customerId=u5289 sku=prod_7322
+heartbeat ok
+{"timestamp": "2026-04-25T01:20:17.703000+00:00", "eventType": "AddToCart", "customerId": "u8354", "sku": "p5785", "quantity": 2}
+2026-04-25 01:20:22 app[web.1] {"event": "CheckoutComplete", "customerId": "user-9162", "orderNumber": "ord-87853", "amount": "363.47", "currency": "EUR"}
+2026-04-25 01:20:24 app[web.1] {"event": "RemoveFromCart", "customerId": "user-8036", "sku": "sku-9764"}
+starting background job reindex_sku
+2026-04-25 01:20:34 app[web.2] {"event": "ProductViewed", "customerId": "user-6519", "sku": "sku-7318"}
+2026-04-25T01:20:39Z INFO action=CheckoutComplete customerId=u609 orderNumber=ord-79743 amount=370.57 currency=GBP
+🚀 deploy finished in 3521ms
+2026-04-25 01:20:53 app[web.2] {"event": "AddToCart", "customerId": "user-9062", "sku": "sku-9065", "quantity": 4}
+scheduled job reindex_sku ran in 1255ms
+
+{"timestamp": "2026-04-25T01:21:11.233000+00:00", "eventType": "Click", "customerId": "u8583", "sku": "p2346"}
+  File "/app/handlers/vhcnzufuz.py", line 71856, in <module>
+lorem ipsum dolor sit amet consectetur adipiscing elit 76986
+2026-04-25T01:21:23Z INFO action=Click customerId=u5136 sku=prod_3034
+{"timestamp": "2026-04-25T01:21:30.886000+00:00", "eventType": "RemoveFromCart", "customerId": "u3272", "sku": "p6904"}
+2026-04-25 01:21:32 app[web.5] {"event": "ProductViewed", "customerId": "user-5253", "sku": "sku-6590"}
+2026-04-25T01:21:38Z INFO action=Click customerId=u4217 sku=prod_6571
+shutdown initiated by SIGTERM
+lorem ipsum dolor sit amet consectetur adipiscing elit 49459
+ping=2459ms
+dockerd[90162]: container 5542b24e12f19f81019ea0 exited with code 0
+2026-04-25T01:22:00Z INFO action=RemoveFromCart customerId=u1385 sku=prod_1260
+starting background job reindex_sku
+KeyError: 'token_bec007' not present in context
+=======================================
+flush: wrote 51285 bytes to segment 453
+2026-04-25 01:22:17 app[web.5] {"event": "Click", "customerId": "user-5922", "sku": "sku-5649"}
+{"timestamp": "2026-04-25T01:22:18.042000+00:00", "eventType": "CheckoutComplete", "customerId": "u1680", "orderNumber": "ord-46925", "amount": 56.0, "currency": "GBP"}
+scheduled job nightly_rollup ran in 155ms
+Traceback (most recent call last):
+feature_flag hmtjgedbm rollout=78%
+email sent to user@example.com subject="welcome"
+sending metric latency_ms=3926
+ERROR unhandled exception in handler
+2026-04-25T01:22:44Z INFO action=ProductViewed customerId=u2117 sku=prod_6345
+Traceback (most recent call last):
+2026-04-25T01:22:46Z INFO action=Click customerId=u9239 sku=prod_7806
+reloading config from /etc/app/config.yaml
+reloading config from /etc/app/config.yaml
+sending metric latency_ms=4112
+DELETE /healthz HTTP/1.1 200 1619ms
+
+DB pool size=79628 idle=2 waiting=3
+2026-04-25 01:23:01 app[web.1] {"event": "CheckoutComplete", "customerId": "user-9926", "orderNumber": "ord-82342", "amount": "398.11", "currency": "USD"}
+{"timestamp": "2026-04-25T01:23:08.303000+00:00", "eventType": "ProductViewed", "customerId": "u8830", "sku": "p6168"}
+WARN rate_limit_hit tier=free
+POST /healthz HTTP/1.1 200 4088ms bytes=94622
+https://example.com/articles/51320?ref=aaf310c381c30f0e819
+2026-04-25T01:23:21Z INFO action=Click customerId=u2149 sku=prod_7563
+reloading config from /etc/app/config.yaml
+    raise ValueError('invalid state')
+ERROR unhandled exception in handler
+sending metric latency_ms=3946
+worker-1 spawned pid=29794
+UPDATE products SET stock=stock-1 WHERE id=? -- 156ms
+2026-04-25T01:23:40Z INFO action=AddToCart customerId=u1167 sku=prod_7005 quantity=2
+worker-26 spawned pid=16538
+<142>Jan 15 10:23:45 host-01 cron[14897]: (root) CMD (run-parts /etc/cron.hourly)
+ConnectionResetError: peer reset
+2026-04-25T01:23:59Z INFO action=RemoveFromCart customerId=u5500 sku=prod_8386
+🚀 deploy finished in 2168ms
+reloading config from /etc/app/config.yaml
+flush: wrote 15114 bytes to segment 173
+migration 6020 applied successfully
+{"timestamp": "2026-04-25T01:24:06.556000+00:00", "eventType": "AddToCart", "customerId": "u7903", "sku": "p775", "quantity": 4}
+2026-04-25T01:24:12Z INFO action=AddToCart customerId=u9036 sku=prod_4680 quantity=1
+2026-04-25T01:24:18Z INFO action=Click customerId=u6126 sku=prod_3898
+   
+2026-04-25 01:24:28 app[web.2] {"event": "ProductViewed", "customerId": "user-5730", "sku": "sku-3108"}
+18f81621b5f2cde
+    raise ValueError('timeout waiting on mutex')
+ping=1208ms
+2026-04-25 01:24:43 app[web.2] {"event": "ProductViewed", "customerId": "user-8412", "sku": "sku-7874"}
+2026-04-25T01:24:50Z INFO action=Click customerId=u4214 sku=prod_2670
+sending metric latency_ms=1301
+2026-04-25T01:24:57Z INFO action=AddToCart customerId=u3584 sku=prod_6336 quantity=3
+UPDATE products SET stock=stock-1 WHERE id=? -- 2179ms
+DB pool size=99752 idle=36 waiting=10
+2026-04-25T01:25:06Z INFO action=AddToCart customerId=u2373 sku=prod_2224 quantity=4
+nginx: 170.223.75.26 - - [27/Apr/2026:11:05:28 +0000] "GET / HTTP/1.1" 200 28141
+reading file /tmp/7b84fcbe3f545e0fda.bin
+worker-17 spawned pid=84320
+2026-04-25 01:25:20 app[web.1] {"event": "ProductViewed", "customerId": "user-9918", "sku": "sku-6360"}
+shutdown initiated by SIGTERM
+https://example.com/articles/59648?ref=1da3a523905631b99837f960
+migration 9236 applied successfully
+{"timestamp": "2026-04-25T01:25:40.596000+00:00", "eventType": "RemoveFromCart", "customerId": "u7418", "sku": "p9151"}
+{"timestamp": "2026-04-25T01:25:46.649000+00:00", "eventType": "ProductViewed", "customerId": "u7683", "sku": "p6751"}
+2026-04-25 01:25:52 app[web.2] {"event": "RemoveFromCart", "customerId": "user-9239", "sku": "sku-1755"}
+2026-04-25T01:25:53Z INFO action=ProductViewed customerId=u3674 sku=prod_7929
+GET /api/v2/cart HTTP/1.1 404 306ms
+WARN rate_limit_hit tier=free
+f1b589a0ea71cd792be2d810
+2026-04-25 01:26:09 app[web.3] {"event": "ProductViewed", "customerId": "user-5121", "sku": "sku-3534"}
+2026-04-25T01:26:16Z INFO action=CheckoutComplete customerId=u5281 orderNumber=ord-60655 amount=39.27 currency=EUR
+sending metric latency_ms=2020
+{"timestamp": "2026-04-25T01:26:22.801000+00:00", "eventType": "CheckoutComplete", "customerId": "u5863", "orderNumber": "ord-60024", "amount": 287.12, "currency": "GBP"}
+stuck in retry loop attempt=20732
+ERROR unhandled exception in handler
+SELECT * FROM users WHERE id=? LIMIT 1 -- 1466ms
+2026-04-25 01:26:43 app[web.1] {"event": "RemoveFromCart", "customerId": "user-2144", "sku": "sku-4678"}
+  File "/app/handlers/itapnguv.py", line 99141, in <module>
+{"timestamp": "2026-04-25T01:26:47.292000+00:00", "eventType": "ProductViewed", "customerId": "u4324", "sku": "p3246"}
+systemd[1]: app.service: main process exited, code=exited
+{"timestamp": "2026-04-25T01:26:57.995000+00:00", "eventType": "CheckoutComplete", "customerId": "u4811", "orderNumber": "ord-88804", "amount": 386.26, "currency": "EUR"}
+  File "/app/handlers/wrndnn.py", line 43011, in <module>
+DELETE /api/v2/cart HTTP/1.1 201 3563ms
+🚀 deploy finished in 2890ms
+migration 6361 applied successfully
+GET /metrics HTTP/1.1 201 3697ms
+{"timestamp": "2026-04-25T01:27:20.379000+00:00", "eventType": "RemoveFromCart", "customerId": "u9048", "sku": "p4413"}
+DB pool size=20190 idle=16 waiting=2
+2026-04-25T01:27:25Z INFO action=CheckoutComplete customerId=u3133 orderNumber=ord-78651 amount=406.94 currency=EUR
+2026-04-25T01:27:28Z INFO action=CheckoutComplete customerId=u9508 orderNumber=ord-96005 amount=210.91 currency=USD
+<142>Jan 15 10:23:45 host-01 cron[7873]: (root) CMD (run-parts /etc/cron.hourly)
+systemd[1]: app.service: main process exited, code=exited
+starting background job reindex_sku
+{"timestamp": "2026-04-25T01:27:49.565000+00:00", "eventType": "CheckoutComplete", "customerId": "u8948", "orderNumber": "ord-1120", "amount": 478.02, "currency": "EUR"}
+2026-04-25T01:27:54Z INFO action=CheckoutComplete customerId=u9766 orderNumber=ord-86964 amount=234.39 currency=EUR
+GET /healthz HTTP/1.1 404 2086ms
+Traceback (most recent call last):
+2026-04-25T01:28:08Z INFO action=CheckoutComplete customerId=u3670 orderNumber=ord-79948 amount=22.29 currency=USD
+{"timestamp": "2026-04-25T01:28:09.711000+00:00", "eventType": "AddToCart", "customerId": "u6949", "sku": "p1745", "quantity": 5}
+systemd[1]: app.service: main process exited, code=exited
+ping=584ms
+DELETE /api/v1/products HTTP/1.1 503 4103ms
+tail -f /var/log/app.log
+feature_flag yjzdi rollout=8%
+kernel: TCP: time wait bucket table overflow
+worker-1 spawned pid=46110
+ConnectionResetError: peer reset
+systemd[1]: app.service: main process exited, code=exited
+{"timestamp": "2026-04-25T01:28:45.432000+00:00", "eventType": "RemoveFromCart", "customerId": "u8880", "sku": "p8039"}
+POST /api/v1/orders/99377 HTTP/1.1 200 463ms bytes=97011
+cache miss for key=user_1c75ef
+cache hit for key=user_47df87
+cache miss for key=cart_0ef41f
+2026-04-25T01:29:03Z INFO action=AddToCart customerId=u1076 sku=prod_5166 quantity=1
+2026-04-25T01:29:03Z INFO action=AddToCart customerId=u1852 sku=prod_8083 quantity=3
+2026-04-25T01:29:04Z INFO action=RemoveFromCart customerId=u4739 sku=prod_6621
+shutdown initiated by SIGTERM
+flush: wrote 53253 bytes to segment 414
+{"timestamp": "2026-04-25T01:29:15.657000+00:00", "eventType": "ProductViewed", "customerId": "u2653", "sku": "p1542"}
+containerd[38746]: starting task
+2026-04-25 01:29:28 app[web.4] {"event": "CheckoutComplete", "customerId": "user-1287", "orderNumber": "ord-89829", "amount": "380.36", "currency": "USD"}
+{"timestamp": "2026-04-25T01:29:35.878000+00:00", "eventType": "AddToCart", "customerId": "u6695", "sku": "p5006", "quantity": 2}
+2026-04-25 01:29:37 app[web.3] {"event": "Click", "customerId": "user-8816", "sku": "sku-5964"}
+🚀 deploy finished in 2066ms
+POST /auth/login HTTP/1.1 301 368ms bytes=96202
+2026-04-25 01:29:49 app[web.5] {"event": "AddToCart", "customerId": "user-9848", "sku": "sku-6435", "quantity": 2}
+DB pool size=88382 idle=14 waiting=7
+bff8b46054241e2d2bdebbc344a
+DB pool size=52425 idle=38 waiting=0
+{"timestamp": "2026-04-25T01:30:06.117000+00:00", "eventType": "AddToCart", "customerId": "u2358", "sku": "p3447", "quantity": 3}
+nginx: 149.56.110.244 - - [27/Apr/2026:11:05:28 +0000] "GET / HTTP/1.1" 200 92140
+{"timestamp": "2026-04-25T01:30:10.588000+00:00", "eventType": "CheckoutComplete", "customerId": "u2852", "orderNumber": "ord-46992", "amount": 349.38, "currency": "GBP"}
+2026-04-25T01:30:14Z INFO action=CheckoutComplete customerId=u131 orderNumber=ord-77431 amount=284.85 currency=GBP
+dockerd[16600]: container 357774c2614fa74e67fe020f208c56e exited with code 0
+    raise ValueError('unexpected null')
+{"timestamp": "2026-04-25T01:30:35.195000+00:00", "eventType": "AddToCart", "customerId": "u8477", "sku": "p8003", "quantity": 5}
+{"timestamp": "2026-04-25T01:30:36.418000+00:00", "eventType": "RemoveFromCart", "customerId": "u5867", "sku": "p3117"}
+{"timestamp": "2026-04-25T01:30:43.701000+00:00", "eventType": "AddToCart", "customerId": "u3712", "sku": "p4558", "quantity": 5}
+starting background job nightly_rollup
+{"timestamp": "2026-04-25T01:30:53.957000+00:00", "eventType": "CheckoutComplete", "customerId": "u9439", "orderNumber": "ord-13440", "amount": 494.19, "currency": "GBP"}
+starting background job nightly_rollup
+2026-04-25T01:31:01Z INFO action=AddToCart customerId=u9502 sku=prod_8084 quantity=4
+nginx: 48.164.60.117 - - [27/Apr/2026:11:05:28 +0000] "GET / HTTP/1.1" 200 92003
+{"timestamp": "2026-04-25T01:31:09.327000+00:00", "eventType": "Click", "customerId": "u1423", "sku": "p9440"}
+2026-04-25T01:31:11Z INFO action=CheckoutComplete customerId=u4373 orderNumber=ord-3639 amount=405.67 currency=USD
+starting background job reindex_sku
+2026-04-25 01:31:17 app[web.3] {"event": "CheckoutComplete", "customerId": "user-3637", "orderNumber": "ord-24683", "amount": "92.32", "currency": "GBP"}
+nginx: 145.196.109.207 - - [27/Apr/2026:11:05:28 +0000] "GET / HTTP/1.1" 200 64478
+2026-04-25 01:31:28 app[web.2] {"event": "CheckoutComplete", "customerId": "user-2766", "orderNumber": "ord-39939", "amount": "43.21", "currency": "EUR"}
+2026-04-25T01:31:34Z INFO action=AddToCart customerId=u7310 sku=prod_7576 quantity=1
+2026-04-25T01:31:42Z INFO action=CheckoutComplete customerId=u950 orderNumber=ord-16618 amount=293.93 currency=USD
+DELETE /api/v2/cart HTTP/1.1 502 1295ms
+2026-04-25 01:31:47 app[web.5] {"event": "AddToCart", "customerId": "user-4704", "sku": "sku-762", "quantity": 4}
+cache hit for key=session_47019c
+{"timestamp": "2026-04-25T01:31:52.796000+00:00", "eventType": "Click", "customerId": "u7482", "sku": "p5723"}
+POST /api/v1/products HTTP/1.1 503 587ms bytes=32456
+2026-04-25 01:31:58 app[web.5] {"event": "ProductViewed", "customerId": "user-8747", "sku": "sku-125"}
+lorem ipsum dolor sit amet consectetur adipiscing elit 18639
+2026-04-25T01:32:09Z INFO action=ProductViewed customerId=u4663 sku=prod_7309
+2026-04-25 01:32:13 app[web.3] {"event": "RemoveFromCart", "customerId": "user-9716", "sku": "sku-809"}
+stuck in retry loop attempt=48802
+{"timestamp": "2026-04-25T01:32:20.210000+00:00", "eventType": "CheckoutComplete", "customerId": "u1890", "orderNumber": "ord-15632", "amount": 453.87, "currency": "GBP"}
+{"timestamp": "2026-04-25T01:32:24.275000+00:00", "eventType": "Click", "customerId": "u4787", "sku": "p447"}
+{"timestamp": "2026-04-25T01:32:29.038000+00:00", "eventType": "ProductViewed", "customerId": "u2540", "sku": "p9668"}
+
+2026-04-25T01:32:36Z INFO action=AddToCart customerId=u46 sku=prod_6452 quantity=1
+stuck in retry loop attempt=80907
+{"timestamp": "2026-04-25T01:32:40.899000+00:00", "eventType": "CheckoutComplete", "customerId": "u6411", "orderNumber": "ord-40124", "amount": 411.15, "currency": "GBP"}
+{"timestamp": "2026-04-25T01:32:45.985000+00:00", "eventType": "RemoveFromCart", "customerId": "u9817", "sku": "p2153"}
+ConnectionResetError: peer reset
+email sent to user@example.com subject="welcome"
+stuck in retry loop attempt=56668
+stuck in retry loop attempt=34529
+2026-04-25T01:33:04Z INFO action=CheckoutComplete customerId=u5826 orderNumber=ord-77336 amount=169.40 currency=USD
+lorem ipsum dolor sit amet consectetur adipiscing elit 82621
+{"timestamp": "2026-04-25T01:33:10.789000+00:00", "eventType": "ProductViewed", "customerId": "u9296", "sku": "p2103"}
+ERROR unhandled exception in handler
+{"timestamp": "2026-04-25T01:33:21.181000+00:00", "eventType": "AddToCart", "customerId": "u2462", "sku": "p5921", "quantity": 2}
+UPDATE products SET stock=stock-1 WHERE id=? -- 3019ms
+{"timestamp": "2026-04-25T01:33:34.154000+00:00", "eventType": "ProductViewed", "customerId": "u1839", "sku": "p7326"}
+ERROR: timeout waiting on mutex
+2026-04-25T01:33:38Z INFO action=Click customerId=u2991 sku=prod_6894
+{"timestamp": "2026-04-25T01:33:43.636000+00:00", "eventType": "AddToCart", "customerId": "u1513", "sku": "p6290", "quantity": 4}
+tail -f /var/log/app.log
+flush: wrote 76779 bytes to segment 413
+ConnectionResetError: peer reset
+reading file /tmp/cdd8caa242f5e.bin
+migration 9886 applied successfully
+2026-04-25T01:34:14Z INFO action=AddToCart customerId=u5194 sku=prod_1139 quantity=1
+    raise ValueError('bad value')
+{"timestamp": "2026-04-25T01:34:25.866000+00:00", "eventType": "Click", "customerId": "u5303", "sku": "p3737"}
+{"timestamp": "2026-04-25T01:34:27.127000+00:00", "eventType": "AddToCart", "customerId": "u3950", "sku": "p2174", "quantity": 2}
+{"timestamp": "2026-04-25T01:34:33.814000+00:00", "eventType": "Click", "customerId": "u7990", "sku": "p8782"}
+{"timestamp": "2026-04-25T01:34:33.857000+00:00", "eventType": "RemoveFromCart", "customerId": "u2535", "sku": "p1419"}
+2026-04-25 01:34:39 app[web.4] {"event": "ProductViewed", "customerId": "user-5756", "sku": "sku-5923"}
+2026-04-25T01:34:41Z INFO action=ProductViewed customerId=u7526 sku=prod_846
+tail -f /var/log/app.log
+2026-04-25 01:34:52 app[web.3] {"event": "RemoveFromCart", "customerId": "user-9529", "sku": "sku-9662"}
+{"timestamp": "2026-04-25T01:34:53.450000+00:00", "eventType": "AddToCart", "customerId": "u4169", "sku": "p9799", "quantity": 2}
+    raise ValueError('unexpected null')
+   
+{"timestamp": "2026-04-25T01:35:06.823000+00:00", "eventType": "CheckoutComplete", "customerId": "u8096", "orderNumber": "ord-29540", "amount": 416.25, "currency": "USD"}
+ping=1929ms
+2026-04-25 01:35:14 app[web.3] {"event": "ProductViewed", "customerId": "user-4107", "sku": "sku-8286"}
+UPDATE products SET stock=stock-1 WHERE id=? -- 2228ms
+shutdown initiated by SIGTERM
+2026-04-25 01:35:23 app[web.1] {"event": "CheckoutComplete", "customerId": "user-9039", "orderNumber": "ord-87294", "amount": "50.36", "currency": "EUR"}
+2026-04-25T01:35:27Z INFO action=AddToCart customerId=u6630 sku=prod_4055 quantity=2
+2026-04-25 01:35:30 app[web.3] {"event": "CheckoutComplete", "customerId": "user-2731", "orderNumber": "ord-629", "amount": "219.59", "currency": "GBP"}
+reading file /tmp/a69b40f9fa79aa4c633ebf04.bin
+tail -f /var/log/app.log
+{"timestamp": "2026-04-25T01:35:42.452000+00:00", "eventType": "ProductViewed", "customerId": "u9761", "sku": "p1431"}
+stuck in retry loop attempt=13399
+shutdown initiated by SIGTERM
+TRACE: unexpected null
+GET /healthz HTTP/1.1 302 1992ms
+2026-04-25T01:36:03Z INFO action=CheckoutComplete customerId=u5183 orderNumber=ord-57066 amount=284.71 currency=USD
+sending metric latency_ms=3089
+2026-04-25T01:36:13Z INFO action=ProductViewed customerId=u8717 sku=prod_5301
+{"timestamp": "2026-04-25T01:36:17.276000+00:00", "eventType": "CheckoutComplete", "customerId": "u3387", "orderNumber": "ord-9623", "amount": 88.45, "currency": "EUR"}
+{"timestamp": "2026-04-25T01:36:25.017000+00:00", "eventType": "RemoveFromCart", "customerId": "u482", "sku": "p7230"}
+2026-04-25T01:36:27Z INFO action=AddToCart customerId=u9156 sku=prod_6524 quantity=2
+{"timestamp": "2026-04-25T01:36:31.739000+00:00", "eventType": "AddToCart", "customerId": "u721", "sku": "p3905", "quantity": 1}
+ConnectionResetError: peer reset
+{"timestamp": "2026-04-25T01:36:37.983000+00:00", "eventType": "RemoveFromCart", "customerId": "u1577", "sku": "p5565"}
+2026-04-25 01:36:44 app[web.5] {"event": "Click", "customerId": "user-2091", "sku": "sku-1514"}
+scheduled job reindex_sku ran in 3519ms
+tail -f /var/log/app.log
+{"timestamp": "2026-04-25T01:36:58.734000+00:00", "eventType": "Click", "customerId": "u33", "sku": "p187"}
+2026-04-25T01:37:06Z INFO action=AddToCart customerId=u7477 sku=prod_9747 quantity=2
+{"timestamp": "2026-04-25T01:37:10.803000+00:00", "eventType": "Click", "customerId": "u1730", "sku": "p3399"}
+2026-04-25T01:37:17Z INFO action=RemoveFromCart customerId=u89 sku=prod_1604
+2026-04-25T01:37:18Z INFO action=ProductViewed customerId=u7344 sku=prod_1968
+cache miss for key=product_785d0c
+27d28e0ccba6f
+tail -f /var/log/app.log
+2026-04-25 01:37:33 app[web.1] {"event": "CheckoutComplete", "customerId": "user-4396", "orderNumber": "ord-42297", "amount": "436.76", "currency": "EUR"}
+{"timestamp": "2026-04-25T01:37:38.136000+00:00", "eventType": "Click", "customerId": "u6179", "sku": "p3330"}
+2026-04-25T01:37:39Z INFO action=AddToCart customerId=u8228 sku=prod_3631 quantity=2
+{"timestamp": "2026-04-25T01:37:44.898000+00:00", "eventType": "AddToCart", "customerId": "u3222", "sku": "p4063", "quantity": 5}
+2026-04-25 01:37:51 app[web.5] {"event": "AddToCart", "customerId": "user-2947", "sku": "sku-122", "quantity": 4}
+    raise ValueError('invalid state')
+lorem ipsum dolor sit amet consectetur adipiscing elit 13850
+🚀 deploy finished in 862ms
+2026-04-25 01:38:14 app[web.2] {"event": "ProductViewed", "customerId": "user-330", "sku": "sku-6031"}
+2026-04-25 01:38:15 app[web.2] {"event": "AddToCart", "customerId": "user-5624", "sku": "sku-3058", "quantity": 2}
+DELETE /auth/login HTTP/1.1 400 2232ms
+{"timestamp": "2026-04-25T01:38:20.693000+00:00", "eventType": "RemoveFromCart", "customerId": "u3518", "sku": "p4843"}
+ConnectionResetError: peer reset
+2026-04-25T01:38:30Z INFO action=Click customerId=u2609 sku=prod_9940
+{"timestamp": "2026-04-25T01:38:30.262000+00:00", "eventType": "AddToCart", "customerId": "u2417", "sku": "p7186", "quantity": 4}
+flush: wrote 39226 bytes to segment 113
+email sent to user@example.com subject="welcome"
+{"timestamp": "2026-04-25T01:38:35.545000+00:00", "eventType": "RemoveFromCart", "customerId": "u6703", "sku": "p6760"}
+2026-04-25 01:38:38 app[web.5] {"event": "AddToCart", "customerId": "user-98", "sku": "sku-2789", "quantity": 5}
+{"timestamp": "2026-04-25T01:38:42.702000+00:00", "eventType": "AddToCart", "customerId": "u6412", "sku": "p958", "quantity": 2}
+dockerd[96382]: container 2a7c55a156851c26ddb8d76402 exited with code 0
+{"timestamp": "2026-04-25T01:38:55.299000+00:00", "eventType": "Click", "customerId": "u888", "sku": "p4308"}
+  File "/app/handlers/zcbyf.py", line 44260, in <module>
+🚀 deploy finished in 1334ms
+heartbeat ok
+{"timestamp": "2026-04-25T01:39:05.535000+00:00", "eventType": "Click", "customerId": "u2258", "sku": "p1645"}
+=======================================
+WARN rate_limit_hit tier=free
+{"timestamp": "2026-04-25T01:39:23.334000+00:00", "eventType": "Click", "customerId": "u9092", "sku": "p11"}
+nginx: 207.116.128.71 - - [27/Apr/2026:11:05:28 +0000] "GET / HTTP/1.1" 200 75158
+2026-04-25 01:39:35 app[web.5] {"event": "ProductViewed", "customerId": "user-6888", "sku": "sku-4050"}
+SELECT * FROM users WHERE id=? LIMIT 1 -- 451ms
+{"timestamp": "2026-04-25T01:39:47.739000+00:00", "eventType": "RemoveFromCart", "customerId": "u9535", "sku": "p65"}
+{"timestamp": "2026-04-25T01:39:54.108000+00:00", "eventType": "CheckoutComplete", "customerId": "u2009", "orderNumber": "ord-90805", "amount": 246.86, "currency": "USD"}
+{"timestamp": "2026-04-25T01:40:00.010000+00:00", "eventType": "Click", "customerId": "u7288", "sku": "p8972"}
+shutdown initiated by SIGTERM
+sending metric latency_ms=2237
+2026-04-25 01:40:17 app[web.4] {"event": "RemoveFromCart", "customerId": "user-5246", "sku": "sku-565"}
+2026-04-25T01:40:24Z INFO action=ProductViewed customerId=u4462 sku=prod_1162
+email sent to user@example.com subject="welcome"
+POST /healthz HTTP/1.1 301 3418ms bytes=20142
+2026-04-25 01:40:35 app[web.4] {"event": "ProductViewed", "customerId": "user-2783", "sku": "sku-3399"}
+2026-04-25 01:40:35 app[web.5] {"event": "CheckoutComplete", "customerId": "user-1818", "orderNumber": "ord-89208", "amount": "423.85", "currency": "EUR"}
+{"timestamp": "2026-04-25T01:40:41.683000+00:00", "eventType": "CheckoutComplete", "customerId": "u7577", "orderNumber": "ord-27054", "amount": 139.14, "currency": "GBP"}
+ping=707ms
+🚀 deploy finished in 4131ms
+{"timestamp": "2026-04-25T01:40:53.304000+00:00", "eventType": "ProductViewed", "customerId": "u8985", "sku": "p2508"}
+  File "/app/handlers/bzrjeqdqtx.py", line 64294, in <module>
+2026-04-25 01:40:55 app[web.1] {"event": "RemoveFromCart", "customerId": "user-5207", "sku": "sku-4103"}
+DB pool size=23290 idle=37 waiting=2
+UPDATE products SET stock=stock-1 WHERE id=? -- 134ms
+email sent to user@example.com subject="welcome"
+2026-04-25T01:41:11Z INFO action=CheckoutComplete customerId=u4491 orderNumber=ord-91455 amount=304.54 currency=GBP
+tail -f /var/log/app.log
+UPDATE products SET stock=stock-1 WHERE id=? -- 3109ms
+2026-04-25T01:41:27Z INFO action=Click customerId=u2584 sku=prod_2638
+cache hit for key=session_753624
+2026-04-25T01:41:40Z INFO action=Click customerId=u7853 sku=prod_5521
+{"timestamp": "2026-04-25T01:41:41.991000+00:00", "eventType": "CheckoutComplete", "customerId": "u4285", "orderNumber": "ord-4904", "amount": 114.96, "currency": "EUR"}
+GET /metrics HTTP/1.1 200 283ms
+reading file /tmp/eaecebeec3b7b44dd71816d2372fa07.bin
+2026-04-25T01:41:59Z INFO action=RemoveFromCart customerId=u6067 sku=prod_6206
+flush: wrote 84080 bytes to segment 310
+INFO: timeout waiting on mutex
+DELETE /api/v1/orders/95789 HTTP/1.1 200 1771ms
+2026-04-25T01:42:11Z INFO action=RemoveFromCart customerId=u5337 sku=prod_2593
+lorem ipsum dolor sit amet consectetur adipiscing elit 23794
+stuck in retry loop attempt=5775
+systemd[1]: app.service: main process exited, code=exited
+2026-04-25T01:42:32Z INFO action=ProductViewed customerId=u9098 sku=prod_1760
+{"timestamp": "2026-04-25T01:42:40.018000+00:00", "eventType": "RemoveFromCart", "customerId": "u3046", "sku": "p3925"}
+{"timestamp": "2026-04-25T01:42:46.827000+00:00", "eventType": "RemoveFromCart", "customerId": "u8396", "sku": "p5501"}
+kernel: TCP: time wait bucket table overflow
+lorem ipsum dolor sit amet consectetur adipiscing elit 42788
+2026-04-25T01:43:00Z INFO action=ProductViewed customerId=u4130 sku=prod_7668
+starting background job reindex_sku
+2026-04-25 01:43:08 app[web.2] {"event": "ProductViewed", "customerId": "user-9872", "sku": "sku-4750"}
+{"timestamp": "2026-04-25T01:43:09.045000+00:00", "eventType": "ProductViewed", "customerId": "u3196", "sku": "p138"}
+ERROR unhandled exception in handler
+ping=437ms
+ConnectionResetError: peer reset
+WARN: unexpected null
+    raise ValueError('unexpected null')
+    raise ValueError('bad value')
+{"timestamp": "2026-04-25T01:43:36.718000+00:00", "eventType": "CheckoutComplete", "customerId": "u700", "orderNumber": "ord-71879", "amount": 238.48, "currency": "EUR"}
+worker-19 spawned pid=41799
+containerd[9492]: starting task
+2026-04-25 01:43:54 app[web.4] {"event": "RemoveFromCart", "customerId": "user-630", "sku": "sku-9053"}
+Traceback (most recent call last):
+    raise ValueError('bad value')
+https://example.com/articles/3793?ref=9f7545d8aab0bdcb94ea49c3e
+{"timestamp": "2026-04-25T01:44:09.158000+00:00", "eventType": "CheckoutComplete", "customerId": "u3890", "orderNumber": "ord-90721", "amount": 10.68, "currency": "USD"}
+Traceback (most recent call last):
+2026-04-25 01:44:11 app[web.4] {"event": "RemoveFromCart", "customerId": "user-3415", "sku": "sku-5444"}
+scheduled job reindex_sku ran in 3359ms
+{"timestamp": "2026-04-25T01:44:16.608000+00:00", "eventType": "CheckoutComplete", "customerId": "u2952", "orderNumber": "ord-85641", "amount": 155.11, "currency": "EUR"}
+INFO: timeout waiting on mutex
+systemd[1]: app.service: main process exited, code=exited
+2026-04-25T01:44:33Z INFO action=RemoveFromCart customerId=u689 sku=prod_2322
+migration 2184 applied successfully
+2026-04-25T01:44:37Z INFO action=ProductViewed customerId=u6488 sku=prod_1214
+https://example.com/articles/86908?ref=c2b8f9850618941b41
+POST /static/app.js HTTP/1.1 503 3045ms bytes=12113
+2026-04-25T01:44:58Z INFO action=RemoveFromCart customerId=u24 sku=prod_5827
+🚀 deploy finished in 2521ms
+email sent to user@example.com subject="welcome"
+2026-04-25T01:45:10Z INFO action=AddToCart customerId=u3997 sku=prod_5741 quantity=3
+stuck in retry loop attempt=17627
+GET /metrics HTTP/1.1 401 492ms
+{"timestamp": "2026-04-25T01:45:16.573000+00:00", "eventType": "CheckoutComplete", "customerId": "u4287", "orderNumber": "ord-89224", "amount": 120.35, "currency": "GBP"}
+=======================================
+  File "/app/handlers/xtzrgxw.py", line 34600, in <module>
+GET /api/v2/cart HTTP/1.1 500 756ms
+<142>Jan 15 10:23:45 host-01 cron[29857]: (root) CMD (run-parts /etc/cron.hourly)
+email sent to user@example.com subject="welcome"
+starting background job reindex_sku
+2026-04-25 01:45:47 app[web.1] {"event": "CheckoutComplete", "customerId": "user-7301", "orderNumber": "ord-98167", "amount": "254.55", "currency": "EUR"}
+WARN rate_limit_hit tier=free
+{"timestamp": "2026-04-25T01:45:59.459000+00:00", "eventType": "AddToCart", "customerId": "u5519", "sku": "p8623", "quantity": 1}
+ValueError: unexpected null
+{"timestamp": "2026-04-25T01:46:08.090000+00:00", "eventType": "Click", "customerId": "u7133", "sku": "p5370"}
+{"timestamp": "2026-04-25T01:46:10.007000+00:00", "eventType": "CheckoutComplete", "customerId": "u8638", "orderNumber": "ord-77359", "amount": 116.0, "currency": "GBP"}
+   
+<142>Jan 15 10:23:45 host-01 cron[12572]: (root) CMD (run-parts /etc/cron.hourly)
+nginx: 215.208.173.177 - - [27/Apr/2026:11:05:28 +0000] "GET / HTTP/1.1" 200 31238
+2026-04-25T01:46:25Z INFO action=AddToCart customerId=u1625 sku=prod_8344 quantity=2
+{"timestamp": "2026-04-25T01:46:27.727000+00:00", "eventType": "ProductViewed", "customerId": "u1221", "sku": "p6656"}
+Traceback (most recent call last):
+WARN rate_limit_hit tier=free
+=======================================
+2026-04-25T01:46:41Z INFO action=CheckoutComplete customerId=u800 orderNumber=ord-38584 amount=416.39 currency=USD
+POST /metrics HTTP/1.1 500 1274ms bytes=54327
+2026-04-25 01:46:48 app[web.4] {"event": "Click", "customerId": "user-5121", "sku": "sku-2340"}
+scheduled job reindex_sku ran in 3911ms
+{"timestamp": "2026-04-25T01:46:50.899000+00:00", "eventType": "Click", "customerId": "u3633", "sku": "p3874"}
+{"timestamp": "2026-04-25T01:46:54.904000+00:00", "eventType": "ProductViewed", "customerId": "u7694", "sku": "p3256"}
+{"timestamp": "2026-04-25T01:46:55.687000+00:00", "eventType": "CheckoutComplete", "customerId": "u3796", "orderNumber": "ord-53887", "amount": 487.38, "currency": "USD"}
+WARN rate_limit_hit tier=free
+feature_flag kpdawatfuaw rollout=83%
+worker-12 spawned pid=39017
+lorem ipsum dolor sit amet consectetur adipiscing elit 70417
+reloading config from /etc/app/config.yaml
+https://example.com/articles/72193?ref=01436e981f308
+2026-04-25 01:47:28 app[web.2] {"event": "CheckoutComplete", "customerId": "user-1911", "orderNumber": "ord-54882", "amount": "458.14", "currency": "EUR"}
+{"timestamp": "2026-04-25T01:47:36.387000+00:00", "eventType": "ProductViewed", "customerId": "u3275", "sku": "p3501"}
+2026-04-25 01:47:38 app[web.3] {"event": "AddToCart", "customerId": "user-9307", "sku": "sku-713", "quantity": 5}

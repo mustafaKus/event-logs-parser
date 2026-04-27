@@ -1,0 +1,240 @@
+2026-04-25 00:35:06 app[web.2] {"event": "click", "user_id": "user-879", "product_id": "sku-1203"}
+2026-04-25 00:35:13 app[web.1] {"event": "click", "user_id": "user-5158", "product_id": "sku-6007"}
+2026-04-25 00:35:20 app[web.4] {"event": "add_to_cart", "user_id": "user-4645", "product_id": "sku-9615", "qty": 4}
+2026-04-25 00:35:22 app[web.4] {"event": "click", "user_id": "user-5786", "product_id": "sku-8236"}
+=======================================
+2026-04-25 00:35:28 app[web.5] {"event": "click", "user_id": "user-4230", "product_id": "sku-8923"}
+ERROR: bad value
+2026-04-25 00:35:37 app[web.2] {"event": "click", "user_id": "user-2700", "product_id": "sku-6855"}
+2026-04-25 00:35:42 app[web.4] {"event": "view", "user_id": "user-3436", "product_id": "sku-1422"}
+2026-04-25 00:35:46 app[web.2] {"event": "add_to_cart", "user_id": "user-3923", "product_id": "sku-7856", "qty": 1}
+2026-04-25 00:35:50 app[web.4] {"event": "view", "user_id": "user-8275", "product_id": "sku-9029"}
+=======================================
+2026-04-25 00:36:02 app[web.5] {"event": "add_to_cart", "user_id": "user-8750", "product_id": "sku-8816", "qty": 4}
+2026-04-25 00:36:05 app[web.5] {"event": "add_to_cart", "user_id": "user-3186", "product_id": "sku-5000", "qty": 5}
+2026-04-25 00:36:08 app[web.1] {"event": "purchase", "user_id": "user-7264", "order_id": "ord-42981", "total": "264.66", "currency": "USD"}
+2026-04-25 00:36:09 app[web.1] {"event": "view", "user_id": "user-9167", "product_id": "sku-2506"}
+2026-04-25 00:36:16 app[web.3] {"event": "view", "user_id": "user-8363", "product_id": "sku-3702"}
+2026-04-25 00:36:19 app[web.2] {"event": "purchase", "user_id": "user-3425", "order_id": "ord-86435", "total": "95.07", "currency": "EUR"}
+2026-04-25 00:36:20 app[web.5] {"event": "remove_from_cart", "user_id": "user-4867", "product_id": "sku-7822"}
+2026-04-25 00:36:21 app[web.4] {"event": "click", "user_id": "user-9811", "product_id": "sku-8093"}
+2026-04-25 00:36:23 app[web.1] {"event": "purchase", "user_id": "user-5329", "order_id": "ord-75544", "total": "471.02", "currency": "GBP"}
+heartbeat ok
+2026-04-25 00:36:33 app[web.1] {"event": "purchase", "user_id": "user-2184", "order_id": "ord-54851", "total": "302.14", "currency": "GBP"}
+flush: wrote 88426 bytes to segment 230
+2026-04-25 00:36:40 app[web.4] {"event": "purchase", "user_id": "user-880", "order_id": "ord-10761", "total": "226.00", "currency": "GBP"}
+2026-04-25 00:36:47 app[web.3] {"event": "add_to_cart", "user_id": "user-8960", "product_id": "sku-126", "qty": 5}
+2026-04-25 00:36:48 app[web.3] {"event": "remove_from_cart", "user_id": "user-9125", "product_id": "sku-4589"}
+2026-04-25 00:36:51 app[web.2] {"event": "click", "user_id": "user-4281", "product_id": "sku-5510"}
+2026-04-25 00:36:55 app[web.2] {"event": "view", "user_id": "user-7706", "product_id": "sku-9656"}
+2026-04-25 00:36:59 app[web.4] {"event": "purchase", "user_id": "user-5680", "order_id": "ord-22769", "total": "178.00", "currency": "GBP"}
+2026-04-25 00:37:06 app[web.4] {"event": "add_to_cart", "user_id": "user-4465", "product_id": "sku-7869", "qty": 4}
+2026-04-25 00:37:07 app[web.5] {"event": "add_to_cart", "user_id": "user-5861", "product_id": "sku-3134", "qty": 5}
+2026-04-25 00:37:11 app[web.2] {"event": "click", "user_id": "user-754", "product_id": "sku-5913"}
+2026-04-25 00:37:15 app[web.3] {"event": "add_to_cart", "user_id": "user-429", "product_id": "sku-4628", "qty": 5}
+2026-04-25 00:37:17 app[web.4] {"event": "purchase", "user_id": "user-1261", "order_id": "ord-60156", "total": "242.75", "currency": "USD"}
+2026-04-25 00:37:21 app[web.4] {"event": "view", "user_id": "user-5635", "product_id": "sku-4886"}
+ValueError: invalid state
+2026-04-25 00:37:30 app[web.5] {"event": "view", "user_id": "user-8340", "product_id": "sku-369"}
+2026-04-25 00:37:31 app[web.3] {"event": "click", "user_id": "user-6255", "product_id": "sku-8779"}
+2026-04-25 00:37:37 app[web.5] {"event": "purchase", "user_id": "user-662", "order_id": "ord-12661", "total": "321.46", "currency": "GBP"}
+2026-04-25 00:37:43 app[web.5] {"event": "remove_from_cart", "user_id": "user-4387", "product_id": "sku-5771"}
+2026-04-25 00:37:45 app[web.3] {"event": "remove_from_cart", "user_id": "user-1866", "product_id": "sku-2828"}
+2026-04-25 00:37:52 app[web.5] {"event": "add_to_cart", "user_id": "user-5046", "product_id": "sku-3485", "qty": 2}
+2026-04-25 00:37:57 app[web.3] {"event": "add_to_cart", "user_id": "user-5228", "product_id": "sku-8341", "qty": 3}
+2026-04-25 00:38:05 app[web.2] {"event": "add_to_cart", "user_id": "user-1121", "product_id": "sku-3305", "qty": 3}
+containerd[63640]: starting task
+2026-04-25 00:38:19 app[web.1] {"event": "click", "user_id": "user-6315", "product_id": "sku-6967"}
+2026-04-25 00:38:25 app[web.2] {"event": "view", "user_id": "user-330", "product_id": "sku-5330"}
+2026-04-25 00:38:26 app[web.3] {"event": "click", "user_id": "user-5851", "product_id": "sku-3078"}
+2026-04-25 00:38:29 app[web.5] {"event": "add_to_cart", "user_id": "user-8195", "product_id": "sku-6924", "qty": 3}
+2026-04-25 00:38:32 app[web.1] {"event": "remove_from_cart", "user_id": "user-1585", "product_id": "sku-7623"}
+2026-04-25 00:38:34 app[web.3] {"event": "click", "user_id": "user-5150", "product_id": "sku-2476"}
+2026-04-25 00:38:41 app[web.4] {"event": "view", "user_id": "user-99", "product_id": "sku-4623"}
+2026-04-25 00:38:45 app[web.1] {"event": "add_to_cart", "user_id": "user-3953", "product_id": "sku-5714", "qty": 2}
+2026-04-25 00:38:52 app[web.3] {"event": "view", "user_id": "user-2648", "product_id": "sku-9663"}
+2026-04-25 00:38:56 app[web.5] {"event": "remove_from_cart", "user_id": "user-310", "product_id": "sku-6011"}
+2026-04-25 00:38:57 app[web.2] {"event": "remove_from_cart", "user_id": "user-3053", "product_id": "sku-289"}
+2026-04-25 00:39:02 app[web.2] {"event": "view", "user_id": "user-8924", "product_id": "sku-2997"}
+2026-04-25 00:39:08 app[web.4] {"event": "remove_from_cart", "user_id": "user-517", "product_id": "sku-3693"}
+2026-04-25 00:39:12 app[web.2] {"event": "remove_from_cart", "user_id": "user-2831", "product_id": "sku-9496"}
+2026-04-25 00:39:15 app[web.1] {"event": "click", "user_id": "user-2397", "product_id": "sku-6606"}
+2026-04-25 00:39:19 app[web.3] {"event": "purchase", "user_id": "user-2964", "order_id": "ord-34295", "total": "286.40", "currency": "EUR"}
+2026-04-25 00:39:23 app[web.4] {"event": "view", "user_id": "user-9596", "product_id": "sku-5195"}
+2026-04-25 00:39:23 app[web.1] {"event": "view", "user_id": "user-4079", "product_id": "sku-5316"}
+2026-04-25 00:39:24 app[web.5] {"event": "click", "user_id": "user-3362", "product_id": "sku-1356"}
+2026-04-25 00:39:29 app[web.1] {"event": "click", "user_id": "user-7295", "product_id": "sku-9840"}
+2026-04-25 00:39:35 app[web.2] {"event": "view", "user_id": "user-4564", "product_id": "sku-6674"}
+2026-04-25 00:39:38 app[web.4] {"event": "purchase", "user_id": "user-5352", "order_id": "ord-57698", "total": "218.89", "currency": "GBP"}
+2026-04-25 00:39:42 app[web.3] {"event": "add_to_cart", "user_id": "user-2788", "product_id": "sku-2445", "qty": 5}
+DELETE /healthz HTTP/1.1 301 1464ms
+2026-04-25 00:39:46 app[web.3] {"event": "purchase", "user_id": "user-315", "order_id": "ord-65253", "total": "465.92", "currency": "GBP"}
+2026-04-25 00:39:50 app[web.3] {"event": "click", "user_id": "user-432", "product_id": "sku-4286"}
+flush: wrote 22207 bytes to segment 179
+2026-04-25 00:40:01 app[web.5] {"event": "click", "user_id": "user-4337", "product_id": "sku-5788"}
+2026-04-25 00:40:09 app[web.3] {"event": "view", "user_id": "user-5811", "product_id": "sku-5423"}
+kernel: TCP: time wait bucket table overflow
+2026-04-25 00:40:16 app[web.1] {"event": "remove_from_cart", "user_id": "user-6686", "product_id": "sku-1731"}
+SELECT * FROM users WHERE id=? LIMIT 1 -- 1809ms
+2026-04-25 00:40:20 app[web.3] {"event": "remove_from_cart", "user_id": "user-8298", "product_id": "sku-8154"}
+2026-04-25 00:40:22 app[web.5] {"event": "view", "user_id": "user-1514", "product_id": "sku-8982"}
+2026-04-25 00:40:26 app[web.1] {"event": "add_to_cart", "user_id": "user-5613", "product_id": "sku-2720", "qty": 2}
+2026-04-25 00:40:28 app[web.4] {"event": "remove_from_cart", "user_id": "user-408", "product_id": "sku-171"}
+2026-04-25 00:40:32 app[web.1] {"event": "remove_from_cart", "user_id": "user-3376", "product_id": "sku-9071"}
+2026-04-25 00:40:33 app[web.5] {"event": "click", "user_id": "user-9072", "product_id": "sku-8562"}
+2026-04-25 00:40:40 app[web.2] {"event": "view", "user_id": "user-1135", "product_id": "sku-9018"}
+2026-04-25 00:40:44 app[web.2] {"event": "remove_from_cart", "user_id": "user-748", "product_id": "sku-3653"}
+2026-04-25 00:40:48 app[web.2] {"event": "view", "user_id": "user-7652", "product_id": "sku-6164"}
+2026-04-25 00:40:52 app[web.3] {"event": "purchase", "user_id": "user-3453", "order_id": "ord-46494", "total": "195.98", "currency": "GBP"}
+2026-04-25 00:40:57 app[web.4] {"event": "remove_from_cart", "user_id": "user-3239", "product_id": "sku-6644"}
+2026-04-25 00:41:01 app[web.1] {"event": "purchase", "user_id": "user-8859", "order_id": "ord-45093", "total": "347.64", "currency": "GBP"}
+2026-04-25 00:41:06 app[web.5] {"event": "purchase", "user_id": "user-1266", "order_id": "ord-94132", "total": "265.74", "currency": "GBP"}
+2026-04-25 00:41:14 app[web.1] {"event": "add_to_cart", "user_id": "user-4107", "product_id": "sku-8768", "qty": 3}
+2026-04-25 00:41:22 app[web.4] {"event": "click", "user_id": "user-8661", "product_id": "sku-3334"}
+2026-04-25 00:41:24 app[web.3] {"event": "purchase", "user_id": "user-7664", "order_id": "ord-70495", "total": "443.53", "currency": "EUR"}
+2026-04-25 00:41:30 app[web.3] {"event": "remove_from_cart", "user_id": "user-2431", "product_id": "sku-5243"}
+2026-04-25 00:41:32 app[web.4] {"event": "add_to_cart", "user_id": "user-5750", "product_id": "sku-8789", "qty": 3}
+2026-04-25 00:41:36 app[web.1] {"event": "add_to_cart", "user_id": "user-178", "product_id": "sku-3023", "qty": 5}
+2026-04-25 00:41:44 app[web.5] {"event": "remove_from_cart", "user_id": "user-8580", "product_id": "sku-4471"}
+2026-04-25 00:41:45 app[web.4] {"event": "add_to_cart", "user_id": "user-791", "product_id": "sku-1644", "qty": 2}
+sending metric latency_ms=736
+2026-04-25 00:41:56 app[web.3] {"event": "click", "user_id": "user-9991", "product_id": "sku-104"}
+2026-04-25 00:42:01 app[web.3] {"event": "purchase", "user_id": "user-8069", "order_id": "ord-41270", "total": "32.50", "currency": "USD"}
+2026-04-25 00:42:08 app[web.5] {"event": "purchase", "user_id": "user-8475", "order_id": "ord-65539", "total": "219.42", "currency": "USD"}
+2026-04-25 00:42:12 app[web.2] {"event": "remove_from_cart", "user_id": "user-9925", "product_id": "sku-8388"}
+2026-04-25 00:42:18 app[web.1] {"event": "view", "user_id": "user-3345", "product_id": "sku-7756"}
+flush: wrote 9128 bytes to segment 377
+2026-04-25 00:42:21 app[web.3] {"event": "click", "user_id": "user-2346", "product_id": "sku-8053"}
+cache miss for key=session_f71e9b
+   
+  File "/app/handlers/xjtplaruxm.py", line 84884, in <module>
+2026-04-25 00:42:35 app[web.3] {"event": "add_to_cart", "user_id": "user-3241", "product_id": "sku-4392", "qty": 2}
+2026-04-25 00:42:37 app[web.4] {"event": "click", "user_id": "user-7649", "product_id": "sku-5357"}
+2026-04-25 00:42:41 app[web.3] {"event": "remove_from_cart", "user_id": "user-5496", "product_id": "sku-9613"}
+2026-04-25 00:42:46 app[web.1] {"event": "add_to_cart", "user_id": "user-8093", "product_id": "sku-815", "qty": 3}
+2026-04-25 00:42:47 app[web.2] {"event": "purchase", "user_id": "user-3061", "order_id": "ord-25595", "total": "498.39", "currency": "GBP"}
+2026-04-25 00:42:48 app[web.5] {"event": "view", "user_id": "user-5823", "product_id": "sku-3281"}
+2026-04-25 00:42:54 app[web.5] {"event": "purchase", "user_id": "user-2083", "order_id": "ord-29313", "total": "498.20", "currency": "EUR"}
+2026-04-25 00:42:57 app[web.2] {"event": "click", "user_id": "user-5592", "product_id": "sku-651"}
+2026-04-25 00:43:03 app[web.5] {"event": "purchase", "user_id": "user-200", "order_id": "ord-12781", "total": "489.06", "currency": "USD"}
+WARN rate_limit_hit tier=free
+reloading config from /etc/app/config.yaml
+2026-04-25 00:43:15 app[web.1] {"event": "add_to_cart", "user_id": "user-7547", "product_id": "sku-4576", "qty": 2}
+2026-04-25 00:43:17 app[web.3] {"event": "click", "user_id": "user-76", "product_id": "sku-3166"}
+2026-04-25 00:43:17 app[web.5] {"event": "add_to_cart", "user_id": "user-6438", "product_id": "sku-2719", "qty": 1}
+2026-04-25 00:43:19 app[web.1] {"event": "view", "user_id": "user-3274", "product_id": "sku-396"}
+2026-04-25 00:43:23 app[web.2] {"event": "view", "user_id": "user-5728", "product_id": "sku-1699"}
+2026-04-25 00:43:30 app[web.1] {"event": "add_to_cart", "user_id": "user-5235", "product_id": "sku-7304", "qty": 5}
+2026-04-25 00:43:37 app[web.2] {"event": "purchase", "user_id": "user-1935", "order_id": "ord-40060", "total": "161.38", "currency": "EUR"}
+2026-04-25 00:43:37 app[web.3] {"event": "view", "user_id": "user-7704", "product_id": "sku-7784"}
+2026-04-25 00:43:38 app[web.3] {"event": "add_to_cart", "user_id": "user-1417", "product_id": "sku-162", "qty": 1}
+2026-04-25 00:43:45 app[web.1] {"event": "add_to_cart", "user_id": "user-1660", "product_id": "sku-8024", "qty": 1}
+ConnectionResetError: peer reset
+2026-04-25 00:43:49 app[web.4] {"event": "click", "user_id": "user-8945", "product_id": "sku-9238"}
+2026-04-25 00:43:55 app[web.5] {"event": "view", "user_id": "user-2803", "product_id": "sku-297"}
+ping=3596ms
+2026-04-25 00:43:59 app[web.2] {"event": "remove_from_cart", "user_id": "user-5126", "product_id": "sku-7292"}
+2026-04-25 00:44:02 app[web.5] {"event": "remove_from_cart", "user_id": "user-2376", "product_id": "sku-9315"}
+2026-04-25 00:44:07 app[web.4] {"event": "click", "user_id": "user-7769", "product_id": "sku-9161"}
+2026-04-25 00:44:11 app[web.3] {"event": "remove_from_cart", "user_id": "user-4245", "product_id": "sku-6111"}
+2026-04-25 00:44:11 app[web.3] {"event": "click", "user_id": "user-8457", "product_id": "sku-1270"}
+2026-04-25 00:44:14 app[web.4] {"event": "purchase", "user_id": "user-7820", "order_id": "ord-57510", "total": "121.67", "currency": "GBP"}
+2026-04-25 00:44:16 app[web.3] {"event": "remove_from_cart", "user_id": "user-626", "product_id": "sku-1340"}
+2026-04-25 00:44:18 app[web.4] {"event": "purchase", "user_id": "user-2862", "order_id": "ord-98747", "total": "344.49", "currency": "EUR"}
+2026-04-25 00:44:24 app[web.2] {"event": "click", "user_id": "user-8721", "product_id": "sku-4098"}
+2026-04-25 00:44:25 app[web.3] {"event": "purchase", "user_id": "user-9860", "order_id": "ord-67634", "total": "175.01", "currency": "GBP"}
+2026-04-25 00:44:33 app[web.4] {"event": "purchase", "user_id": "user-8523", "order_id": "ord-92367", "total": "230.09", "currency": "USD"}
+2026-04-25 00:44:37 app[web.4] {"event": "view", "user_id": "user-31", "product_id": "sku-1516"}
+2026-04-25 00:44:45 app[web.3] {"event": "view", "user_id": "user-8142", "product_id": "sku-960"}
+2026-04-25 00:44:50 app[web.3] {"event": "purchase", "user_id": "user-553", "order_id": "ord-13755", "total": "316.07", "currency": "EUR"}
+flush: wrote 31636 bytes to segment 220
+2026-04-25 00:44:53 app[web.3] {"event": "remove_from_cart", "user_id": "user-3006", "product_id": "sku-4397"}
+2026-04-25 00:44:53 app[web.5] {"event": "remove_from_cart", "user_id": "user-6841", "product_id": "sku-1114"}
+2026-04-25 00:44:54 app[web.1] {"event": "purchase", "user_id": "user-245", "order_id": "ord-89933", "total": "42.21", "currency": "GBP"}
+2026-04-25 00:45:00 app[web.2] {"event": "remove_from_cart", "user_id": "user-7032", "product_id": "sku-3959"}
+KeyError: 'user_31d887' not present in context
+2026-04-25 00:45:08 app[web.3] {"event": "view", "user_id": "user-1565", "product_id": "sku-8135"}
+2026-04-25 00:45:14 app[web.5] {"event": "remove_from_cart", "user_id": "user-7467", "product_id": "sku-186"}
+  File "/app/handlers/tksvh.py", line 87264, in <module>
+2026-04-25 00:45:18 app[web.3] {"event": "add_to_cart", "user_id": "user-7101", "product_id": "sku-4566", "qty": 3}
+UPDATE products SET stock=stock-1 WHERE id=? -- 241ms
+2026-04-25 00:45:23 app[web.1] {"event": "remove_from_cart", "user_id": "user-9889", "product_id": "sku-9612"}
+2026-04-25 00:45:26 app[web.4] {"event": "add_to_cart", "user_id": "user-3895", "product_id": "sku-9162", "qty": 3}
+tail -f /var/log/app.log
+2026-04-25 00:45:33 app[web.5] {"event": "view", "user_id": "user-7107", "product_id": "sku-3630"}
+2026-04-25 00:45:40 app[web.5] {"event": "purchase", "user_id": "user-3337", "order_id": "ord-8506", "total": "242.05", "currency": "GBP"}
+2026-04-25 00:45:46 app[web.5] {"event": "purchase", "user_id": "user-3398", "order_id": "ord-82841", "total": "97.38", "currency": "GBP"}
+2026-04-25 00:45:49 app[web.2] {"event": "remove_from_cart", "user_id": "user-9504", "product_id": "sku-5572"}
+ConnectionResetError: peer reset
+2026-04-25 00:45:58 app[web.3] {"event": "purchase", "user_id": "user-1283", "order_id": "ord-57844", "total": "460.67", "currency": "GBP"}
+2026-04-25 00:46:01 app[web.4] {"event": "purchase", "user_id": "user-3868", "order_id": "ord-72745", "total": "496.43", "currency": "USD"}
+2026-04-25 00:46:03 app[web.5] {"event": "purchase", "user_id": "user-8229", "order_id": "ord-41840", "total": "342.35", "currency": "EUR"}
+2026-04-25 00:46:09 app[web.4] {"event": "add_to_cart", "user_id": "user-2814", "product_id": "sku-8061", "qty": 4}
+2026-04-25 00:46:13 app[web.5] {"event": "remove_from_cart", "user_id": "user-9931", "product_id": "sku-1173"}
+2026-04-25 00:46:14 app[web.5] {"event": "purchase", "user_id": "user-9458", "order_id": "ord-91746", "total": "16.48", "currency": "USD"}
+2026-04-25 00:46:20 app[web.2] {"event": "add_to_cart", "user_id": "user-1547", "product_id": "sku-3563", "qty": 3}
+2026-04-25 00:46:23 app[web.5] {"event": "remove_from_cart", "user_id": "user-1730", "product_id": "sku-4177"}
+2026-04-25 00:46:31 app[web.3] {"event": "add_to_cart", "user_id": "user-6817", "product_id": "sku-3733", "qty": 1}
+2026-04-25 00:46:35 app[web.2] {"event": "purchase", "user_id": "user-4789", "order_id": "ord-93641", "total": "428.96", "currency": "EUR"}
+    raise ValueError('timeout waiting on mutex')
+2026-04-25 00:46:42 app[web.2] {"event": "purchase", "user_id": "user-795", "order_id": "ord-62061", "total": "30.51", "currency": "GBP"}
+2026-04-25 00:46:45 app[web.1] {"event": "purchase", "user_id": "user-7607", "order_id": "ord-99045", "total": "245.32", "currency": "EUR"}
+   
+2026-04-25 00:46:50 app[web.4] {"event": "purchase", "user_id": "user-6541", "order_id": "ord-71816", "total": "91.30", "currency": "GBP"}
+2026-04-25 00:46:53 app[web.2] {"event": "remove_from_cart", "user_id": "user-3106", "product_id": "sku-5035"}
+migration 0863 applied successfully
+DELETE /api/v2/cart HTTP/1.1 301 2088ms
+Traceback (most recent call last):
+2026-04-25 00:47:07 app[web.5] {"event": "click", "user_id": "user-4383", "product_id": "sku-3224"}
+2026-04-25 00:47:11 app[web.5] {"event": "add_to_cart", "user_id": "user-6970", "product_id": "sku-2937", "qty": 5}
+2026-04-25 00:47:12 app[web.1] {"event": "add_to_cart", "user_id": "user-3212", "product_id": "sku-3763", "qty": 2}
+2026-04-25 00:47:13 app[web.4] {"event": "view", "user_id": "user-2812", "product_id": "sku-6920"}
+2026-04-25 00:47:15 app[web.3] {"event": "click", "user_id": "user-5319", "product_id": "sku-4359"}
+2026-04-25 00:47:22 app[web.5] {"event": "click", "user_id": "user-9105", "product_id": "sku-990"}
+2026-04-25 00:47:28 app[web.2] {"event": "remove_from_cart", "user_id": "user-1114", "product_id": "sku-5395"}
+2026-04-25 00:47:31 app[web.1] {"event": "remove_from_cart", "user_id": "user-3754", "product_id": "sku-891"}
+2026-04-25 00:47:36 app[web.4] {"event": "view", "user_id": "user-1065", "product_id": "sku-6736"}
+2026-04-25 00:47:38 app[web.5] {"event": "add_to_cart", "user_id": "user-2992", "product_id": "sku-898", "qty": 3}
+2026-04-25 00:47:46 app[web.4] {"event": "click", "user_id": "user-8625", "product_id": "sku-9250"}
+2026-04-25 00:47:46 app[web.4] {"event": "view", "user_id": "user-468", "product_id": "sku-2740"}
+2026-04-25 00:47:47 app[web.1] {"event": "purchase", "user_id": "user-746", "order_id": "ord-15937", "total": "380.69", "currency": "USD"}
+2026-04-25 00:47:48 app[web.4] {"event": "purchase", "user_id": "user-2365", "order_id": "ord-40690", "total": "219.79", "currency": "EUR"}
+2026-04-25 00:47:55 app[web.3] {"event": "add_to_cart", "user_id": "user-4955", "product_id": "sku-9162", "qty": 5}
+2026-04-25 00:48:02 app[web.1] {"event": "add_to_cart", "user_id": "user-2151", "product_id": "sku-4942", "qty": 5}
+2026-04-25 00:48:10 app[web.3] {"event": "purchase", "user_id": "user-2174", "order_id": "ord-32465", "total": "444.92", "currency": "GBP"}
+2026-04-25 00:48:10 app[web.3] {"event": "purchase", "user_id": "user-711", "order_id": "ord-90939", "total": "25.28", "currency": "GBP"}
+2026-04-25 00:48:12 app[web.4] {"event": "purchase", "user_id": "user-1897", "order_id": "ord-40152", "total": "27.41", "currency": "GBP"}
+
+
+2026-04-25 00:48:25 app[web.4] {"event": "purchase", "user_id": "user-6657", "order_id": "ord-42162", "total": "318.56", "currency": "USD"}
+2026-04-25 00:48:30 app[web.3] {"event": "click", "user_id": "user-2408", "product_id": "sku-9792"}
+2026-04-25 00:48:31 app[web.1] {"event": "purchase", "user_id": "user-4959", "order_id": "ord-97975", "total": "234.26", "currency": "GBP"}
+2026-04-25 00:48:33 app[web.2] {"event": "purchase", "user_id": "user-1334", "order_id": "ord-12911", "total": "240.61", "currency": "USD"}
+2026-04-25 00:48:39 app[web.5] {"event": "remove_from_cart", "user_id": "user-5793", "product_id": "sku-1178"}
+2026-04-25 00:48:42 app[web.1] {"event": "purchase", "user_id": "user-2594", "order_id": "ord-94004", "total": "478.32", "currency": "EUR"}
+2026-04-25 00:48:49 app[web.1] {"event": "purchase", "user_id": "user-3502", "order_id": "ord-38659", "total": "268.85", "currency": "EUR"}
+2026-04-25 00:48:51 app[web.1] {"event": "click", "user_id": "user-6841", "product_id": "sku-8809"}
+2026-04-25 00:48:59 app[web.2] {"event": "view", "user_id": "user-3071", "product_id": "sku-2188"}
+2026-04-25 00:49:00 app[web.3] {"event": "click", "user_id": "user-6264", "product_id": "sku-8263"}
+2026-04-25 00:49:06 app[web.5] {"event": "click", "user_id": "user-9651", "product_id": "sku-9078"}
+2026-04-25 00:49:11 app[web.1] {"event": "view", "user_id": "user-8877", "product_id": "sku-8115"}
+2026-04-25 00:49:18 app[web.2] {"event": "remove_from_cart", "user_id": "user-6153", "product_id": "sku-4243"}
+2026-04-25 00:49:24 app[web.3] {"event": "purchase", "user_id": "user-1088", "order_id": "ord-98800", "total": "490.81", "currency": "USD"}
+2026-04-25 00:49:25 app[web.1] {"event": "remove_from_cart", "user_id": "user-2529", "product_id": "sku-3903"}
+2026-04-25 00:49:26 app[web.3] {"event": "view", "user_id": "user-829", "product_id": "sku-4179"}
+2026-04-25 00:49:31 app[web.3] {"event": "click", "user_id": "user-7226", "product_id": "sku-6394"}
+2026-04-25 00:49:33 app[web.2] {"event": "add_to_cart", "user_id": "user-9587", "product_id": "sku-8672", "qty": 3}
+2026-04-25 00:49:37 app[web.5] {"event": "view", "user_id": "user-5695", "product_id": "sku-1870"}
+2026-04-25 00:49:38 app[web.2] {"event": "purchase", "user_id": "user-481", "order_id": "ord-30953", "total": "25.18", "currency": "GBP"}
+2026-04-25 00:49:43 app[web.4] {"event": "click", "user_id": "user-8348", "product_id": "sku-8927"}
+2026-04-25 00:49:48 app[web.4] {"event": "remove_from_cart", "user_id": "user-5510", "product_id": "sku-5812"}
+2026-04-25 00:49:53 app[web.3] {"event": "remove_from_cart", "user_id": "user-7422", "product_id": "sku-9531"}
+2026-04-25 00:49:56 app[web.2] {"event": "purchase", "user_id": "user-8178", "order_id": "ord-58940", "total": "390.57", "currency": "USD"}
+2026-04-25 00:50:01 app[web.1] {"event": "view", "user_id": "user-5931", "product_id": "sku-2863"}
+2026-04-25 00:50:02 app[web.4] {"event": "add_to_cart", "user_id": "user-2635", "product_id": "sku-8271", "qty": 5}
+2026-04-25 00:50:08 app[web.1] {"event": "click", "user_id": "user-7561", "product_id": "sku-293"}
+2026-04-25 00:50:11 app[web.5] {"event": "click", "user_id": "user-139", "product_id": "sku-1473"}
+2026-04-25 00:50:18 app[web.5] {"event": "view", "user_id": "user-2796", "product_id": "sku-3565"}
+2026-04-25 00:50:22 app[web.5] {"event": "remove_from_cart", "user_id": "user-5926", "product_id": "sku-1561"}
+2026-04-25 00:50:29 app[web.3] {"event": "remove_from_cart", "user_id": "user-2410", "product_id": "sku-8349"}
+2026-04-25 00:50:32 app[web.5] {"event": "purchase", "user_id": "user-5595", "order_id": "ord-91925", "total": "257.80", "currency": "EUR"}

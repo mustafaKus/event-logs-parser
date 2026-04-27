@@ -1,0 +1,120 @@
+2026-04-25T01:18:20Z INFO action=RemoveFromCart customerId=u2250 sku=prod_3720
+2026-04-25T01:18:26Z INFO action=RemoveFromCart customerId=u3148 sku=prod_1775
+2026-04-25T01:18:30Z INFO action=AddToCart customerId=u5600 sku=prod_9923 quantity=4
+2026-04-25T01:18:32Z INFO action=RemoveFromCart customerId=u6691 sku=prod_732
+2026-04-25T01:18:38Z INFO action=CheckoutComplete customerId=u6592 orderNumber=ord-86585 amount=143.01 currency=EUR
+2026-04-25T01:18:42Z INFO action=AddToCart customerId=u1817 sku=prod_9391 quantity=3
+2026-04-25T01:18:48Z INFO action=CheckoutComplete customerId=u5071 orderNumber=ord-33843 amount=363.42 currency=USD
+2026-04-25T01:18:54Z INFO action=CheckoutComplete customerId=u5902 orderNumber=ord-45761 amount=358.91 currency=USD
+2026-04-25T01:19:00Z INFO action=CheckoutComplete customerId=u6818 orderNumber=ord-32960 amount=343.83 currency=GBP
+2026-04-25T01:19:04Z INFO action=ProductViewed customerId=u2805 sku=prod_7705
+2026-04-25T01:19:10Z INFO action=CheckoutComplete customerId=u7570 orderNumber=ord-79992 amount=471.80 currency=GBP
+2026-04-25T01:19:15Z INFO action=ProductViewed customerId=u907 sku=prod_6207
+2026-04-25T01:19:17Z INFO action=Click customerId=u6992 sku=prod_6924
+2026-04-25T01:19:22Z INFO action=ProductViewed customerId=u3519 sku=prod_2135
+2026-04-25T01:19:30Z INFO action=AddToCart customerId=u9225 sku=prod_6956 quantity=1
+2026-04-25T01:19:37Z INFO action=AddToCart customerId=u7985 sku=prod_3982 quantity=4
+2026-04-25T01:19:40Z INFO action=ProductViewed customerId=u5561 sku=prod_1785
+2026-04-25T01:19:42Z INFO action=CheckoutComplete customerId=u6819 orderNumber=ord-57766 amount=36.82 currency=USD
+2026-04-25T01:19:48Z INFO action=Click customerId=u2547 sku=prod_5293
+2026-04-25T01:19:51Z INFO action=AddToCart customerId=u7443 sku=prod_8677 quantity=2
+2026-04-25T01:19:53Z INFO action=ProductViewed customerId=u953 sku=prod_3348
+2026-04-25T01:19:55Z INFO action=ProductViewed customerId=u8561 sku=prod_2456
+2026-04-25T01:19:57Z INFO action=ProductViewed customerId=u919 sku=prod_3436
+2026-04-25T01:20:02Z INFO action=AddToCart customerId=u268 sku=prod_6850 quantity=2
+2026-04-25T01:20:06Z INFO action=CheckoutComplete customerId=u7628 orderNumber=ord-1702 amount=37.06 currency=USD
+2026-04-25T01:20:14Z INFO action=Click customerId=u479 sku=prod_8910
+2026-04-25T01:20:17Z INFO action=RemoveFromCart customerId=u2247 sku=prod_596
+2026-04-25T01:20:18Z INFO action=CheckoutComplete customerId=u9276 orderNumber=ord-74472 amount=414.37 currency=EUR
+2026-04-25T01:20:24Z INFO action=ProductViewed customerId=u8174 sku=prod_1540
+2026-04-25T01:20:26Z INFO action=ProductViewed customerId=u6442 sku=prod_8574
+2026-04-25T01:20:27Z INFO action=Click customerId=u4846 sku=prod_5346
+2026-04-25T01:20:32Z INFO action=ProductViewed customerId=u3402 sku=prod_676
+2026-04-25T01:20:32Z INFO action=AddToCart customerId=u8526 sku=prod_4192 quantity=1
+2026-04-25T01:20:33Z INFO action=CheckoutComplete customerId=u959 orderNumber=ord-14839 amount=5.39 currency=EUR
+2026-04-25T01:20:41Z INFO action=ProductViewed customerId=u7925 sku=prod_7902
+2026-04-25T01:20:48Z INFO action=AddToCart customerId=u8300 sku=prod_3676 quantity=2
+2026-04-25T01:20:50Z INFO action=ProductViewed customerId=u5951 sku=prod_2066
+2026-04-25T01:20:56Z INFO action=AddToCart customerId=u6403 sku=prod_5833 quantity=1
+2026-04-25T01:21:03Z INFO action=AddToCart customerId=u2023 sku=prod_805 quantity=2
+2026-04-25T01:21:04Z INFO action=ProductViewed customerId=u9007 sku=prod_6500
+2026-04-25T01:21:05Z INFO action=CheckoutComplete customerId=u2382 orderNumber=ord-30606 amount=177.22 currency=EUR
+ERROR: invalid state
+2026-04-25T01:21:16Z INFO action=RemoveFromCart customerId=u2998 sku=prod_9488
+2026-04-25T01:21:21Z INFO action=ProductViewed customerId=u3478 sku=prod_3181
+2026-04-25T01:21:28Z INFO action=AddToCart customerId=u3174 sku=prod_7098 quantity=2
+2026-04-25T01:21:29Z INFO action=AddToCart customerId=u4890 sku=prod_7488 quantity=5
+2026-04-25T01:21:32Z INFO action=CheckoutComplete customerId=u2049 orderNumber=ord-65342 amount=77.17 currency=USD
+2026-04-25T01:21:36Z INFO action=RemoveFromCart customerId=u9944 sku=prod_7289
+2026-04-25T01:21:43Z INFO action=RemoveFromCart customerId=u1960 sku=prod_1064
+2026-04-25T01:21:50Z INFO action=RemoveFromCart customerId=u5540 sku=prod_6631
+2026-04-25T01:21:51Z INFO action=Click customerId=u8252 sku=prod_9135
+2026-04-25T01:21:52Z INFO action=CheckoutComplete customerId=u5615 orderNumber=ord-5221 amount=447.25 currency=EUR
+cache hit for key=session_12ab99
+2026-04-25T01:21:59Z INFO action=ProductViewed customerId=u6171 sku=prod_5148
+2026-04-25T01:21:59Z INFO action=CheckoutComplete customerId=u919 orderNumber=ord-60109 amount=179.88 currency=EUR
+2026-04-25T01:22:07Z INFO action=AddToCart customerId=u4157 sku=prod_9270 quantity=1
+2026-04-25T01:22:07Z INFO action=AddToCart customerId=u2955 sku=prod_2366 quantity=3
+2026-04-25T01:22:09Z INFO action=RemoveFromCart customerId=u2958 sku=prod_2615
+2026-04-25T01:22:15Z INFO action=RemoveFromCart customerId=u7788 sku=prod_5824
+2026-04-25T01:22:21Z INFO action=ProductViewed customerId=u7764 sku=prod_9799
+2026-04-25T01:22:28Z INFO action=ProductViewed customerId=u4374 sku=prod_7541
+2026-04-25T01:22:33Z INFO action=Click customerId=u3689 sku=prod_5441
+2026-04-25T01:22:38Z INFO action=CheckoutComplete customerId=u8837 orderNumber=ord-50921 amount=390.64 currency=EUR
+2026-04-25T01:22:43Z INFO action=RemoveFromCart customerId=u95 sku=prod_2079
+2026-04-25T01:22:51Z INFO action=AddToCart customerId=u8606 sku=prod_136 quantity=2
+2026-04-25T01:22:58Z INFO action=CheckoutComplete customerId=u5683 orderNumber=ord-56876 amount=20.75 currency=USD
+2026-04-25T01:23:02Z INFO action=RemoveFromCart customerId=u8072 sku=prod_6050
+2026-04-25T01:23:05Z INFO action=RemoveFromCart customerId=u7334 sku=prod_5164
+2026-04-25T01:23:07Z INFO action=Click customerId=u2775 sku=prod_582
+2026-04-25T01:23:08Z INFO action=RemoveFromCart customerId=u9893 sku=prod_1487
+2026-04-25T01:23:09Z INFO action=Click customerId=u2181 sku=prod_6902
+2026-04-25T01:23:10Z INFO action=CheckoutComplete customerId=u9656 orderNumber=ord-27039 amount=229.92 currency=GBP
+2026-04-25T01:23:14Z INFO action=Click customerId=u9685 sku=prod_9272
+2026-04-25T01:23:14Z INFO action=Click customerId=u3669 sku=prod_4465
+2026-04-25T01:23:17Z INFO action=RemoveFromCart customerId=u1223 sku=prod_9518
+2026-04-25T01:23:23Z INFO action=Click customerId=u6835 sku=prod_1488
+2026-04-25T01:23:26Z INFO action=AddToCart customerId=u530 sku=prod_5195 quantity=5
+2026-04-25T01:23:27Z INFO action=RemoveFromCart customerId=u9047 sku=prod_437
+2026-04-25T01:23:34Z INFO action=Click customerId=u7456 sku=prod_4278
+2026-04-25T01:23:39Z INFO action=ProductViewed customerId=u9332 sku=prod_9589
+2026-04-25T01:23:39Z INFO action=Click customerId=u1818 sku=prod_8269
+2026-04-25T01:23:46Z INFO action=ProductViewed customerId=u4253 sku=prod_7398
+2026-04-25T01:23:52Z INFO action=AddToCart customerId=u4731 sku=prod_6210 quantity=1
+Traceback (most recent call last):
+2026-04-25T01:24:01Z INFO action=ProductViewed customerId=u8851 sku=prod_1267
+2026-04-25T01:24:06Z INFO action=RemoveFromCart customerId=u6849 sku=prod_8866
+2026-04-25T01:24:13Z INFO action=AddToCart customerId=u5072 sku=prod_597 quantity=1
+2026-04-25T01:24:18Z INFO action=ProductViewed customerId=u6322 sku=prod_3440
+2026-04-25T01:24:24Z INFO action=AddToCart customerId=u6593 sku=prod_3401 quantity=3
+2026-04-25T01:24:29Z INFO action=RemoveFromCart customerId=u3655 sku=prod_3294
+2026-04-25T01:24:31Z INFO action=CheckoutComplete customerId=u1516 orderNumber=ord-36643 amount=236.58 currency=EUR
+2026-04-25T01:24:35Z INFO action=CheckoutComplete customerId=u7658 orderNumber=ord-67251 amount=421.44 currency=EUR
+   
+2026-04-25T01:24:49Z INFO action=ProductViewed customerId=u9864 sku=prod_4605
+2026-04-25T01:24:57Z INFO action=Click customerId=u2622 sku=prod_7169
+2026-04-25T01:25:00Z INFO action=AddToCart customerId=u2333 sku=prod_1742 quantity=5
+cache hit for key=token_d573f7
+2026-04-25T01:25:08Z INFO action=AddToCart customerId=u2301 sku=prod_1957 quantity=3
+2026-04-25T01:25:12Z INFO action=Click customerId=u1409 sku=prod_7485
+2026-04-25T01:25:14Z INFO action=AddToCart customerId=u7691 sku=prod_9583 quantity=3
+2026-04-25T01:25:15Z INFO action=AddToCart customerId=u4392 sku=prod_402 quantity=5
+2026-04-25T01:25:19Z INFO action=CheckoutComplete customerId=u9240 orderNumber=ord-82672 amount=175.07 currency=EUR
+2026-04-25T01:25:19Z INFO action=RemoveFromCart customerId=u9963 sku=prod_4431
+SELECT * FROM users WHERE id=? LIMIT 1 -- 3788ms
+nginx: 135.161.44.182 - - [27/Apr/2026:11:05:28 +0000] "GET / HTTP/1.1" 200 59349
+2026-04-25T01:25:29Z INFO action=RemoveFromCart customerId=u3934 sku=prod_4150
+2026-04-25T01:25:35Z INFO action=AddToCart customerId=u5957 sku=prod_1057 quantity=2
+2026-04-25T01:25:37Z INFO action=RemoveFromCart customerId=u6341 sku=prod_7102
+2026-04-25T01:25:42Z INFO action=Click customerId=u2460 sku=prod_4083
+email sent to user@example.com subject="welcome"
+2026-04-25T01:25:50Z INFO action=AddToCart customerId=u5558 sku=prod_4877 quantity=5
+2026-04-25T01:25:53Z INFO action=Click customerId=u5445 sku=prod_7674
+2026-04-25T01:25:54Z INFO action=AddToCart customerId=u2003 sku=prod_619 quantity=3
+2026-04-25T01:25:59Z INFO action=AddToCart customerId=u9667 sku=prod_573 quantity=1
+2026-04-25T01:26:04Z INFO action=ProductViewed customerId=u2161 sku=prod_2061
+2026-04-25T01:26:07Z INFO action=ProductViewed customerId=u7209 sku=prod_154
+2026-04-25T01:26:08Z INFO action=CheckoutComplete customerId=u926 orderNumber=ord-23803 amount=335.05 currency=USD
+flush: wrote 54893 bytes to segment 240
+2026-04-25T01:26:10Z INFO action=CheckoutComplete customerId=u9220 orderNumber=ord-19075 amount=69.58 currency=EUR
+2026-04-25T01:26:10Z INFO action=AddToCart customerId=u9142 sku=prod_444 quantity=2

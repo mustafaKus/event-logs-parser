@@ -1,0 +1,15 @@
+2025-01-15T10:23:45Z INFO action=click user=u123 product=prod_456
+2025-01-15T10:23:46Z INFO action=click user=u124 product=prod_457
+2025-01-15T10:23:47Z INFO action=click user=u125 product=prod_458
+2025-01-15T10:23:48Z INFO action=click user=u126 product=prod_459
+2025-01-15T10:23:50Z INFO action=add_to_cart user=u123 product=prod_456 qty=2
+2025-01-15T10:23:51Z INFO action=add_to_cart user=u124 product=prod_460 qty=1
+2025-01-15T10:23:52Z INFO action=add_to_cart user=u127 product=prod_461 qty=3
+2025-01-15T10:23:53Z INFO action=remove_from_cart user=u123 product=prod_456
+2025-01-15T10:23:54Z INFO action=view user=u128 product=prod_462
+2025-01-15T10:23:55Z INFO action=view user=u129 product=prod_463
+2025-01-15T10:23:56Z INFO action=view user=u130 product=prod_464
+2025-01-15T10:23:57Z INFO action=click   user=u131   product=prod_465
+2025-01-15T10:23:58Z DEBUG cache miss for key=user_u131_session
+2025-01-15T10:24:00Z INFO action=click user=u132 product=prod_466 session=s_abc
+2025-01-15T10:24:01Z WARN rate_limit_hit for user=u199

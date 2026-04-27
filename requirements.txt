@@ -1,0 +1,8 @@
+flask>=3.0
+pydantic>=2.6
+pyyaml>=6.0
+python-dotenv>=1.0
+pytest>=8.0
+
+# Optional — only needed when EVENT_PARSER_LLM=openai. The mock path runs without it.
+# openai-agents>=0.0.6
